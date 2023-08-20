@@ -1,12 +1,12 @@
-.main__catalog {
+.main-catalog {
   padding: 30px 0;
 }
 
-.main__catalog-title {
+.main-catalog__title {
   margin: 0 0 40px 0;
 }
 
-.main__catalog-contain {
+.main-catalog-contain {
   display: flex;
   justify-content: space-between;
 }
@@ -18,19 +18,19 @@
   gap: 40px;
 }
 
-.filter__block_category {
+.filter-category {
   display: flex;
   gap: 10px;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.filter__block_category-title {
+.filter-category__title {
   font-family: "Nunito Sans", Arial, sans-serif;
   font-weight: 800;
 }
 
-.filter__block_category-vector {
+.filter-category-vector {
   background-image: url("../../images/chevron-down.svg");
   width: 16px;
   height: 16px;
@@ -41,27 +41,27 @@
   background-image: url("../../images/chevron-up.svg");
 }
 
-.filter__block_wrapper {
+.filter-wrapper {
   display: flex;
   gap: 20px;
 }
 
-.filter__block-input {
+.filter__input {
   width: 70px;
   height: 30px;
 }
 
-.filter__block-input::placeholder {
+.filter__input::placeholder {
   padding-left: 5px;
   font-size: 12px;
 }
 
-.filter__block_list {
+.filter-list {
   display: flex;
   flex-direction: column;
 }
 
-.filter__block_list-colors {
+.filter-list-colors {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -112,7 +112,7 @@
   grid-gap: 40px;
 }
 
-.list__card {
+.list-card {
   width: 270px;
   height: 400px;
   display: flex;
@@ -122,32 +122,32 @@
   overflow: hidden;
 }
 
-.list__card_image {
+.list-card-image {
   display: flex;
   margin: auto;
 }
 
-.list__card_description {
+.list-card-description {
   font-size: 14px;
   font-weight: 400;
   line-height: 1.4;
   margin: 20px 0;
 }
 
-.list__card_bottom {
+.list-card-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
 }
 
-.list__card_bottom-price {
+.list-card-bottom-price {
   font-family: Nunito, Arial, sans-serif;
   font-size: 32px;
   font-weight: 900;
 }
 
-.list__card_bottom-count {
+.list-card-bottom-count {
   width: 100px;
   display: flex;
   justify-content: space-between;
@@ -172,7 +172,7 @@
   background-color: var(--yellow-color);
 }
 
-.list__cart-button {
+.list-card__button {
   width: 50px;
   height: 50px;
   outline: none;
@@ -188,7 +188,7 @@
   position: relative;
 }
 
-.list__cart-button:before {
+.list-card__button:before {
   content: "";
   width: 50px;
   height: 50px;
@@ -201,6 +201,6 @@
   transition: transform 0.3s ease-in-out;
 }
 
-.list__cart-button:hover:before {
+.list-card__button:hover:before {
   transform: scale(2.4);
 }
