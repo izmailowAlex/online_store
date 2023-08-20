@@ -1,12 +1,12 @@
 .main__catalog {
-  padding: 50px 0;
+  padding: 30px 0;
 }
 
 .main__catalog-title {
-  font-size: 26px;
+  margin: 0 0 40px 0;
 }
 
-.main__catalog_contain {
+.main__catalog-contain {
   display: flex;
   justify-content: space-between;
 }
@@ -18,8 +18,9 @@
   gap: 20px;
 }
 
-.filter__block {
-}
+/* .filter__block {
+
+} */
 
 .filter__block_category {
   display: flex;
@@ -29,18 +30,19 @@
 }
 
 .filter__block_category-title {
-  font-weight: bold;
+  font-family: "Nunito Sans", Arial, sans-serif;
+  font-weight: 800;
 }
 
 .filter__block_category-vector {
-  background-image: url("../../images/chevron-down.svg");
+  background-image: url('../../images/chevron-down.svg');
   width: 16px;
   height: 16px;
   display: inline-block;
 }
 
 .active {
-  background-image: url("../../images/chevron-up.svg");
+  background-image: url('../../images/chevron-up.svg');
 }
 
 .filter__block_wrapper {
@@ -117,20 +119,17 @@
 .list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 50px;
+  grid-gap: 40px;
 }
 
 .list__card {
-  width: 260px;
-  height: 350px;
+  width: 270px;
+  height: 400px;
   display: flex;
   flex-direction: column;
-  padding: 10px;
-}
-
-.list__card:hover {
-  /* border: 2px solid var(--grey-dark-color); */
-  box-shadow: 0 0 10px var(--grey-dark-color);
+  padding: 20px;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .list__card_image {
@@ -139,6 +138,9 @@
 }
 
 .list__card_description {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
   margin: 20px 0;
 }
 
@@ -150,8 +152,9 @@
 }
 
 .list__card_bottom-price {
-  font-size: 26px;
-  font-weight: bold;
+  font-family: Nunito, Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 900;
 }
 
 .list__card_bottom-count {
@@ -176,30 +179,37 @@
 
 .count-minus:active,
 .count-plus:active {
-  background-color: var(--yellow-color);
-}
+  background-color: var(--yellow-color);}
 
-.list__card_bottom-basket {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+.list__cart-button {
+  width: 50px;
+  height: 50px;
+  outline: none;
+  border: none;
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--primary-color);
-  right: 0;
-  cursor: pointer;
-}
-
-.list__card_bottom-basket:hover {
-  transform: scale(1.2);
-  background-color: var(--yellow-color);
-}
-
-.basket__img {
-  width: 18px;
-  height: 20px;
-  display: inline-block;
-  background-image: url("../../images/bag-shopping.svg");
+  background-color: transparent;
+  background-image: url('../../images/bag-shopping.svg');
   background-repeat: no-repeat;
+  background-position: 16px 14px;
+  position: relative;
+}
+
+.list__cart-button:before {
+  content: "";
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: transform 0.3s ease-in-out;
+}
+
+.list__cart-button:hover:before {
+  transform: scale(2.4);
 }
