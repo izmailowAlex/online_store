@@ -35,14 +35,14 @@
 }
 
 .filter__block_category-vector {
-  background-image: url('../../images/chevron-down.svg');
+  background-image: url("../../images/chevron-down.svg");
   width: 16px;
   height: 16px;
   display: inline-block;
 }
 
 .active {
-  background-image: url('../../images/chevron-up.svg');
+  background-image: url("../../images/chevron-up.svg");
 }
 
 .filter__block_wrapper {
@@ -179,7 +179,8 @@
 
 .count-minus:active,
 .count-plus:active {
-  background-color: var(--yellow-color);}
+  background-color: var(--yellow-color);
+}
 
 .list__cart-button {
   width: 50px;
@@ -191,7 +192,7 @@
   justify-content: center;
   align-items: center;
   background-color: transparent;
-  background-image: url('../../images/bag-shopping.svg');
+  background-image: url("../../images/bag-shopping.svg");
   background-repeat: no-repeat;
   background-position: 16px 14px;
   position: relative;

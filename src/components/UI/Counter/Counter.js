@@ -1,4 +1,4 @@
-import './Counter.css';
+import "./Counter.css";
 
 function Counter() {
   return (
@@ -8,7 +8,7 @@ function Counter() {
           <use href="#minus"></use>
         </svg>
       </button>
-      <input className="counter__value" type="text" defaultValue="20"/>
+      <input className="counter__value" type="text" defaultValue="20" />
       <button className="counter__button-plus">
         <svg className="counter__svg">
           <use href="#plus"></use>
