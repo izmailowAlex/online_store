@@ -23,55 +23,55 @@ function Catalog() {
                     <div className="filter__block_list">
                         <div className="list__item">
                             <input id="bublebox" type="checkbox"></input>
-                            <label for="bublebox">Bublebox</label>
+                            <label htmlFor="bublebox">Bublebox</label>
                         </div>
                         <div className="list__item">
                             <input id="composition" type="checkbox"></input>
-                            <label for="composition">Composition</label>
+                            <label htmlFor="composition">Composition</label>
                         </div>
                         <div className="list__item">
                             <input id="room" type="checkbox"></input>
-                            <label for="room">Room</label>
+                            <label htmlFor="room">Room</label>
                         </div>
                         <div className="list__item">
                             <input id="birthday" type="checkbox"></input>
-                            <label for="birthday">Birthday</label>
+                            <label htmlFor="birthday">Birthday</label>
                         </div>
                         <div className="list__item">
                             <input id="anniversary" type="checkbox"></input>
-                            <label for="anniversary">Anniversary</label>
+                            <label htmlFor="anniversary">Anniversary</label>
                         </div>
                         <div className="list__item">
                             <input id="wedding" type="checkbox"></input>
-                            <label for="wedding">Wedding</label>
+                            <label htmlFor="wedding">Wedding</label>
                         </div>
                         <div className="list__item">
                             <input id="popular" type="checkbox"></input>
-                            <label for="popular">Popular</label>
+                            <label htmlFor="popular">Popular</label>
                         </div>
                         <div className="list__item">
                             <input id="banket" type="checkbox"></input>
-                            <label for="banket">Banket</label>
+                            <label htmlFor="banket">Banket</label>
                         </div>
                         <div className="list__item">
                             <input id="meeting" type="checkbox"></input>
-                            <label for="meeting">Meeting</label>
+                            <label htmlFor="meeting">Meeting</label>
                         </div>
                         <div className="list__item">
                             <input id="places" type="checkbox"></input>
-                            <label for="places">Places</label>
+                            <label htmlFor="places">Places</label>
                         </div>
                         <div className="list__item">
                             <input id="Number" type="checkbox"></input>
-                            <label for="Number">Number</label>
+                            <label htmlFor="Number">Number</label>
                         </div>
                         <div className="list__item">
                             <input id="sphere" type="checkbox"></input>
-                            <label for="sphere">Sphere</label>
+                            <label htmlFor="sphere">Sphere</label>
                         </div>
                         <div className="list__item">
                             <input id="chrome" type="checkbox"></input>
-                            <label for="chrome">Chrome</label>
+                            <label htmlFor="chrome">Chrome</label>
                         </div>
                     </div>
                 </div>
@@ -83,11 +83,11 @@ function Catalog() {
                     <div className="filter__block_list">
                         <div className="list__item">
                             <input id="latex" type="checkbox"></input>
-                            <label for="latex">Latex</label>
+                            <label htmlFor="latex">Latex</label>
                         </div>
                         <div className="list__item">
                             <input id="phoil" type="checkbox"></input>
-                            <label for="phoil">Phoil</label>
+                            <label htmlFor="phoil">Phoil</label>
                         </div>
                     </div>
                 </div>

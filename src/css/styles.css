@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600&family=Nunito:wght@900&display=swap');
 @import './normalize.css';
+@import './../components/Header/Header.css';
 @import './../components/Main/Catalog.css';
-@import './footer.css';
 
 :root {
   --primary-color: #fff068;
@@ -31,11 +31,11 @@ html {
 }
 
 body {
-    color: var(--base-color);
-    font-family: 'Nuninto Sans', Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    margin: 0;
+  color: var(--base-color);
+  font-family: 'Nuninto Sans', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
 }
 
 .container {
