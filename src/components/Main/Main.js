@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Home from "./Home";
 import Catalog from "./Catalog";
+import './Main.css';
 
 function Main() {
   return (
