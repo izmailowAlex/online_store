@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;800&family=Nunito:wght@900&display=swap");
 @import "./normalize.css";
-@import "./../components/Header/Header.css";
-@import "./../components/Main/Catalog.css";
 
 :root {
   --primary-color: #fff068;
