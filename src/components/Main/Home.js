@@ -1,3 +1,4 @@
+import Button from "../UI/Button/Button";
 import "./Home.css";
 
 function Home() {
@@ -15,7 +16,7 @@ function Home() {
         <p className="home__description">
           Воздушные шары на любой праздник. Доставляйте радость с нами!
         </p>
-        <button className="home__button button">Смотреть каталог</button>
+        <Button href='/catalog'>Смотреть каталог</Button>
       </div>
     </div>
   );
