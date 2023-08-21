@@ -5,12 +5,14 @@ import Catalog from "./Catalog";
 
 function Main() {
   return (
-    <section className="main container">
-      <Routes>
-        <Route path="/home/" element={<Home />} />
-        <Route path="/catalog/" element={<Catalog />} />
-      </Routes>
-    </section>
+    <main className="main">
+      <div className="main__container container">
+        <Routes>
+          <Route path='/home/' element={<Home />} />
+          <Route path='/catalog/' element={<Catalog />} />
+        </Routes>
+      </div>
+    </main>
   );
 }
 

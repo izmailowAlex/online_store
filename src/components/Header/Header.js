@@ -5,12 +5,12 @@ import Logo from "../../images/logo.svg";
 
 function Header() {
   return (
-    <header className="header container">
-      <Nav />
-      <Link className="header__logo" to="/">
-        <img src={Logo} alt="Balloons Logo" />
-      </Link>
-      <Order />
+    <header className="header">
+      <div className="header__container container">
+        <Nav />
+        <Link className="header__logo" to='/'><img src={Logo} alt="Balloon Logo"/></Link>
+        <Order />
+      </div>
     </header>
   );
 }
