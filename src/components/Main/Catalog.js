@@ -135,7 +135,7 @@ function Catalog() {
             </div>
             <div className="list-card-bottom">
               <h3 className="list-card-bottom-price">$ 5</h3>
-              <Counter />
+              <Counter quantity={20} />
               <button className="list-card__button"></button>
             </div>
           </div>
@@ -152,7 +152,7 @@ function Catalog() {
             </div>
             <div className="list-card-bottom">
               <span className="list-card-bottom-price">$ 5</span>
-              <Counter />
+              <Counter quantity={20} />
               <button className="list-card__button"></button>
             </div>
           </div>
@@ -169,7 +169,7 @@ function Catalog() {
             </div>
             <div className="list-card-bottom">
               <span className="list-card-bottom-price">$ 5</span>
-              <Counter />
+              <Counter quantity={20} />
               <button className="list-card__button"></button>
             </div>
           </div>
@@ -186,7 +186,7 @@ function Catalog() {
             </div>
             <div className="list-card-bottom">
               <span className="list-card-bottom-price">$ 5</span>
-              <Counter />
+              <Counter quantity={20} />
               <button className="list-card__button"></button>
             </div>
           </div>
@@ -203,7 +203,7 @@ function Catalog() {
             </div>
             <div className="list-card-bottom">
               <span className="list-card-bottom-price">$ 5</span>
-              <Counter />
+              <Counter quantity={20} />
               <button className="list-card__button"></button>
             </div>
           </div>
@@ -220,7 +220,7 @@ function Catalog() {
             </div>
             <div className="list-card-bottom">
               <span className="list-card-bottom-price">$ 5</span>
-              <Counter />
+              <Counter quantity={20} />
               <button className="list-card__button"></button>
             </div>
           </div>
