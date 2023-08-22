@@ -1,3 +1,4 @@
+import Dualslider from "../UI/DualSlider/DualSlider";
 import Counter from "../UI/Counter/Counter";
 import Checkbox from "../UI/Checkbox/Checkbox";
 import './Catalog.css';
@@ -13,19 +14,7 @@ function Catalog() {
               <span className="filter-category__title">Price, $</span>
               <span className="filter-category-vector"></span>
             </div>
-            <input className="filter__dual-slide" type="range"></input>
-            <div className="filter-wrapper">
-              <input
-                className="filter__input"
-                type="text"
-                placeholder="от 100"
-              ></input>
-              <input
-                className="filter__input"
-                type="text"
-                placeholder="до 1000"
-              ></input>
-            </div>
+            <Dualslider min={0} max={1000} />
           </div>
           <div className="filter">
             <div className="filter-category">
