@@ -4,7 +4,7 @@ import Checkbox from "../../UI/Checkbox/Checkbox";
 import Product from "../Product/Product";
 import "./Basket.css";
 
-function Cart() {
+function Basket() {
   return (
     <div className="cart">
       <h2 className="cart__title">Корзина</h2>
@@ -71,4 +71,4 @@ function Cart() {
   );
 }
 
-export default Cart;
+export default Basket;
