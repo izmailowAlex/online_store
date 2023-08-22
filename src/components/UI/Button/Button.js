@@ -1,6 +1,8 @@
+import {Link} from "react-router-dom";
+
 import "./Button.css";
 
-function Button({ children, className, href, button }) {
+function Button({ children, className, to, button }) {
   const classname = className ? "button " + className : "button";
 
   return (
@@ -8,9 +10,9 @@ function Button({ children, className, href, button }) {
       {button ? (
         <button className={classname}>{children}</button>
       ) : (
-        <a className={classname} href={href}>
+        <Link className={classname} to={to}>
           {children}
-        </a>
+        </Link>
       )}
     </>
   );
