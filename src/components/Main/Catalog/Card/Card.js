@@ -10,7 +10,7 @@ function Card({ product }) {
       <div className="card__title">{product.title}</div>
       <div className="card-controls">
         <h3 className="card-price">{product.price} Br</h3>
-        <Counter count={product.count} />
+        <Counter count={product.count} min={1} max={100} />
         <button className="card__button"></button>
       </div>
     </div>

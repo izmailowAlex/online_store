@@ -25,6 +25,8 @@ function Basket() {
                 image="../../images/cat.png"
                 price={5}
                 count={1}
+                min={1}
+                max={100}
               />
             </li>
             <li className="cart__item">
@@ -32,23 +34,9 @@ function Basket() {
                 name="Шар (22''/56 см) Фигура, Крутой Кот, 1 шт."
                 image="../../images/cat.png"
                 price={5}
-                count={5}
-              />
-            </li>
-            <li className="cart__item">
-              <Product
-                name="Шар (22''/56 см) Фигура, Крутой Кот, 1 шт."
-                image="../../images/cat.png"
-                price={5}
-                count={10}
-              />
-            </li>
-            <li className="cart__item">
-              <Product
-                name="Шар (22''/56 см) Фигура, Крутой Кот, 1 шт."
-                image="../../images/cat.png"
-                price={5}
-                count={20}
+                count={1}
+                min={1}
+                max={100}
               />
             </li>
           </ul>
