@@ -1,46 +1,64 @@
-import { useRef } from "react";
+import { useState, useRef } from "react";
 
 import "./Counter.css";
 
-function Counter({ count }) {
+function Counter({ min, max }) {
+  const [maxCount] = useState(+max);
+  let [currentVal, setCurrentVal] = useState(min);
   const inputRef = useRef();
 
-  function changeCountValue(operation = "", value) {
-    if (operation === "plus") {
-      count++;
-    } else if (operation === "minus") {
-      count--;
-    } else count = +value;
-    const inputElem = inputRef.current;
-    inputElem.value = count;
+  function increment() {
+    let value = currentVal;
+    value += 1;
+    if (isRange(value)) {
+      setCurrentVal(value);
+    }
+  }
+
+  function decrement() {
+    let value = currentVal;
+    value -= 1;
+    if (isRange(value)) {
+      setCurrentVal(value);
+    }
+  }
+
+  function focusOutEventHandler() {
+    let value = Number(inputRef.current.value);
+    if (isRange(value)) {
+      setCurrentVal(value);
+    }
+  }
+
+  function focusInEventHandler() {
+    inputRef.current.select();
+  }
+
+  function isRange(value) {
+    return value >= min && value <= maxCount;
   }
 
   return (
     <div className="counter">
       <button
-        onClick={() => {
-          changeCountValue("minus");
-        }}
         className="counter__button-minus"
+        onClick={decrement}
       >
         <svg className="counter__svg">
           <use href="#minus"></use>
         </svg>
       </button>
       <input
-        ref={inputRef}
-        onChange={() => {
-          changeCountValue("", inputRef.current.value);
-        }}
         className="counter__value"
         type="text"
-        defaultValue={count}
+        ref={inputRef}
+        value={currentVal}
+        onChange={focusOutEventHandler}
+        onFocus={focusInEventHandler}
       />
       <button
-        onClick={() => {
-          changeCountValue("plus");
-        }}
         className="counter__button-plus"
+        onClick={increment}
       >
         <svg className="counter__svg">
           <use href="#plus"></use>
