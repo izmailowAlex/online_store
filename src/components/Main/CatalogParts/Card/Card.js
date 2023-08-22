@@ -8,7 +8,7 @@ function Card({ product }) {
       </div>
       <div className="list-card-description">{product.title}</div>
       <div className="list-card-bottom">
-        <h3 className="list-card-bottom-price">{product.price} ₽</h3>
+        <h3 className="list-card-bottom-price">{product.price} Br</h3>
         <Counter count={product.count} />
         <button className="list-card__button"></button>
       </div>

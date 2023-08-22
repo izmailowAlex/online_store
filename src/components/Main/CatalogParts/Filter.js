@@ -48,7 +48,7 @@ function Filter() {
     <div className="main-catalog-filter filter">
       <div className="filter-block">
         <div className="filter-category">
-          <span className="filter-category__title">Price, $</span>
+          <span className="filter-category__title">Price, Br</span>
           <span className="filter-category-vector"></span>
         </div>
         <DualSlider min={0} max={1000} />

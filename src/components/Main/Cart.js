@@ -24,7 +24,7 @@ function Cart() {
                 name="Шар (22''/56 см) Фигура, Крутой Кот, 1 шт."
                 image="../../images/cat.png"
                 price={5}
-                quantity={1}
+                count={1}
               />
             </li>
             <li className="cart__item">
@@ -32,7 +32,7 @@ function Cart() {
                 name="Шар (22''/56 см) Фигура, Крутой Кот, 1 шт."
                 image="../../images/cat.png"
                 price={5}
-                quantity={5}
+                count={5}
               />
             </li>
             <li className="cart__item">
@@ -40,7 +40,7 @@ function Cart() {
                 name="Шар (22''/56 см) Фигура, Крутой Кот, 1 шт."
                 image="../../images/cat.png"
                 price={5}
-                quantity={10}
+                count={10}
               />
             </li>
             <li className="cart__item">
@@ -48,14 +48,14 @@ function Cart() {
                 name="Шар (22''/56 см) Фигура, Крутой Кот, 1 шт."
                 image="../../images/cat.png"
                 price={5}
-                quantity={20}
+                count={20}
               />
             </li>
           </ul>
         </div>
         <div className="cart__summary">
           <h3 className="cart__summary-title">Итого:</h3>
-          <p className="cart__amount">$ 800</p>
+          <p className="cart__amount">800</p>
           <Input
             className="cart__promocode"
             name="promocode"

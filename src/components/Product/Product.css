@@ -29,11 +29,11 @@
 .product__price {
   font-size: 16px;
   font-weight: 600;
-  width: 30px;
+  width: 35px;
 }
 
-.product__price::before {
-  content: "$ ";
+.product__price::after {
+  content: " Br";
 }
 
 .product__amount {
@@ -43,8 +43,8 @@
   letter-spacing: -1px;
 }
 
-.product__amount::before {
-  content: "$ ";
+.product__amount::after {
+  content: " Br";
 }
 
 .product__remove {

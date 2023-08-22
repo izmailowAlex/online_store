@@ -22,7 +22,7 @@ function Actions() {
               </svg>
             </span>
             <span className="actions-menu__quantity">10</span>
-            <span className="actions-menu__amount">$ 200</span>
+            <span className="actions-menu__amount">200</span>
           </Link>
         </li>
       </ul>
