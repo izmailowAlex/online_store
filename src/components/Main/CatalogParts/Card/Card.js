@@ -1,16 +1,17 @@
 import Counter from "./../../../UI/Counter/Counter";
+import './Card.css';
 
 function Card({ product }) {
   return (
-    <div className="list-card">
-      <div className="list-card-image">
-        <img className="list-card-image__img" src={product.src} alt="" />
+    <div className="card">
+      <div className="card-image-wrapper">
+        <img className="card-image__img" src={product.src} alt="" />
       </div>
-      <div className="list-card-description">{product.title}</div>
-      <div className="list-card-bottom">
-        <h3 className="list-card-bottom-price">{product.price} Br</h3>
+      <div className="card__title">{product.title}</div>
+      <div className="card-controls">
+        <h3 className="card-price">{product.price} Br</h3>
         <Counter count={product.count} />
-        <button className="list-card__button"></button>
+        <button className="card__button"></button>
       </div>
     </div>
   );

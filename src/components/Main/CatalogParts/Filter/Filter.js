@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import { AppContext } from "../../../App";
-import Checkbox from "./../../UI/Checkbox/Checkbox";
-import DualSlider from "../../UI/DualSlider/DualSlider";
+import { AppContext } from "../../../../App";
+import Checkbox from "../../../UI/Checkbox/Checkbox";
+import DualSlider from "../../../UI/DualSlider/DualSlider";
+import "./Filter.css";
 
 function Filter() {
   const { productsLibrary, setProductsLibrary } = useContext(AppContext);
@@ -45,7 +46,7 @@ function Filter() {
   }, [currentindex, setCurrentIndex]);
 
   return (
-    <div className="main-catalog-filter filter">
+    <div className="filter">
       <div className="filter-block">
         <div className="filter-category">
           <span className="filter-category__title">Price, Br</span>

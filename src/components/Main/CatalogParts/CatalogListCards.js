@@ -6,7 +6,7 @@ function CatalogListCards() {
   const { productsLibrary, setProductsLibrary } = useContext(AppContext);
 
   return (
-    <div className="main__catalog-list list">
+    <div className="catalog-list">
       {productsLibrary.map((product, index) => {
         return <Card key={index} product={product} />;
       })}
