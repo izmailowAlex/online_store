@@ -1,6 +1,6 @@
 import "./Input.css";
 
-function Input({ className, name, value, placeholder, message, maxlength }) {
+function Input({ className, name, defaultValue, placeholder, message, maxlength }) {
   const classname = className ? "input " + className : "input";
 
   return (
@@ -9,7 +9,7 @@ function Input({ className, name, value, placeholder, message, maxlength }) {
         className="input__textbox"
         type="text"
         name={name}
-        value={value}
+        defaultValue={defaultValue}
         placeholder={placeholder}
         autoComplete="off"
         maxLength={maxlength}

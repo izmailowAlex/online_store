@@ -25,7 +25,7 @@ function ProductView() {
         </div>
         <div className="product-view__control-group">
           <span className="product-view__quantity">
-            <Counter quantity={5} />
+            <Counter count={5} />
           </span>
           <Button className="product-view__to-cart-button" button={true}>
             В корзину
