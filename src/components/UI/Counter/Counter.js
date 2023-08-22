@@ -1,15 +1,47 @@
+import { useRef } from "react";
+
 import "./Counter.css";
 
-function Counter({quantity}) {
+function Counter({ count }) {
+  const inputRef = useRef();
+
+  function changeCountValue(operation = "", value) {
+    if (operation === "plus") {
+      count++;
+    } else if (operation === "minus") {
+      count--;
+    } else count = +value;
+    const inputElem = inputRef.current;
+    inputElem.value = count;
+  }
+
   return (
     <div className="counter">
-      <button className="counter__button-minus">
+      <button
+        onClick={() => {
+          changeCountValue("minus");
+        }}
+        className="counter__button-minus"
+      >
         <svg className="counter__svg">
           <use href="#minus"></use>
         </svg>
       </button>
-      <input className="counter__value" type="text" defaultValue={quantity} />
-      <button className="counter__button-plus">
+      <input
+        ref={inputRef}
+        onChange={() => {
+          changeCountValue("", inputRef.current.value);
+        }}
+        className="counter__value"
+        type="text"
+        defaultValue={count}
+      />
+      <button
+        onClick={() => {
+          changeCountValue("plus");
+        }}
+        className="counter__button-plus"
+      >
         <svg className="counter__svg">
           <use href="#plus"></use>
         </svg>
