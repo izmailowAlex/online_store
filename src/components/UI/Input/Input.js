@@ -11,8 +11,8 @@ function Input({ className, name, value, placeholder, message, maxlength }) {
         name={name}
         value={value}
         placeholder={placeholder}
-        autocomplete="off"
-        maxlength={maxlength}
+        autoComplete="off"
+        maxLength={maxlength}
       />
       {message ? <span className="input__message">{message}</span> : ""}
     </div>
