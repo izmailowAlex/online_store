@@ -1,5 +1,5 @@
-import Filter from "./CatalogParts/Filter/Filter";
-import CatalogListCards from "./CatalogParts/CatalogListCards";
+import Filter from "./Filter/Filter";
+import CatalogListCards from "./CatalogListCards";
 import './Catalog.css';
 
 function Catalog() {

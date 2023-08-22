@@ -1,8 +1,8 @@
-import "./Cart.css";
-import Button from "../UI/Button/Button";
-import Input from "../UI/Input/Input";
-import Checkbox from "../UI/Checkbox/Checkbox";
+import Button from "../../UI/Button/Button";
+import Input from "../../UI/Input/Input";
+import Checkbox from "../../UI/Checkbox/Checkbox";
 import Product from "../Product/Product";
+import "./Basket.css";
 
 function Cart() {
   return (

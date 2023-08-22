@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import Nav from "./Nav";
+import Nav from "./Nav/Nav";
 import Logo from "../../images/logo.svg";
-import Actions from "./Actions";
+import Actions from "./Actions/Actions";
 import "./Header.css";
 
 function Header() {
