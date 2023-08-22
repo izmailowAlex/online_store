@@ -15,7 +15,7 @@ function Product({ image, name, price, quantity }) {
         <Counter quantity={quantity} />
       </span>
       <span className="product__amount">1000</span>
-      <button className="product__remove" button={true}>
+      <button className="product__remove">
         <span className="icon">
           <svg className="icon__svg">
             <use href="#cross"></use>
