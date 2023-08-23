@@ -6,7 +6,7 @@ function Input(
   {
     className,
     name,
-    defaultValue,
+    value,
     placeholder,
     label,
     message,
@@ -26,7 +26,7 @@ function Input(
         type="text"
         ref={ref}
         name={name}
-        defaultValue={defaultValue}
+        value={value}
         placeholder={placeholder}
         autoComplete="off"
         maxLength={maxlength}
