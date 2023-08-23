@@ -1,22 +1,44 @@
+import React from "react";
+
 import "./Input.css";
 
-function Input({ className, name, defaultValue, placeholder, message, maxlength }) {
-  const classname = className ? "input " + className : "input";
+function Input(
+  {
+    className,
+    name,
+    defaultValue,
+    placeholder,
+    label,
+    message,
+    maxlength,
+    onChange,
+    onFocus,
+  },
+  ref
+) {
+  let classname = className ? "input " + className : "input";
+  classname = label ? classname + " input_labeled" : classname;
 
   return (
     <div className={classname}>
       <input
         className="input__textbox"
         type="text"
+        ref={ref}
         name={name}
         defaultValue={defaultValue}
         placeholder={placeholder}
         autoComplete="off"
         maxLength={maxlength}
+        onChange={onChange}
+        onFocus={onFocus}
       />
+      {label ? <label className="input__label">{label}</label> : ""}
       {message ? <span className="input__message">{message}</span> : ""}
     </div>
   );
 }
 
-export default Input;
+const forwardedInput = React.forwardRef(Input);
+
+export default forwardedInput;
