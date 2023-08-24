@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { AppContext } from "../../../App";
 import Filter from "./Filter/Filter";
 import CatalogListCards from "./CatalogListCards";
-import "./Catalog.css";
+import './Catalog.css';
 
 export const CatalogContext = React.createContext();
 
