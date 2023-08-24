@@ -1,7 +1,9 @@
-import Button from "../../UI/Button/Button";
-import "./Home.css";
+import React from 'react'
 
-function Home() {
+import Button from '../../UI/Button/Button'
+import './Home.css'
+
+function Home () {
   return (
     <div className="home">
       <div className="home__cover">
@@ -19,7 +21,7 @@ function Home() {
         <Button to="/catalog">Смотреть каталог</Button>
       </div>
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Home

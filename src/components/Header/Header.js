@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
-import Nav from "./Nav/Nav";
-import Logo from "../../images/logo.svg";
-import Actions from "./Actions/Actions";
-import "./Header.css";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-function Header() {
+import Nav from './Nav/Nav'
+import Logo from '../../images/logo.svg'
+import Actions from './Actions/Actions'
+import './Header.css'
+
+function Header () {
   return (
     <header className="header">
       <div className="header__container container">
@@ -15,7 +17,7 @@ function Header() {
         <Actions />
       </div>
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header

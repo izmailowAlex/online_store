@@ -1,93 +1,92 @@
-import { useState } from "react";
+import React, { useState } from 'react'
 
-import Input from "../../UI/Input/Input";
-import Button from "../../UI/Button/Button";
-import "./Checkout.css";
+import Input from '../../UI/Input/Input'
+import Button from '../../UI/Button/Button'
+import './Checkout.css'
 
-function Checkout({ setPopupWindow }) {
-  const [errorName, setErrorName] = useState(false);
-  const [errorPhone, setErrorPhone] = useState(false);
-  const [errorAddress, setErrorAddress] = useState(false);
-  const [errorEmail, setErrorEmail] = useState(false);
-  const [errorCardholderName, setErrorCardholderName] = useState(false);
-  const [errorCardNumber, setErrorCardNumber] = useState(false);
-  const [errorCardDate, setErrorCardDate] = useState(false);
-  const [errorCardCVC, setErrorCardCVC] = useState(false);
+function Checkout ({ /* eslint-disable react/prop-types */setPopupWindow }) {
+  const [errorName, setErrorName] = useState(false)
+  const [errorPhone, setErrorPhone] = useState(false)
+  const [errorAddress, setErrorAddress] = useState(false)
+  const [errorEmail, setErrorEmail] = useState(false)
+  const [errorCardholderName, setErrorCardholderName] = useState(false)
+  const [errorCardNumber, setErrorCardNumber] = useState(false)
+  const [errorCardDate, setErrorCardDate] = useState(false)
+  const [errorCardCVC, setErrorCardCVC] = useState(false)
 
-  function confirmOrderHandler() {
-    console.log("Confirm Order");
+  function confirmOrderHandler () {
+    console.log('Confirm Order')
   }
 
-  function checkNameHandler(value) {
-    const reg = /^[а-яА-Яa-zA-Z]+ [а-яА-Яa-zA-Z]+$/;
+  function checkNameHandler (value) {
+    const reg = /^[а-яА-Яa-zA-Z]+ [а-яА-Яa-zA-Z]+$/
     if (String(value).match(reg)) {
-      setErrorName(false);
+      setErrorName(false)
     } else {
-      setErrorName(true);
+      setErrorName(true)
     }
   }
 
-  function checkPhoneHandler(value) {
-    const reg =
-      /^((8|\+374|\+994|\+995|\+375|\+7|\+380|\+38|\+996|\+998|\+993)[\- ]?)?\(?\d{3,5}\)?[\- ]?\d{1}[\- ]?\d{1}[\- ]?\d{1}[\- ]?\d{1}[\- ]?\d{1}(([\- ]?\d{1})?[\- ]?\d{1})?$/;
+  function checkPhoneHandler (value) {
+    const reg = /^((8|\+374|\+994|\+995|\+375|\+7|\+380|\+38|\+996|\+998|\+993)[\- ]?)?\(?\d{3,5}\)?[\- ]?\d{1}[\- ]?\d{1}[\- ]?\d{1}[\- ]?\d{1}[\- ]?\d{1}(([\- ]?\d{1})?[\- ]?\d{1})?$/ //eslint-disable-line
     if (String(value).match(reg)) {
-      setErrorPhone(false);
+      setErrorPhone(false)
     } else {
-      setErrorPhone(true);
+      setErrorPhone(true)
     }
   }
 
-  function checkAddressHandler(value) {
-    const reg = /^[а-яА-Яa-zA-Z\d,./ ]+$/;
+  function checkAddressHandler (value) {
+    const reg = /^[а-яА-Яa-zA-Z\d,./ ]+$/
     if (String(value).match(reg)) {
-      setErrorAddress(false);
+      setErrorAddress(false)
     } else {
-      setErrorAddress(true);
+      setErrorAddress(true)
     }
   }
 
-  function checkEmailHandler(value) {
-    const reg = /^[A-Z\d._%+-]+@[A-Z\d-]+.[A-Z]{2,4}$/i;
+  function checkEmailHandler (value) {
+    const reg = /^[A-Z\d._%+-]+@[A-Z\d-]+.[A-Z]{2,4}$/i
     if (String(value).match(reg)) {
-      setErrorEmail(false);
+      setErrorEmail(false)
     } else {
-      setErrorEmail(true);
+      setErrorEmail(true)
     }
   }
 
-  function checkCardholderName(value) {
-    const reg = /^[A-Z]+ [A-Z]+$/;
+  function checkCardholderName (value) {
+    const reg = /^[A-Z]+ [A-Z]+$/
     if (String(value).match(reg)) {
-      setErrorCardholderName(false);
+      setErrorCardholderName(false)
     } else {
-      setErrorCardholderName(true);
+      setErrorCardholderName(true)
     }
   }
 
-  function checkCardNumber(value) {
-    const reg = /^\d{16}$/;
+  function checkCardNumber (value) {
+    const reg = /^\d{16}$/
     if (String(value).match(reg)) {
-      setErrorCardNumber(false);
+      setErrorCardNumber(false)
     } else {
-      setErrorCardNumber(true);
+      setErrorCardNumber(true)
     }
   }
 
-  function checkCardDate(value) {
-    const reg = /^\d{2}\/\d{2}$/;
+  function checkCardDate (value) {
+    const reg = /^\d{2}\/\d{2}$/
     if (String(value).match(reg)) {
-      setErrorCardDate(false);
+      setErrorCardDate(false)
     } else {
-      setErrorCardDate(true);
+      setErrorCardDate(true)
     }
   }
 
-  function checkCardCVC(value) {
-    const reg = /^\d{3}$/;
+  function checkCardCVC (value) {
+    const reg = /^\d{3}$/
     if (String(value).match(reg)) {
-      setErrorCardCVC(false);
+      setErrorCardCVC(false)
     } else {
-      setErrorCardCVC(true);
+      setErrorCardCVC(true)
     }
   }
 
@@ -176,7 +175,7 @@ function Checkout({ setPopupWindow }) {
         <button
           className="checkout__button-close"
           onClick={() => {
-            setPopupWindow(false);
+            setPopupWindow(false)
           }}
         ></button>
         <Button
@@ -188,7 +187,7 @@ function Checkout({ setPopupWindow }) {
         </Button>
       </div>
     </div>
-  );
+  )
 }
 
-export default Checkout;
+export default Checkout

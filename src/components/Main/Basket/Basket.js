@@ -1,13 +1,14 @@
-import { useState } from "react";
-import Button from "../../UI/Button/Button";
-import Input from "../../UI/Input/Input";
-import Checkbox from "../../UI/Checkbox/Checkbox";
-import Product from "../Product/Product";
-import Checkout from "../Checkout/Checkout";
-import "./Basket.css";
+import React, { useState } from 'react'
 
-function Basket() {
-  const [popupWindow, setPopupWindow] = useState(false);
+import Button from '../../UI/Button/Button'
+import Input from '../../UI/Input/Input'
+import Checkbox from '../../UI/Checkbox/Checkbox'
+import Product from '../Product/Product'
+import Checkout from '../Checkout/Checkout'
+import './Basket.css'
+
+function Basket () {
+  const [popupWindow, setPopupWindow] = useState(false)
   return (
     <div className="cart">
       <h2 className="cart__title">Корзина</h2>
@@ -62,9 +63,9 @@ function Basket() {
           </Button>
         </div>
       </div>
-      {popupWindow ? <Checkout setPopupWindow={setPopupWindow} /> : ""}
+      {popupWindow ? <Checkout setPopupWindow={setPopupWindow} /> : ''}
     </div>
-  );
+  )
 }
 
-export default Basket;
+export default Basket

@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 
-import "./Input.css";
+import './Input.css'
 
-function Input(
+function Input (/* eslint-disable react/prop-types */
   {
     className,
     name,
@@ -17,14 +17,14 @@ function Input(
     onChange,
     onFocus,
     onBlur,
-    onKeyDown,
+    onKeyDown
   },
   ref
 ) {
-  let classname = className ? "input " + className : "input";
-  classname = label ? classname + ' input_labeled' : classname;
-  classname = error ? classname + ' input_error' : classname;
-  classname = success ? classname + ' input_success' : classname;
+  let classname = className ? 'input ' + className : 'input'
+  classname = label ? classname + ' input_labeled' : classname
+  classname = error ? classname + ' input_error' : classname
+  classname = success ? classname + ' input_success' : classname
 
   return (
     <div className={classname}>
@@ -42,13 +42,13 @@ function Input(
         onBlur={onBlur}
         onKeyDown={onKeyDown}
       />
-      {label ? <label className="input__label">{label}</label> : ""}
-      {error ? <span className="input__message">{errorMessage}</span> : ""}
-      {success ? <span className="input__message">{successMessage}</span> : ""}
+      {label ? <label className="input__label">{label}</label> : ''}
+      {error ? <span className="input__message">{errorMessage}</span> : ''}
+      {success ? <span className="input__message">{successMessage}</span> : ''}
     </div>
-  );
+  )
 }
 
-const forwardedInput = React.forwardRef(Input);
+const forwardedInput = React.forwardRef(Input)
 
-export default forwardedInput;
+export default forwardedInput

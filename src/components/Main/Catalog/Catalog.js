@@ -1,14 +1,15 @@
-import React, { useState, useContext } from "react";
-import { AppContext } from "../../../App";
-import Filter from "./Filter/Filter";
-import CatalogListCards from "./CatalogListCards";
-import './Catalog.css';
+import React, { useState, useContext } from 'react'
 
-export const CatalogContext = React.createContext();
+import { AppContext } from '../../../App'
+import Filter from './Filter/Filter'
+import CatalogListCards from './CatalogListCards'
+import './Catalog.css'
 
-function Catalog() {
-  const { productsLibrary } = useContext(AppContext);
-  const [filteredList, setFilteredList] = useState(productsLibrary);
+export const CatalogContext = React.createContext()
+
+function Catalog () {
+  const { productsLibrary } = useContext(AppContext)
+  const [filteredList, setFilteredList] = useState(productsLibrary)
 
   return (
     <div className="main-catalog">
@@ -20,7 +21,7 @@ function Catalog() {
         </CatalogContext.Provider>
       </div>
     </div>
-  );
+  )
 }
 
-export default Catalog;
+export default Catalog

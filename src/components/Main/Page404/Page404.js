@@ -1,7 +1,9 @@
-import "./Page404.css";
-import Button from "../../UI/Button/Button";
+import React from 'react'
 
-function Page404() {
+import Button from '../../UI/Button/Button'
+import './Page404.css'
+
+function Page404 () {
   return (
     <div className="page404">
       <h1 className="page404__number">404</h1>
@@ -10,7 +12,7 @@ function Page404() {
         На главную
       </Button>
     </div>
-  );
+  )
 }
 
-export default Page404;
+export default Page404

@@ -1,8 +1,10 @@
-import "./Product.css";
-import Checkbox from "../../UI/Checkbox/Checkbox";
-import Counter from "../../UI/Counter/Counter";
+import React from 'react'
 
-function Product({ image, name, price, count, min, max }) {
+import Checkbox from '../../UI/Checkbox/Checkbox'
+import Counter from '../../UI/Counter/Counter'
+import './Product.css'
+
+function Product (/* eslint-disable react/prop-types */{ image, name, price, count, min, max }) {
   return (
     <div className="product">
       <span className="product__checkbox">
@@ -23,7 +25,7 @@ function Product({ image, name, price, count, min, max }) {
         </span>
       </button>
     </div>
-  );
+  )
 }
 
-export default Product;
+export default Product

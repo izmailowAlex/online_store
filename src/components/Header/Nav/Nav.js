@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
-import './Nav.css';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-function Nav() {
+import './Nav.css'
+
+function Nav () {
   return (
     <nav className="nav">
       <ul className="nav__list">
@@ -19,7 +21,7 @@ function Nav() {
         </li>
       </ul>
     </nav>
-  );
+  )
 }
 
-export default Nav;
+export default Nav

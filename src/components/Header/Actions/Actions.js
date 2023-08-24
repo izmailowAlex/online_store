@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
-import "./Actions.css";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-function Actions() {
+import './Actions.css'
+
+function Actions () {
   return (
     <div className="actions-menu">
       <ul className="actions-menu__list">
@@ -27,7 +29,7 @@ function Actions() {
         </li>
       </ul>
     </div>
-  );
+  )
 }
 
-export default Actions;
+export default Actions

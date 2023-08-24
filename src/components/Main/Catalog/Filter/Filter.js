@@ -1,88 +1,89 @@
-import { useContext, useEffect, useState } from "react";
-import { AppContext } from "../../../../App";
-import Checkbox from "../../../UI/Checkbox/Checkbox";
-import DualSlider from "../../../UI/DualSlider/DualSlider";
-import "./Filter.css";
-import { CatalogContext } from "../Catalog";
+import React, { useContext, useEffect, useState } from 'react'
 
-function Filter() {
-  const [currentindex, setCurrentIndex] = useState(0);
-  const [allCategories, setAllCategories] = useState([]);
-  const [allTypes, setAllTypes] = useState([]);
-  const [allColors, setAllColors] = useState([]);
+import { AppContext } from '../../../../App'
+import Checkbox from '../../../UI/Checkbox/Checkbox'
+import DualSlider from '../../../UI/DualSlider/DualSlider'
+import './Filter.css'
+import { CatalogContext } from '../Catalog'
+
+function Filter () {
+  const [currentindex, setCurrentIndex] = useState(0)
+  const [allCategories, setAllCategories] = useState([])
+  const [allTypes, setAllTypes] = useState([])
+  const [allColors, setAllColors] = useState([])
 
   useEffect(() => {
     if (productsLibrary && productsLibrary.length > 0) {
-      let typesTmp = [];
+      let typesTmp = []
       productsLibrary.forEach((item) => {
-        typesTmp.push(item.type);
-      });
+        typesTmp.push(item.type)
+      })
       typesTmp = typesTmp.filter((item, index, array) => {
-        setCurrentIndex(index + 1);
-        return array.indexOf(item) === index;
-      });
-      setAllTypes(typesTmp);
+        setCurrentIndex(index + 1)
+        return array.indexOf(item) === index
+      })
+      setAllTypes(typesTmp)
 
-      let categoriesTmp = [];
+      let categoriesTmp = []
       productsLibrary.forEach((item) => {
-        categoriesTmp.push(item.category);
-      });
+        categoriesTmp.push(item.category)
+      })
       categoriesTmp = categoriesTmp.filter((item, index, array) => {
-        setCurrentIndex(index + 1);
-        return array.indexOf(item) === index;
-      });
-      setAllCategories(categoriesTmp);
+        setCurrentIndex(index + 1)
+        return array.indexOf(item) === index
+      })
+      setAllCategories(categoriesTmp)
 
-      let colorsTmp = [];
+      let colorsTmp = []
       productsLibrary.forEach((item) => {
-        colorsTmp.push(item.color);
-      });
+        colorsTmp.push(item.color)
+      })
       colorsTmp = colorsTmp.filter((item, index, array) => {
-        setCurrentIndex(index + 1);
-        return array.indexOf(item) === index;
-      });
-      setAllColors(colorsTmp);
+        setCurrentIndex(index + 1)
+        return array.indexOf(item) === index
+      })
+      setAllColors(colorsTmp)
     }
-  }, [currentindex, setCurrentIndex]);
+  }, [currentindex, setCurrentIndex])
 
-  const { productsLibrary } = useContext(AppContext);
-  const { setFilteredList } = useContext(CatalogContext);
-  const [filters, setFilters] = useState({});
+  const { productsLibrary } = useContext(AppContext)
+  const { setFilteredList } = useContext(CatalogContext)
+  const [filters, setFilters] = useState({})
 
-  function onChangeHandler(event, item, category) {
-    const tempFilters = { ...filters };
+  function onChangeHandler (event, item, category) {
+    const tempFilters = { ...filters }
     if (event.target.checked === true) {
       if (tempFilters[category]) {
-        tempFilters[category].push(item);
+        tempFilters[category].push(item)
       } else {
-        tempFilters[category] = [item];
+        tempFilters[category] = [item]
       }
     } else {
       tempFilters[category] = tempFilters[category].filter(
         (element) => element !== item
-      );
+      )
       if (tempFilters[category].length === 0) {
-        delete tempFilters[category];
+        delete tempFilters[category]
       }
     }
-    setFilters({ ...tempFilters });
+    setFilters({ ...tempFilters })
   }
 
-  function applyFilter() {
+  function applyFilter () {
     const tempFilteredList = productsLibrary.filter((item) => {
-      for (let key in filters) {
+      for (const key in filters) {
         if (!filters[key].includes(item[key])) {
-          return false;
+          return false
         }
       }
-      return true;
-    });
-    setFilteredList([...tempFilteredList]);
+      return true
+    })
+    setFilteredList([...tempFilteredList])
   }
 
   useEffect(() => {
-    applyFilter();
-  }, [filters]);
+    applyFilter()
+  }, [filters])
 
   return (
     <div className="filter">
@@ -103,12 +104,12 @@ function Filter() {
             return (
               <li key={index} className="list-item">
                 <Checkbox
-                  onChange={(event) => onChangeHandler(event, item, "category")}
+                  onChange={(event) => onChangeHandler(event, item, 'category')}
                 >
                   {item}
                 </Checkbox>
               </li>
-            );
+            )
           })}
         </ul>
       </div>
@@ -122,12 +123,12 @@ function Filter() {
             return (
               <li key={index} className="list-item">
                 <Checkbox
-                  onChange={(event) => onChangeHandler(event, item, "type")}
+                  onChange={(event) => onChangeHandler(event, item, 'type')}
                 >
                   {item}
                 </Checkbox>
               </li>
-            );
+            )
           })}
         </ul>
       </div>
@@ -142,15 +143,15 @@ function Filter() {
               <li key={index} className="list-item">
                 <Checkbox
                   className={`checkbox_colors checkbox_${item}`}
-                  onChange={(event) => onChangeHandler(event, item, "color")}
+                  onChange={(event) => onChangeHandler(event, item, 'color')}
                 ></Checkbox>
               </li>
-            );
+            )
           })}
         </ul>
       </div>
     </div>
-  );
+  )
 }
 
-export default Filter;
+export default Filter

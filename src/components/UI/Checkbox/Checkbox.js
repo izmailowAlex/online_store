@@ -1,9 +1,9 @@
-// import { useSearchParams } from "react-router-dom";
-import "./Checkbox.css";
+import React from 'react'
 
-function Checkbox({ children, className, onChange }) {
-  const classname = className ? "checkbox " + className : "checkbox";
-  // const [searchParams, setSearchParams] = useSearchParams();
+import './Checkbox.css'
+
+function Checkbox (/* eslint-disable react/prop-types */{ children, className, onChange }) {
+  const classname = className ? 'checkbox ' + className : 'checkbox'
 
   return (
     <label className={classname}>
@@ -17,7 +17,7 @@ function Checkbox({ children, className, onChange }) {
         <span className="checkbox__label">{children}</span>
       </span>
     </label>
-  );
+  )
 }
 
-export default Checkbox;
+export default Checkbox
