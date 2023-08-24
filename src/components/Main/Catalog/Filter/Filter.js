@@ -3,9 +3,9 @@ import { AppContext } from "../../../../App";
 import Checkbox from "../../../UI/Checkbox/Checkbox";
 import DualSlider from "../../../UI/DualSlider/DualSlider";
 import "./Filter.css";
+import { CatalogContext } from "../Catalog";
 
 function Filter() {
-  const { productsLibrary, setProductsLibrary } = useContext(AppContext);
   const [currentindex, setCurrentIndex] = useState(0);
   const [allCategories, setAllCategories] = useState([]);
   const [allTypes, setAllTypes] = useState([]);
@@ -45,6 +45,45 @@ function Filter() {
     }
   }, [currentindex, setCurrentIndex]);
 
+  const { productsLibrary } = useContext(AppContext);
+  const { setFilteredList } = useContext(CatalogContext);
+  const [filters, setFilters] = useState({});
+
+  function onChangeHandler(event, item, category) {
+    const tempFilters = { ...filters };
+    if (event.target.checked === true) {
+      if (tempFilters[category]) {
+        tempFilters[category].push(item);
+      } else {
+        tempFilters[category] = [item];
+      }
+    } else {
+      tempFilters[category] = tempFilters[category].filter(
+        (element) => element !== item
+      );
+      if (tempFilters[category].length === 0) {
+        delete tempFilters[category];
+      }
+    }
+    setFilters({ ...tempFilters });
+  }
+
+  function applyFilter() {
+    const tempFilteredList = productsLibrary.filter((item, index) => {
+      for (let key in filters) {
+        if (!filters[key].includes(item[key])) {
+          return false;
+        }
+      }
+      return true;
+    });
+    setFilteredList([...tempFilteredList]);
+  }
+
+  useEffect(() => {
+    applyFilter();
+  }, [filters]);
+
   return (
     <div className="filter">
       <div className="filter-block">
@@ -63,7 +102,11 @@ function Filter() {
           {allCategories.map((item, index) => {
             return (
               <li key={index} className="list-item">
-                <Checkbox>{item}</Checkbox>
+                <Checkbox
+                  onChange={(event) => onChangeHandler(event, item, "category")}
+                >
+                  {item}
+                </Checkbox>
               </li>
             );
           })}
@@ -78,7 +121,11 @@ function Filter() {
           {allTypes.map((item, index) => {
             return (
               <li key={index} className="list-item">
-                <Checkbox>{item}</Checkbox>
+                <Checkbox
+                  onChange={(event) => onChangeHandler(event, item, "type")}
+                >
+                  {item}
+                </Checkbox>
               </li>
             );
           })}
@@ -95,6 +142,7 @@ function Filter() {
               <li key={index} className="list-item">
                 <Checkbox
                   className={`checkbox_colors checkbox_${item}`}
+                  onChange={(event) => onChangeHandler(event, item, "color")}
                 ></Checkbox>
               </li>
             );
