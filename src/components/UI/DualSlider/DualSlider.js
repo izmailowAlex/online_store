@@ -41,26 +41,46 @@ function Dualslider({ min, max }) {
     }
   }, [maxVal, getPercent]);
 
-  function minInputOnChangeHandler() {
-    const value = Number(minInputRef.current.value);
-    if (isRange(value)) {
+  useEffect(() => {
+    minInputRef.current.value = minVal;
+    maxInputRef.current.value = maxVal;
+  }, []);
+
+  function minInputOnBlurHandler() {
+    const value = minInputRef.current.value;
+    if (
+      !isEmpty(value) &&
+      isNumber(value) &&
+      isRange(value) &&
+      value < maxVal
+    ) {
       setMinVal(value);
+    } else {
+      minInputRef.current.value = minVal;
     }
   }
 
-  function maxInputOnChangeHandler() {
-    const value = Number(maxInputRef.current.value);
-    if (isRange(value)) {
+  function maxInputOnBlurHandler() {
+    const value = maxInputRef.current.value;
+    if (
+      !isEmpty(value) &&
+      isNumber(value) &&
+      isRange(value) &&
+      value > minVal
+    ) {
       setMaxVal(value);
+    } else {
+      maxInputRef.current.value = maxVal;
     }
   }
 
-  function minInputOnFocusHandler() {
-    minInputRef.current.select();
+  function isNumber(value) {
+    return !Number.isNaN(Number(value));
   }
 
-  function maxInputOnFocusHandler() {
-    maxInputRef.current.select();
+  function isEmpty(value) {
+    value = String(value);
+    return value.trim() === "";
   }
 
   function isRange(value) {
@@ -70,6 +90,11 @@ function Dualslider({ min, max }) {
   return (
     <div className="dualslider">
       <input
+        className={
+          minVal > max - 100
+            ? "dualslider__thumb dualslider__thumb_upper"
+            : "dualslider__thumb dualslider__thumb_left"
+        }
         type="range"
         min={min}
         max={max}
@@ -79,10 +104,11 @@ function Dualslider({ min, max }) {
           const value = Math.min(+event.target.value, maxVal - 1);
           setMinVal(value);
           event.target.value = value.toString();
+          minInputRef.current.value = value.toString();
         }}
-        className="thumb thumb--zindex-3"
       />
       <input
+        className="dualslider__thumb dualslider__thumb_right"
         type="range"
         min={min}
         max={max}
@@ -92,29 +118,39 @@ function Dualslider({ min, max }) {
           const value = Math.max(+event.target.value, minVal + 1);
           setMaxVal(value);
           event.target.value = value.toString();
+          maxInputRef.current.value = value.toString();
         }}
-        className="thumb thumb--zindex-4"
       />
-      <div className="slider">
-        <div className="slider__track"></div>
-        <div className="slider__range" ref={range}></div>
+      <div className="dualslider__wrapper">
+        <div className="dualslider__track"></div>
+        <div className="dualslider__range" ref={range}></div>
         <Input
-          className="slider__min-value"
+          className="dualslider__min-value"
           ref={minInputRef}
-          value={minVal}
           label={"от"}
-          onChange={minInputOnChangeHandler}
-          onFocus={minInputOnFocusHandler}
-          maxlength={max.length}
+          maxlength={String(max).length}
+          onFocus={(event) => event.target.select()}
+          onBlur={minInputOnBlurHandler}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter') {
+              console.log("enter")
+              event.target.blur();
+              maxInputRef.current.select();
+            }
+          }}
         />
         <Input
-          className="slider__max-value"
+          className="dualslider__max-value"
           ref={maxInputRef}
-          value={maxVal}
           label={"до"}
-          onChange={maxInputOnChangeHandler}
-          onFocus={maxInputOnFocusHandler}
-          maxlength={max.length}
+          maxlength={String(max).length}
+          onFocus={(event) => event.target.select()}
+          onBlur={maxInputOnBlurHandler}
+          onKeyDown={(event) => {
+            if (event.key === "Enter") {
+              event.target.blur();
+            }
+          }}
         />
       </div>
     </div>

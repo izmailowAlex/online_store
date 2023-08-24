@@ -13,6 +13,8 @@ function Input(
     maxlength,
     onChange,
     onFocus,
+    onBlur,
+    onKeyDown,
   },
   ref
 ) {
@@ -32,6 +34,8 @@ function Input(
         maxLength={maxlength}
         onChange={onChange}
         onFocus={onFocus}
+        onBlur={onBlur}
+        onKeyDown={onKeyDown}
       />
       {label ? <label className="input__label">{label}</label> : ""}
       {message ? <span className="input__message">{message}</span> : ""}
