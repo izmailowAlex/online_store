@@ -1,49 +1,45 @@
-import { useState, useRef } from "react";
+import React, { useState, useRef } from 'react'
 
-import "./Counter.css";
+import './Counter.css'
 
-function Counter({ min, max }) {
-  const [maxCount] = useState(+max);
-  let [currentVal, setCurrentVal] = useState(min);
-  const inputRef = useRef();
+function Counter ({ /* eslint-disable react/prop-types */count, min, max }) {
+  const [currentVal, setCurrentVal] = useState(Number(count))
+  const inputRef = useRef(null)
 
-  function increment() {
-    let value = currentVal;
-    value += 1;
+  function increment () {
+    let value = currentVal
+    value += 1
     if (isRange(value)) {
-      setCurrentVal(value);
+      setCurrentVal(value)
     }
   }
 
-  function decrement() {
-    let value = currentVal;
-    value -= 1;
+  function decrement () {
+    let value = currentVal
+    value -= 1
     if (isRange(value)) {
-      setCurrentVal(value);
+      setCurrentVal(value)
     }
   }
 
-  function focusOutEventHandler() {
-    let value = Number(inputRef.current.value);
+  function focusOutEventHandler () {
+    const value = Number(inputRef.current.value)
     if (isRange(value)) {
-      setCurrentVal(value);
+      setCurrentVal(value)
     }
   }
 
-  function focusInEventHandler() {
-    inputRef.current.select();
+  function focusInEventHandler () {
+    inputRef.current.select()
   }
 
-  function isRange(value) {
-    return value >= min && value <= maxCount;
+  function isRange (value) {
+    return value >= min && value <= max
   }
 
   return (
     <div className="counter">
-      <button
-        className="counter__button-minus"
-        onClick={decrement}
-      >
+      <button onClick={decrement} className="counter__button-minus">
         <svg className="counter__svg">
           <use href="#minus"></use>
         </svg>
@@ -56,16 +52,13 @@ function Counter({ min, max }) {
         onChange={focusOutEventHandler}
         onFocus={focusInEventHandler}
       />
-      <button
-        className="counter__button-plus"
-        onClick={increment}
-      >
+      <button onClick={increment} className="counter__button-plus">
         <svg className="counter__svg">
           <use href="#plus"></use>
         </svg>
       </button>
     </div>
-  );
+  )
 }
 
-export default Counter;
+export default Counter
