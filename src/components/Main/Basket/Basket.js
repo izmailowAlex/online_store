@@ -1,10 +1,13 @@
+import { useState } from "react";
 import Button from "../../UI/Button/Button";
 import Input from "../../UI/Input/Input";
 import Checkbox from "../../UI/Checkbox/Checkbox";
 import Product from "../Product/Product";
+import Checkout from "../Checkout/Checkout";
 import "./Basket.css";
 
 function Basket() {
+  const [popupWindow, setPopupWindow] = useState(false);
   return (
     <div className="cart">
       <h2 className="cart__title">Корзина</h2>
@@ -50,11 +53,16 @@ function Basket() {
             placeholder="Введите промокод"
             maxlength={8}
           />
-          <Button className="cart__checkout" button={true}>
+          <Button
+            className="cart__checkout"
+            button={true}
+            onClick={() => setPopupWindow(true)}
+          >
             Оформить заказ
           </Button>
         </div>
       </div>
+      {popupWindow ? <Checkout setPopupWindow={setPopupWindow} /> : ""}
     </div>
   );
 }
