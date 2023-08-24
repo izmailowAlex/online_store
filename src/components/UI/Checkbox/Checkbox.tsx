@@ -1,8 +1,12 @@
-import React from 'react'
+import { ICheckboxProps } from '../../../interfaces/interface'
 
 import './Checkbox.css'
 
-function Checkbox (/* eslint-disable react/prop-types */{ children, className, onChange }) {
+function Checkbox ({
+  children,
+  className,
+  onChange,
+}: ICheckboxProps): JSX.Element {
   const classname = className ? 'checkbox ' + className : 'checkbox'
 
   return (
