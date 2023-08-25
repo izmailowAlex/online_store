@@ -13,3 +13,9 @@ export interface IButtonProps {
   button: boolean
   onClick: () => Event | undefined
 }
+
+export interface ICounterProps {
+  count: number
+  min: number
+  max: number
+}

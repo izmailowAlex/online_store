@@ -1,39 +1,48 @@
 import React, { useState, useRef } from 'react'
-
+import { ICounterProps } from '../../../interfaces/interface'
 import './Counter.css'
 
-function Counter ({ /* eslint-disable react/prop-types */count, min, max }) {
-  const [currentVal, setCurrentVal] = useState(Number(count))
-  const inputRef = useRef(null)
+function Counter ({ count, min, max }: ICounterProps): JSX.Element {
+  const [currentVal, setCurrentVal] = useState(count)
+  const inputRef = useRef<HTMLInputElement>(null)
 
-  function increment () {
-    let value = currentVal
-    value += 1
+  function increment (): void {
+    let value: number = currentVal
+    value = value + 1
     if (isRange(value)) {
       setCurrentVal(value)
     }
   }
 
-  function decrement () {
-    let value = currentVal
-    value -= 1
+  function decrement (): void {
+    let value: number = currentVal
+    value = value - 1
     if (isRange(value)) {
       setCurrentVal(value)
     }
   }
 
-  function focusOutEventHandler () {
-    const value = Number(inputRef.current.value)
+  function focusOutEventHandler (): void {
+    let value = 0
+    if (inputRef.current !== null) {
+      if (typeof inputRef.current.value === 'number') {
+        value = inputRef.current.value
+      } else {
+        value = 0
+      }
+    }
     if (isRange(value)) {
       setCurrentVal(value)
     }
   }
 
-  function focusInEventHandler () {
-    inputRef.current.select()
+  function focusInEventHandler (): void {
+    if (inputRef.current !== null) {
+      inputRef.current.select()
+    }
   }
 
-  function isRange (value) {
+  function isRange (value: number): boolean {
     return value >= min && value <= max
   }
 
