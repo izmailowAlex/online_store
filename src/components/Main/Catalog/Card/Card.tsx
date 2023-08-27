@@ -21,7 +21,7 @@ function Card ({ product }: ICardProps): JSX.Element {
         </Link>
       </div>
       <div className="card-controls">
-        <h3 className="card-price">{product.price} ₽</h3>
+        <h3 className="card-price">{product.price} Br</h3>
         <Counter count={product.count} min={product.min} max={product.max} />
         <button className="card__button"></button>
       </div>
