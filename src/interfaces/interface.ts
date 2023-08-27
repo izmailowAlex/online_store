@@ -1,6 +1,5 @@
+import React, { MouseEvent, ChangeEvent, FocusEvent } from 'react'
 import { To } from 'react-router-dom'
-
-import React, { createRef, ChangeEvent, FocusEvent } from 'react'
 
 export interface ICheckboxProps {
   children?: string | undefined
@@ -14,7 +13,7 @@ export interface IButtonProps {
   children: string
   className: string
   to?: To
-  onClick: () => Event
+  onClick?: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
 }
 
 export interface ICounterProps {

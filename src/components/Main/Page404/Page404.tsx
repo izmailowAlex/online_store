@@ -3,7 +3,7 @@ import React from 'react'
 import Button from '../../UI/Button/Button'
 import './Page404.css'
 
-function Page404 () {
+function Page404 (): JSX.Element {
   return (
     <div className="page404">
       <h1 className="page404__number">404</h1>
