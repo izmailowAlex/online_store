@@ -1,3 +1,5 @@
+import { To } from 'react-router-dom'
+
 import React, { createRef, ChangeEvent, FocusEvent } from 'react'
 
 export interface ICheckboxProps {
@@ -11,9 +13,8 @@ export type Callback<T> = (data?: T) => void
 export interface IButtonProps {
   children: string
   className: string
-  to: string
-  button: boolean
-  onClick: () => Event | undefined
+  to?: To
+  onClick: () => Event
 }
 
 export interface ICounterProps {

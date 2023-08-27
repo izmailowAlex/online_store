@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import './Button.css'
 import type { IButtonProps } from '../../../interfaces/interface'
+import './Button.css'
 
-function Button ({ children, className, to, button, onClick }: IButtonProps): JSX.Element {
+function Button ({ children, className, to, onClick }: IButtonProps): JSX.Element {
   let classname = 'button'
 
   if (className !== undefined) {
@@ -13,11 +13,13 @@ function Button ({ children, className, to, button, onClick }: IButtonProps): JS
 
   return (
     <>
-      {button !== undefined
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        ? <button className={classname} onClick={onClick}>{children}</button>
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        : <Link className={classname} onClick={onClick} to={to}>{children}</Link>
+      {to !== undefined
+        ? (<Link className={classname} onClick={onClick} to={to}>
+          {children}
+        </Link>)
+        : (<button className={classname} onClick={onClick}>
+          {children}
+        </button>)
       }
     </>
   )
