@@ -58,6 +58,11 @@ export interface IInputProps {
   maxlength: number
   onChange: (event: ChangeEvent<HTMLInputElement>) => void
   onFocus: (event: FocusEvent<HTMLInputElement>) => void
-  onBlur: (event: FocusEvent<HTMLInputElement>) => void
+  onBlur?: (event: FocusEvent<HTMLInputElement>) => void
   onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void
+}
+
+export interface IDualslider {
+  min: number
+  max: number
 }
