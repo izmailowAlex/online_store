@@ -1,3 +1,4 @@
+import React from 'react'
 import { ICheckboxProps } from '../../../interfaces/interface'
 
 import './Checkbox.css'
@@ -5,9 +6,13 @@ import './Checkbox.css'
 function Checkbox ({
   children,
   className,
-  onChange,
+  onChange
 }: ICheckboxProps): JSX.Element {
-  const classname = className ? 'checkbox ' + className : 'checkbox'
+  let classname = 'checkbox'
+
+  if (className !== undefined) {
+    classname = 'checkbox ' + className
+  }
 
   return (
     <label className={classname}>
