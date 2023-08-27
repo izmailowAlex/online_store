@@ -5,11 +5,8 @@ import Input from '../Input/Input'
 function Dualslider (/* eslint-disable react/prop-types */{ min, max }) {
   const [minVal, setMinVal] = useState(min)
   const [maxVal, setMaxVal] = useState(max)
-  const minValRef = useRef(null)
-  const maxValRef = useRef(null)
-  const minInputRef = useRef(null)
-  const maxInputRef = useRef(null)
   const range = useRef(null)
+  const maxInputRef = useRef(null)
 
   const getPercent = useCallback(
     (value) => {
@@ -19,92 +16,50 @@ function Dualslider (/* eslint-disable react/prop-types */{ min, max }) {
   )
 
   useEffect(() => {
-    if (maxValRef.current) {
-      const minPercent = getPercent(minVal)
-      const maxPercent = getPercent(+maxValRef.current.value)
+    const minPercent = getPercent(minVal)
+    const maxPercent = getPercent(maxVal)
 
-      if (range.current) {
-        range.current.style.left = `${minPercent}%`
-        range.current.style.width = `${maxPercent - minPercent}%`
-      }
+    if (range.current) {
+      range.current.style.left = `${minPercent}%`
+      range.current.style.width = `${maxPercent - minPercent}%`
     }
-  }, [minVal, getPercent])
+  }, [minVal, maxVal])
 
-  useEffect(() => {
-    if (minValRef.current) {
-      const minPercent = getPercent(+minValRef.current.value)
-      const maxPercent = getPercent(maxVal)
-
-      if (range.current) {
-        range.current.style.width = `${maxPercent - minPercent}%`
-      }
+  const changeMinValHandler = (value) => {
+    if (value < min || value > max) {
+      value = minVal
     }
-  }, [maxVal, getPercent])
-
-  useEffect(() => {
-    minInputRef.current.value = minVal
-    maxInputRef.current.value = maxVal
-  }, [])
-
-  function minInputOnBlurHandler () {
-    const value = minInputRef.current.value
-    if (
-      !isEmpty(value) &&
-      isNumber(value) &&
-      isRange(value) &&
-      value < maxVal
-    ) {
-      setMinVal(value)
-    } else {
-      minInputRef.current.value = minVal
-    }
-  }
-
-  function maxInputOnBlurHandler () {
-    const value = maxInputRef.current.value
-    if (
-      !isEmpty(value) &&
-      isNumber(value) &&
-      isRange(value) &&
-      value > minVal
-    ) {
+    if (value > maxVal) {
       setMaxVal(value)
-    } else {
-      maxInputRef.current.value = maxVal
     }
+    setMinVal(value)
   }
 
-  function isNumber (value) {
-    return !Number.isNaN(Number(value))
-  }
-
-  function isEmpty (value) {
-    value = String(value)
-    return value.trim() === ''
-  }
-
-  function isRange (value) {
-    return value >= min && value <= max
+  const changeMaxValHandler = (value) => {
+    if (value < min || value > max) {
+      value = maxVal
+    }
+    if (value < minVal) {
+      setMinVal(value)
+    }
+    setMaxVal(value)
   }
 
   return (
     <div className="dualslider">
       <input
         className={
-          minVal > max - 100
+          minVal >= max - 10
             ? 'dualslider__thumb dualslider__thumb_upper'
             : 'dualslider__thumb dualslider__thumb_left'
         }
         type="range"
         min={min}
         max={max}
-        value={minVal}
-        ref={minValRef}
+        value={String(minVal)}
         onChange={(event) => {
-          const value = Math.min(+event.target.value, maxVal - 1)
-          setMinVal(value)
-          event.target.value = value.toString()
-          minInputRef.current.value = value.toString()
+          const value = Math.min(+event.target.value, +maxVal)
+          changeMinValHandler(value)
         }}
       />
       <input
@@ -112,13 +67,10 @@ function Dualslider (/* eslint-disable react/prop-types */{ min, max }) {
         type="range"
         min={min}
         max={max}
-        value={maxVal}
-        ref={maxValRef}
+        value={String(maxVal)}
         onChange={(event) => {
-          const value = Math.max(+event.target.value, minVal + 1)
-          setMaxVal(value)
-          event.target.value = value.toString()
-          maxInputRef.current.value = value.toString()
+          const value = Math.max(+event.target.value, +minVal)
+          changeMaxValHandler(value)
         }}
       />
       <div className="dualslider__wrapper">
@@ -126,11 +78,11 @@ function Dualslider (/* eslint-disable react/prop-types */{ min, max }) {
         <div className="dualslider__range" ref={range}></div>
         <Input
           className="dualslider__min-value"
-          ref={minInputRef}
+          value={minVal}
           label={'от'}
           maxlength={String(max).length}
           onFocus={(event) => event.target.select()}
-          onBlur={minInputOnBlurHandler}
+          onChange={(event) => changeMinValHandler(Number(event.target.value))}
           onKeyDown={(event) => {
             if (event.key === 'Enter') {
               event.target.blur()
@@ -141,10 +93,11 @@ function Dualslider (/* eslint-disable react/prop-types */{ min, max }) {
         <Input
           className="dualslider__max-value"
           ref={maxInputRef}
+          value={String(maxVal)}
           label={'до'}
           maxlength={String(max).length}
           onFocus={(event) => event.target.select()}
-          onBlur={maxInputOnBlurHandler}
+          onChange={(event) => changeMaxValHandler(Number(event.target.value))}
           onKeyDown={(event) => {
             if (event.key === 'Enter') {
               event.target.blur()
