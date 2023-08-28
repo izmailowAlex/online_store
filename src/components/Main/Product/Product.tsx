@@ -1,10 +1,10 @@
 import React from 'react'
-
+import { IProductProps } from '../../../interfaces/interface'
 import Checkbox from '../../UI/Checkbox/Checkbox'
 import Counter from '../../UI/Counter/Counter'
 import './Product.css'
 
-function Product (/* eslint-disable react/prop-types */{ image, name, price, count, min, max }) {
+function Product ({ image, name, price, count, min, max }: IProductProps): JSX.Element {
   return (
     <div className="product">
       <span className="product__checkbox">

@@ -45,6 +45,15 @@ export interface IProduct {
   description: string
 }
 
+export interface IProductProps {
+  image: string
+  name: string
+  price: number
+  count: number
+  min: number
+  max: number
+}
+
 export interface IInputProps {
   className: string
   name?: string
