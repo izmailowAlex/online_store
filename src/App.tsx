@@ -15,7 +15,7 @@ function App (): JSX.Element {
 
   return (
     <div className="balloon">
-      <AppContext.Provider value={{ productsLibrary, setFilteredList }}>
+      <AppContext.Provider value={{ productsLibrary }}>
         <Router>
           <Header />
           <Main />
