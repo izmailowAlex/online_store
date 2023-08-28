@@ -1,21 +1,24 @@
-import React, { useContext, useEffect, useState } from 'react'
-
+import React, { ChangeEvent, useContext, useEffect, useState } from 'react'
+import { IProduct, IFilterCategories } from '../../../../interfaces/interface'
 import { AppContext } from '../../../../App'
+import { CatalogContext } from '../Catalog'
 import Checkbox from '../../../UI/Checkbox/Checkbox'
 import DualSlider from '../../../UI/DualSlider/DualSlider'
 import './Filter.css'
-import { CatalogContext } from '../Catalog'
 
-function Filter () {
+function Filter (): JSX.Element {
   const [currentindex, setCurrentIndex] = useState(0)
-  const [allCategories, setAllCategories] = useState([])
-  const [allTypes, setAllTypes] = useState([])
-  const [allColors, setAllColors] = useState([])
+  const [allCategories, setAllCategories] = useState<string[]>([])
+  const [allTypes, setAllTypes] = useState<string[]>([])
+  const [allColors, setAllColors] = useState<string[]>([])
+  const { productsLibrary } = useContext(AppContext)
+  const { setFilteredList } = useContext(CatalogContext)
+  const [filters, setFilters] = useState<IFilterCategories>({})
 
   useEffect(() => {
-    if (productsLibrary && productsLibrary.length > 0) {
-      let typesTmp = []
-      productsLibrary.forEach((item) => {
+    if (productsLibrary.length > 0) {
+      let typesTmp: string[] = []
+      productsLibrary.forEach((item: IProduct) => {
         typesTmp.push(item.type)
       })
       typesTmp = typesTmp.filter((item, index, array) => {
@@ -24,8 +27,8 @@ function Filter () {
       })
       setAllTypes(typesTmp)
 
-      let categoriesTmp = []
-      productsLibrary.forEach((item) => {
+      let categoriesTmp: string[] = []
+      productsLibrary.forEach((item: IProduct) => {
         categoriesTmp.push(item.category)
       })
       categoriesTmp = categoriesTmp.filter((item, index, array) => {
@@ -34,8 +37,8 @@ function Filter () {
       })
       setAllCategories(categoriesTmp)
 
-      let colorsTmp = []
-      productsLibrary.forEach((item) => {
+      let colorsTmp: string[] = []
+      productsLibrary.forEach((item: IProduct) => {
         colorsTmp.push(item.color)
       })
       colorsTmp = colorsTmp.filter((item, index, array) => {
@@ -46,33 +49,35 @@ function Filter () {
     }
   }, [currentindex, setCurrentIndex])
 
-  const { productsLibrary } = useContext(AppContext)
-  const { setFilteredList } = useContext(CatalogContext)
-  const [filters, setFilters] = useState({})
+  useEffect(() => {
+    applyFilter()
+  }, [filters])
 
-  function onChangeHandler (event, item, category) {
-    const tempFilters = { ...filters }
-    if (event.target.checked === true) {
-      if (tempFilters[category]) {
-        tempFilters[category].push(item)
+  function onChangeHandler (event: ChangeEvent<HTMLInputElement>, item: string, key: keyof IFilterCategories): void {
+    const tempFilters: IFilterCategories = { ...filters }
+    if (event.target.checked) {
+      if (tempFilters[key] !== undefined) {
+        tempFilters[key]?.push(item)
       } else {
-        tempFilters[category] = [item]
+        tempFilters[key] = [item]
       }
     } else {
-      tempFilters[category] = tempFilters[category].filter(
-        (element) => element !== item
+      tempFilters[key] = tempFilters[key]?.filter(
+        (element: string) => element !== item
       )
-      if (tempFilters[category].length === 0) {
-        delete tempFilters[category]
+      if (tempFilters[key]?.length === 0) {
+        delete tempFilters[key]
       }
     }
     setFilters({ ...tempFilters })
   }
 
-  function applyFilter () {
+  function applyFilter (): void {
     const tempFilteredList = productsLibrary.filter((item) => {
-      for (const key in filters) {
-        if (!filters[key].includes(item[key])) {
+      let key: keyof IFilterCategories
+      for (key in filters) {
+        const includes = filters[key]?.includes(item[key])
+        if (includes === false) {
           return false
         }
       }
@@ -80,10 +85,6 @@ function Filter () {
     })
     setFilteredList([...tempFilteredList])
   }
-
-  useEffect(() => {
-    applyFilter()
-  }, [filters])
 
   return (
     <div className="filter">
@@ -104,7 +105,7 @@ function Filter () {
             return (
               <li key={index} className="list-item">
                 <Checkbox
-                  onChange={(event) => onChangeHandler(event, item, 'category')}
+                  onChange={(event) => { onChangeHandler(event, item, 'category') }}
                 >
                   {item}
                 </Checkbox>
@@ -123,7 +124,7 @@ function Filter () {
             return (
               <li key={index} className="list-item">
                 <Checkbox
-                  onChange={(event) => onChangeHandler(event, item, 'type')}
+                  onChange={(event) => { onChangeHandler(event, item, 'type') }}
                 >
                   {item}
                 </Checkbox>
@@ -143,7 +144,7 @@ function Filter () {
               <li key={index} className="list-item">
                 <Checkbox
                   className={`checkbox_colors checkbox_${item}`}
-                  onChange={(event) => onChangeHandler(event, item, 'color')}
+                  onChange={(event) => { onChangeHandler(event, item, 'color') }}
                 ></Checkbox>
               </li>
             )

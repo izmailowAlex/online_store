@@ -3,7 +3,7 @@ import { To } from 'react-router-dom'
 
 export interface ICheckboxProps {
   children?: string | undefined
-  className: string | undefined
+  className?: string | undefined
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void
 }
 
