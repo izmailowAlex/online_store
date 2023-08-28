@@ -11,7 +11,7 @@ export type Callback<T> = (data?: T) => void
 
 export interface IButtonProps {
   children: string
-  className: string
+  className?: string
   to?: To
   onClick?: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
 }
