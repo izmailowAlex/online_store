@@ -1,4 +1,10 @@
-import React, { MouseEvent, ChangeEvent, FocusEvent } from 'react'
+import React, {
+  MouseEvent,
+  ChangeEvent,
+  FocusEvent,
+  Dispatch,
+  SetStateAction,
+} from 'react'
 import { To } from 'react-router-dom'
 
 export interface ICheckboxProps {
@@ -78,6 +84,11 @@ export interface IDualslider {
 
 export interface IAppContext {
   productsLibrary: IProduct[]
+}
+
+export interface ICatalogContext {
+  filteredList: IProduct[]
+  setFilteredList: Dispatch<SetStateAction<IProduct[]>>
 }
 
 export interface IFilterCategories {
