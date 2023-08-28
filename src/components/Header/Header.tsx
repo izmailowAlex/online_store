@@ -1,18 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
 import Nav from './Nav/Nav'
 import Logo from '../../images/logo.svg'
 import Actions from './Actions/Actions'
 import './Header.css'
 
-function Header () {
+function Header (): JSX.Element {
   return (
     <header className="header">
       <div className="header__container container">
         <Nav />
         <Link className="header__logo" to="/">
-          <img src={Logo} alt="Balloon Logo" />
+          <img src={Logo as string} alt="Balloon Logo" />
         </Link>
         <Actions />
       </div>
