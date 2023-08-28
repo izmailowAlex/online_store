@@ -7,7 +7,7 @@ import Product from '../Product/Product'
 import Checkout from '../Checkout/Checkout'
 import './Basket.css'
 
-function Basket () {
+function Basket (): JSX.Element {
   const [popupWindow, setPopupWindow] = useState(false)
   return (
     <div className="cart">
@@ -56,8 +56,7 @@ function Basket () {
           />
           <Button
             className="cart__checkout"
-            button={true}
-            onClick={() => setPopupWindow(true)}
+            onClick={() => { setPopupWindow(true) }}
           >
             Оформить заказ
           </Button>
