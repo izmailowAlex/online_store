@@ -1,15 +1,21 @@
-import React, { useState, useContext } from 'react'
-
+import React, { useState, useContext, Dispatch, SetStateAction } from 'react'
 import { AppContext } from '../../../App'
+import { IProduct } from '../../../interfaces/interface'
 import Filter from './Filter/Filter'
 import CatalogListCards from './CatalogListCards'
 import './Catalog.css'
 
-export const CatalogContext = React.createContext()
+interface ICatalogContext {
+  filteredList: IProduct[]
+  setFilteredList: Dispatch<SetStateAction<IProduct[]>>
+}
 
-function Catalog () {
+const context: ICatalogContext = { filteredList: [], setFilteredList: () => undefined }
+export const CatalogContext = React.createContext(context)
+
+function Catalog (): JSX.Element {
   const { productsLibrary } = useContext(AppContext)
-  const [filteredList, setFilteredList] = useState(productsLibrary)
+  const [filteredList, setFilteredList] = useState<IProduct[]>(productsLibrary)
 
   return (
     <div className="main-catalog">
