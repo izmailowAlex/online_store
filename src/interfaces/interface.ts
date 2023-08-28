@@ -66,3 +66,13 @@ export interface IDualslider {
   min: number
   max: number
 }
+
+export interface IAppContext {
+  productsLibrary: IProduct[]
+}
+
+export interface IFilterCategories {
+  category?: string[]
+  type?: string[]
+  color?: string[]
+}
