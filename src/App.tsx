@@ -7,8 +7,7 @@ import Main from './components/Main/Main'
 import Footer from './components/Footer/Footer'
 import './App.css'
 
-const context: IAppContext = { productsLibrary: [] }
-export const AppContext = React.createContext(context)
+export const AppContext = React.createContext<IAppContext>({ productsLibrary: [] })
 
 function App (): JSX.Element {
   const [productsLibrary] = useState<IProduct[]>(data)
