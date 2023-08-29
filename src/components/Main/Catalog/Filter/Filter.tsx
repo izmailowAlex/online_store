@@ -90,14 +90,7 @@ function Filter (): JSX.Element {
     <div className="filter">
       <div className="filter-block">
         <div className="filter-category">
-          <span className="filter-category__title">Price, Br</span>
-          <span className="filter-category-vector"></span>
-        </div>
-        <DualSlider min={0} max={1000} />
-      </div>
-      <div className="filter-block">
-        <div className="filter-category">
-          <span className="filter-category__title">Categories</span>
+          <span className="filter-category__title">Категория</span>
           <span className="filter-category-vector active"></span>
         </div>
         <ul className="filter-list">
@@ -116,7 +109,7 @@ function Filter (): JSX.Element {
       </div>
       <div className="filter-block">
         <div className="filter-category">
-          <span className="filter-category__title">Materials</span>
+          <span className="filter-category__title">Материал</span>
           <span className="filter-category-vector"></span>
         </div>
         <ul className="filter-list">
@@ -135,7 +128,7 @@ function Filter (): JSX.Element {
       </div>
       <div className="filter-block">
         <div className="filter-category">
-          <span className="filter-category__title">Colors</span>
+          <span className="filter-category__title">Цвет</span>
           <span className="filter-category-vector"></span>
         </div>
         <ul className="filter-list-colors">
@@ -150,6 +143,20 @@ function Filter (): JSX.Element {
             )
           })}
         </ul>
+      </div>
+      <div className="filter__block">
+        <div className="filter__category">
+          <span className="filter__block_category-title">Цена, ₽</span>
+          <span className="filter__block_category-vector"></span>
+        </div>
+        <DualSlider min={0} max={1000} />
+      </div>
+      <div className="filter__block">
+        <div className="filter__category">
+          <span className="filter__block_category-title">Количество, шт</span>
+          <span className="filter__block_category-vector"></span>
+        </div>
+        <DualSlider min={0} max={10000} />
       </div>
     </div>
   )
