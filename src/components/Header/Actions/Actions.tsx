@@ -5,7 +5,7 @@ import { AppContext } from '../../../App'
 import './Actions.css'
 
 function Actions (): JSX.Element {
-  const { cartCount, setCartCount } = useContext(AppContext)
+  const { cartCount } = useContext(AppContext)
   return (
     <div className="actions-menu">
       <ul className="actions-menu__list">

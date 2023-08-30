@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { IAppContext, IProduct } from './interfaces/interface'
 import data from './data'
@@ -19,6 +19,10 @@ function App (): JSX.Element {
   const [productsLibrary] = useState<IProduct[]>(data)
   const [cartOrders, setCartOrders] = useState([] as IProduct[])
   const [cartCount, setCartCount] = useState<number>(0)
+
+  useEffect(() => {
+    setCartCount(cartOrders.length)
+  }, [cartOrders])
 
   return (
     <div className="balloon">

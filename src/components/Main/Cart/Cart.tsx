@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react'
 import { AppContext } from '../../../App'
-import { IProduct } from '../../../interfaces/interface'
 import Button from '../../UI/Button/Button'
 import Input from '../../UI/Input/Input'
 import Checkbox from '../../UI/Checkbox/Checkbox'
@@ -11,7 +10,6 @@ import './Cart.css'
 function Cart (): JSX.Element {
   const [popupWindow, setPopupWindow] = useState(false)
   const { cartOrders, setCartOrders } = useContext(AppContext)
-  const { cartCount, setCartCount } = useContext(AppContext)
 
   function handleDeleteProduct (id: string): void {
     setCartOrders(cartOrders.filter(item => item.id !== id))
