@@ -15,6 +15,10 @@ function Cart (): JSX.Element {
     setCartOrders(cartOrders.filter(item => item.id !== id))
   }
 
+  function clearAllOrders (): void {
+    setCartOrders([])
+  }
+
   return (
     <div className="cart">
       <div className="cart__content">
@@ -24,7 +28,10 @@ function Cart (): JSX.Element {
                 <>
                   <div className="cart__table-upper">
                     <h2 className="cart__title">Корзина</h2>
-                    <div className="cart__cart-clear">
+                    <div
+                      className="cart__cart-clear"
+                      onClick={() => { clearAllOrders() }}
+                    >
                       Очистить корзину
                     </div>
                   </div>
