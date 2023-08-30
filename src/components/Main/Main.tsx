@@ -5,7 +5,7 @@ import Home from './Home/Home'
 import Catalog from './Catalog/Catalog'
 import ProductView from './ProductView/ProductView'
 import Page404 from './Page404/Page404'
-import Basket from './Basket/Basket'
+import Cart from './Cart/Cart'
 import './Main.css'
 
 function Main (): JSX.Element {
@@ -17,7 +17,7 @@ function Main (): JSX.Element {
           <Route path="/catalog/" element={<Catalog />} />
           <Route path="/productview/:id" element={<ProductView />} />
           <Route path="/page404/" element={<Page404 />} />
-          <Route path="/cart/" element={<Basket />} />
+          <Route path="/cart/" element={<Cart />} />
         </Routes>
       </div>
     </main>

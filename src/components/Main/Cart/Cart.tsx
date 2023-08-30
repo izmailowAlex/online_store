@@ -5,9 +5,9 @@ import Input from '../../UI/Input/Input'
 import Checkbox from '../../UI/Checkbox/Checkbox'
 import Product from '../Product/Product'
 import Checkout from '../Checkout/Checkout'
-import './Basket.css'
+import './Cart.css'
 
-function Basket (): JSX.Element {
+function Cart (): JSX.Element {
   const [popupWindow, setPopupWindow] = useState(false)
   return (
     <div className="cart">
@@ -67,4 +67,4 @@ function Basket (): JSX.Element {
   )
 }
 
-export default Basket
+export default Cart
