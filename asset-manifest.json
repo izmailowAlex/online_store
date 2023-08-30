@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/online_store/static/css/main.cd653323.css",
-    "main.js": "/online_store/static/js/main.f457dc4e.js",
-    "static/media/logo.svg": "/online_store/static/media/logo.93388dd306ce8e4d16b35de66f523e41.svg",
-    "index.html": "/online_store/index.html",
-    "static/media/bag-shopping.svg": "/online_store/static/media/bag-shopping.7582b6c6d67630a548fe.svg",
-    "static/media/chevron-up.svg": "/online_store/static/media/chevron-up.ddaa174480def21bee68.svg",
-    "static/media/chevron-down.svg": "/online_store/static/media/chevron-down.c007b61b8a7b909562b6.svg",
-    "main.cd653323.css.map": "/online_store/static/css/main.cd653323.css.map",
-    "main.f457dc4e.js.map": "/online_store/static/js/main.f457dc4e.js.map"
+    "main.css": "/static/css/main.99538746.css",
+    "main.js": "/static/js/main.863ddf28.js",
+    "static/media/logo.svg": "/static/media/logo.93388dd306ce8e4d16b35de66f523e41.svg",
+    "index.html": "/index.html",
+    "static/media/bag-shopping.svg": "/static/media/bag-shopping.7582b6c6d67630a548fe.svg",
+    "static/media/chevron-up.svg": "/static/media/chevron-up.ddaa174480def21bee68.svg",
+    "static/media/chevron-down.svg": "/static/media/chevron-down.c007b61b8a7b909562b6.svg",
+    "main.99538746.css.map": "/static/css/main.99538746.css.map",
+    "main.863ddf28.js.map": "/static/js/main.863ddf28.js.map"
   },
   "entrypoints": [
-    "static/css/main.cd653323.css",
-    "static/js/main.f457dc4e.js"
+    "static/css/main.99538746.css",
+    "static/js/main.863ddf28.js"
   ]
 }
