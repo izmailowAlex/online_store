@@ -10,7 +10,7 @@ function Product ({ image, name, price, count, min, max }: IProductProps): JSX.E
       <span className="product__checkbox">
         <Checkbox />
       </span>
-      <img className="product__image" src={image} alt="Product"></img>
+      <img className="product__image" src={`../images/${image}`} alt="Product"></img>
       <span className="product__name">{name}</span>
       <span className="product__price">{price}</span>
       <span className="product__count">

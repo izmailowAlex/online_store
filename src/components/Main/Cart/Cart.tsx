@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-
+import React, { useContext, useState } from 'react'
+import { AppContext } from '../../../App'
 import Button from '../../UI/Button/Button'
 import Input from '../../UI/Input/Input'
 import Checkbox from '../../UI/Checkbox/Checkbox'
@@ -9,6 +9,7 @@ import './Cart.css'
 
 function Cart (): JSX.Element {
   const [popupWindow, setPopupWindow] = useState(false)
+  const { cartOrders } = useContext(AppContext)
   return (
     <div className="cart">
       <h2 className="cart__title">Корзина</h2>
@@ -23,26 +24,21 @@ function Cart (): JSX.Element {
             </a>
           </div>
           <ul className="cart__list">
-            <li className="cart__item">
-              <Product
-                name="Шар (5''/13 см) Синий, пастель"
-                image="../../images/605112.jpg"
-                price={5}
-                count={1}
-                min={1}
-                max={100}
-              />
-            </li>
-            <li className="cart__item">
-              <Product
-                name="ШДМ (2''/5 см) Черный, пастель"
-                image="../../images/626118.jpg"
-                price={5}
-                count={1}
-                min={1}
-                max={100}
-              />
-            </li>
+            {cartOrders.length > 0 && (
+              cartOrders.map((order) => {
+                return (
+                  <Product
+                    key={order.id}
+                    name={order.title}
+                    image={order.image}
+                    price={order.price}
+                    count={order.count}
+                    min={order.min}
+                    max={order.max}
+                  />
+                )
+              })
+            )}
           </ul>
         </div>
         <div className="cart__summary">

@@ -1,11 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
-import Counter from '../../../UI/Counter/Counter'
 import { ICardProps } from '../../../../interfaces/interface'
+import Counter from '../../../UI/Counter/Counter'
 import './Card.css'
 
-function Card ({ product }: ICardProps): JSX.Element {
+function Card ({ product, onClick }: ICardProps): JSX.Element {
   return (
     <div className="card">
       <div className="card-image-wrapper">
@@ -23,7 +22,7 @@ function Card ({ product }: ICardProps): JSX.Element {
       <div className="card-controls">
         <h3 className="card-price">{product.price} Br</h3>
         <Counter count={product.count} min={product.min} max={product.max} />
-        <button className="card__button"></button>
+        <button className="card__button" onClick={onClick}></button>
       </div>
     </div>
   )

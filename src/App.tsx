@@ -7,14 +7,15 @@ import Main from './components/Main/Main'
 import Footer from './components/Footer/Footer'
 import './App.css'
 
-export const AppContext = React.createContext<IAppContext>({ productsLibrary: [] })
+export const AppContext = React.createContext<IAppContext>({ productsLibrary: [], cartOrders: [], setCartOrders: () => undefined })
 
 function App (): JSX.Element {
   const [productsLibrary] = useState<IProduct[]>(data)
+  const [cartOrders, setCartOrders] = useState([] as IProduct[])
 
   return (
     <div className="balloon">
-      <AppContext.Provider value={{ productsLibrary }}>
+      <AppContext.Provider value={{ productsLibrary, cartOrders, setCartOrders }}>
         <Router>
           <Header />
           <Main />
