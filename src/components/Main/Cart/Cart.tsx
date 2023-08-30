@@ -10,36 +10,47 @@ import './Cart.css'
 function Cart (): JSX.Element {
   const [popupWindow, setPopupWindow] = useState(false)
   const { cartOrders } = useContext(AppContext)
+
   return (
     <div className="cart">
-      <h2 className="cart__title">Корзина</h2>
       <div className="cart__content">
         <div className="cart__table">
-          <div className="cart__list-head">
-            <span className="cart__select-all">
-              <Checkbox />
-            </span>
-            <a className="cart__cart-clear" href="#">
-              Очистить корзину
-            </a>
-          </div>
-          <ul className="cart__list">
-            {cartOrders.length > 0 && (
-              cartOrders.map((order) => {
-                return (
-                  <Product
-                    key={order.id}
-                    name={order.title}
-                    image={order.image}
-                    price={order.price}
-                    count={order.count}
-                    min={order.min}
-                    max={order.max}
-                  />
-                )
-              })
-            )}
-          </ul>
+            {cartOrders.length > 0
+              ? (
+                <>
+                  <div className="cart__table-upper">
+                    <h2 className="cart__title">Корзина</h2>
+                    <div className="cart__cart-clear">
+                      Очистить корзину
+                    </div>
+                  </div>
+                  <div className="cart__list-head">
+                    <span className="cart__select-all">
+                      <Checkbox />
+                      <span>Выбрать все</span>
+                    </span>
+                  </div>
+                  <ul className="cart__list">
+                    {cartOrders.map((order) => {
+                      return (
+                        <Product
+                          key={order.id}
+                          name={order.title}
+                          image={order.image}
+                          price={order.price}
+                          count={order.count}
+                          min={order.min}
+                          max={order.max}
+                        />
+                      )
+                    })}
+                  </ul>
+                </>)
+              : <>
+                  <h2 className="cart__title">Корзина пуста</h2>
+                  <p>Выберите товар в каталоге</p>
+                </>
+            }
         </div>
         <div className="cart__summary">
           <h3 className="cart__summary-title">Итого:</h3>
