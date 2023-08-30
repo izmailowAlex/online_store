@@ -59,6 +59,7 @@ export interface IProductProps {
   count: number
   min: number
   max: number
+  onClick: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
 }
 
 export interface IInputProps {
@@ -87,6 +88,8 @@ export interface IAppContext {
   productsLibrary: IProduct[]
   cartOrders: IProduct[]
   setCartOrders: Dispatch<SetStateAction<IProduct[]>>
+  cartCount: number
+  setCartCount: Dispatch<SetStateAction<number>>
 }
 
 export interface ICatalogContext {

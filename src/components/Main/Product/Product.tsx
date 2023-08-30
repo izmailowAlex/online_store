@@ -4,7 +4,7 @@ import Checkbox from '../../UI/Checkbox/Checkbox'
 import Counter from '../../UI/Counter/Counter'
 import './Product.css'
 
-function Product ({ image, name, price, count, min, max }: IProductProps): JSX.Element {
+function Product ({ image, name, price, count, min, max, onClick }: IProductProps): JSX.Element {
   return (
     <div className="product">
       <span className="product__checkbox">
@@ -17,7 +17,7 @@ function Product ({ image, name, price, count, min, max }: IProductProps): JSX.E
         <Counter count={count} min={min} max={max} />
       </span>
       <span className="product__amount">1000</span>
-      <button className="product__remove">
+      <button className="product__remove" onClick={onClick}>
         <span className="icon">
           <svg className="icon__svg">
             <use href="#cross"></use>

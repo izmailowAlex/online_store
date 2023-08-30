@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 
+import { AppContext } from '../../../App'
 import './Actions.css'
 
 function Actions (): JSX.Element {
+  const { cartCount, setCartCount } = useContext(AppContext)
   return (
     <div className="actions-menu">
       <ul className="actions-menu__list">
@@ -23,7 +25,7 @@ function Actions (): JSX.Element {
                 <use href="#bag"></use>
               </svg>
             </span>
-            <span className="actions-menu__quantity">10</span>
+            <span className="actions-menu__quantity">{cartCount}</span>
             <span className="actions-menu__amount">200</span>
           </Link>
         </li>

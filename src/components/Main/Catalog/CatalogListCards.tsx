@@ -7,23 +7,18 @@ import Card from './Card/Card'
 function CatalogListCards (): JSX.Element {
   const { cartOrders, setCartOrders } = useContext(AppContext)
   const { filteredList } = useContext(CatalogContext)
-  function handleClickButton (product: IProduct): void {
+  function handleClickButton (product: IProduct): IProduct[] | undefined {
     const currentProduct = product
-    // console.log(cartOrders)
     if (cartOrders.length !== 0) {
       const includes: boolean = cartOrders.includes(currentProduct)
       if (includes) {
-        return
+        return cartOrders
       } else {
         setCartOrders([...cartOrders, ...[currentProduct]])
       }
     } else {
       setCartOrders([...cartOrders, ...[currentProduct]])
     }
-    // if (cartOrders.includes(tempOrderProduct)) {
-    //   setCartOrders([...cartOrders, ...tempOrderProduct])
-    // }
-    console.log(cartOrders)
   }
 
   return (
