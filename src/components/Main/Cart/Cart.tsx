@@ -9,7 +9,7 @@ import './Cart.css'
 
 function Cart (): JSX.Element {
   const [popupWindow, setPopupWindow] = useState(false)
-  const { cartOrders, setCartOrders } = useContext(AppContext)
+  const { productsLibrary, cartOrders, setCartOrders } = useContext(AppContext)
 
   function handleDeleteProduct (id: string): void {
     setCartOrders(cartOrders.filter(item => item.id !== id))
@@ -42,7 +42,7 @@ function Cart (): JSX.Element {
                     </span>
                   </div>
                   <ul className="cart__list">
-                    {cartOrders.map((order) => {
+                    {productsLibrary.map((order) => {
                       return (
                         <Product
                           key={order.id}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
-import { IAppContext, IProduct } from './interfaces/interface'
+import { IAppContext, IProduct, ICartOrdered } from './interfaces/interface'
 import data from './data'
 import Header from './components/Header/Header'
 import Main from './components/Main/Main'
@@ -9,7 +9,7 @@ import './App.css'
 
 export const AppContext = React.createContext<IAppContext>({
   productsLibrary: [],
-  cartOrders: [],
+  cartOrders: [{ id: '' }],
   setCartOrders: () => undefined,
   cartCount: 0,
   setCartCount: () => undefined
@@ -17,7 +17,7 @@ export const AppContext = React.createContext<IAppContext>({
 
 function App (): JSX.Element {
   const [productsLibrary] = useState<IProduct[]>(data)
-  const [cartOrders, setCartOrders] = useState([] as IProduct[])
+  const [cartOrders, setCartOrders] = useState([] as ICartOrdered[])
   const [cartCount, setCartCount] = useState<number>(0)
 
   useEffect(() => {

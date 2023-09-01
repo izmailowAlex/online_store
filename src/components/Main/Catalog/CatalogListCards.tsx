@@ -1,30 +1,39 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { AppContext } from '../../../App'
+import { ICartOrdered } from '../../../interfaces/interface'
 import { CatalogContext } from './Catalog'
-import { IProduct } from '../../../interfaces/interface'
 import Card from './Card/Card'
 
 function CatalogListCards (): JSX.Element {
   const { cartOrders, setCartOrders } = useContext(AppContext)
   const { filteredList } = useContext(CatalogContext)
-  function handleClickButton (product: IProduct): IProduct[] | undefined {
-    const currentProduct = product
-    if (cartOrders.length !== 0) {
-      const includes: boolean = cartOrders.includes(currentProduct)
-      if (includes) {
-        return cartOrders
-      } else {
-        setCartOrders([...cartOrders, ...[currentProduct]])
-      }
+  useEffect(() => {
+    console.log(cartOrders)
+  }, [cartOrders])
+  function handleAddToCart (productID: string): void {
+    const currentProductID = { id: productID }
+    const tempCartOrderedItems: ICartOrdered[] = [...cartOrders]
+    const tempCartOrderedArray: string[] = []
+    cartOrders.forEach((item) => {
+      tempCartOrderedArray.push(Object.values(item).join())
+    })
+    if (cartOrders.length === 0) {
+      setCartOrders([currentProductID])
+      return
     } else {
-      setCartOrders([...cartOrders, ...[currentProduct]])
+      if (tempCartOrderedArray.includes(productID)) {
+        return
+      } else {
+        tempCartOrderedItems.push(currentProductID)
+      }
     }
+    setCartOrders([...tempCartOrderedItems])
   }
 
   return (
     <div className="catalog-list">
       {filteredList.map((product, index) => {
-        return <Card key={index} product={product} onClick={() => { handleClickButton(product) }} />
+        return <Card key={index} product={product} onClick={handleAddToCart} />
       })}
     </div>
   )

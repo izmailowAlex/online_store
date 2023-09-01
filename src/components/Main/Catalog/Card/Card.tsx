@@ -5,6 +5,9 @@ import Counter from '../../../UI/Counter/Counter'
 import './Card.css'
 
 function Card ({ product, onClick }: ICardProps): JSX.Element {
+  function handleAddToCart (): void {
+    onClick(product.id)
+  }
   return (
     <div className="card">
       <div className="card-image-wrapper">
@@ -22,7 +25,7 @@ function Card ({ product, onClick }: ICardProps): JSX.Element {
       <div className="card-controls">
         <h3 className="card-price">{product.price} Br</h3>
         <Counter count={product.count} min={product.min} max={product.max} />
-        <button className="card__button" onClick={onClick}></button>
+        <button className="card__button" onClick={handleAddToCart}></button>
       </div>
     </div>
   )

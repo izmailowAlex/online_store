@@ -30,7 +30,12 @@ export interface ICounterProps {
 
 export interface ICardProps {
   product: IProduct
-  onClick?: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
+  onClick: (productID: string) => void
+}
+
+export interface ICartOrdered {
+  id: string
+  ordered?: number
 }
 
 export interface IProduct {
@@ -86,8 +91,8 @@ export interface IDualslider {
 
 export interface IAppContext {
   productsLibrary: IProduct[]
-  cartOrders: IProduct[]
-  setCartOrders: Dispatch<SetStateAction<IProduct[]>>
+  cartOrders: ICartOrdered[]
+  setCartOrders: Dispatch<SetStateAction<ICartOrdered[]>>
   cartCount: number
   setCartCount: Dispatch<SetStateAction<number>>
 }
