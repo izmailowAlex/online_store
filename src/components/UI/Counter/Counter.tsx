@@ -25,8 +25,8 @@ function Counter ({ count, min, max }: ICounterProps): JSX.Element {
   function focusOutEventHandler (): void {
     let value = 0
     if (inputRef.current !== null) {
-      if (typeof inputRef.current.value === 'number') {
-        value = inputRef.current.value
+      if (typeof inputRef.current.value === 'string') {
+        value = +inputRef.current.value
       } else {
         value = 0
       }
