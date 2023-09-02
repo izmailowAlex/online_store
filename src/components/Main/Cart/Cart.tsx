@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { AppContext } from '../../../App'
 import Button from '../../UI/Button/Button'
 import Input from '../../UI/Input/Input'
@@ -10,10 +10,11 @@ import './Cart.css'
 function Cart (): JSX.Element {
   const [popupWindow, setPopupWindow] = useState(false)
   const { productsLibrary, cartOrders, setCartOrders, cartOrderedArray } = useContext(AppContext)
-  console.log(cartOrderedArray)
 
   function handleDeleteProduct (id: string): void {
     setCartOrders(cartOrders.filter(item => item.id !== id))
+    const index = cartOrderedArray.indexOf(id)
+    cartOrderedArray.splice(index, 1)
   }
 
   function clearAllOrders (): void {
