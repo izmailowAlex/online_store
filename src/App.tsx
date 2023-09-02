@@ -11,6 +11,7 @@ export const AppContext = React.createContext<IAppContext>({
   productsLibrary: [],
   cartOrders: [{ id: '' }],
   setCartOrders: () => undefined,
+  cartOrderedArray: [],
   cartCount: 0,
   setCartCount: () => undefined
 })
@@ -19,6 +20,7 @@ function App (): JSX.Element {
   const [productsLibrary] = useState<IProduct[]>(data)
   const [cartOrders, setCartOrders] = useState([] as ICartOrdered[])
   const [cartCount, setCartCount] = useState<number>(0)
+  const cartOrderedArray: string[] = []
 
   useEffect(() => {
     setCartCount(cartOrders.length)
@@ -26,7 +28,7 @@ function App (): JSX.Element {
 
   return (
     <div className="balloon">
-      <AppContext.Provider value={{ productsLibrary, cartOrders, setCartOrders, cartCount, setCartCount }}>
+      <AppContext.Provider value={{ productsLibrary, cartOrders, setCartOrders, cartOrderedArray, cartCount, setCartCount }}>
         <Router>
           <Header />
           <Main />

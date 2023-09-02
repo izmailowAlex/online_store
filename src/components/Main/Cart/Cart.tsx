@@ -9,7 +9,7 @@ import './Cart.css'
 
 function Cart (): JSX.Element {
   const [popupWindow, setPopupWindow] = useState(false)
-  const { productsLibrary, cartOrders, setCartOrders } = useContext(AppContext)
+  const { productsLibrary, cartOrders, setCartOrders, cartOrderedArray } = useContext(AppContext)
 
   function handleDeleteProduct (id: string): void {
     setCartOrders(cartOrders.filter(item => item.id !== id))
@@ -23,7 +23,7 @@ function Cart (): JSX.Element {
     <div className="cart">
       <div className="cart__content">
         <div className="cart__table">
-            {cartOrders.length > 0
+            {cartOrders.length !== 0
               ? (
                 <>
                   <div className="cart__table-upper">
@@ -43,7 +43,7 @@ function Cart (): JSX.Element {
                   </div>
                   <ul className="cart__list">
                     {productsLibrary.map((order) => {
-                      return (
+                      return (cartOrderedArray.includes(order.id) && (
                         <Product
                           key={order.id}
                           name={order.title}
@@ -54,7 +54,7 @@ function Cart (): JSX.Element {
                           max={order.max}
                           onClick={() => { handleDeleteProduct(order.id) }}
                         />
-                      )
+                      ))
                     })}
                   </ul>
                 </>)

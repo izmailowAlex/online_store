@@ -93,6 +93,7 @@ export interface IAppContext {
   productsLibrary: IProduct[]
   cartOrders: ICartOrdered[]
   setCartOrders: Dispatch<SetStateAction<ICartOrdered[]>>
+  cartOrderedArray: string[]
   cartCount: number
   setCartCount: Dispatch<SetStateAction<number>>
 }
