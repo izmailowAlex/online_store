@@ -5,17 +5,16 @@ import { CatalogContext } from './Catalog'
 import Card from './Card/Card'
 
 function CatalogListCards (): JSX.Element {
-  const { cartOrders, setCartOrders, cartOrderedArray } = useContext(AppContext)
+  const { cartOrders, setCartOrders, cartOrderedArray, setCardOrderedArray } = useContext(AppContext)
   const { filteredList } = useContext(CatalogContext)
   useEffect(() => {
-    console.log(cartOrders)
+    cartOrders.forEach((item) => {
+      setCardOrderedArray([...cartOrderedArray, ...[Object.values(item).join()]])
+    })
   }, [cartOrders])
   function handleAddToCart (productID: string): void {
     const currentProductID = { id: productID }
     const tempCartOrderedItems: ICartOrdered[] = [...cartOrders]
-    cartOrders.forEach((item) => {
-      cartOrderedArray.push(Object.values(item).join())
-    })
     if (cartOrders.length === 0) {
       setCartOrders([currentProductID])
       return

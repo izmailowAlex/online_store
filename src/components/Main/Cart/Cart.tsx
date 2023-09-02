@@ -10,6 +10,7 @@ import './Cart.css'
 function Cart (): JSX.Element {
   const [popupWindow, setPopupWindow] = useState(false)
   const { productsLibrary, cartOrders, setCartOrders, cartOrderedArray } = useContext(AppContext)
+  console.log(cartOrderedArray)
 
   function handleDeleteProduct (id: string): void {
     setCartOrders(cartOrders.filter(item => item.id !== id))
@@ -42,8 +43,13 @@ function Cart (): JSX.Element {
                     </span>
                   </div>
                   <ul className="cart__list">
-                    {productsLibrary.map((order) => {
-                      return (cartOrderedArray.includes(order.id) && (
+                    {productsLibrary.filter((product) => {
+                      if (cartOrderedArray.includes(product.id)) {
+                        return true
+                      }
+                      return false
+                    }).map((order) => {
+                      return (
                         <Product
                           key={order.id}
                           name={order.title}
@@ -54,7 +60,7 @@ function Cart (): JSX.Element {
                           max={order.max}
                           onClick={() => { handleDeleteProduct(order.id) }}
                         />
-                      ))
+                      )
                     })}
                   </ul>
                 </>)
