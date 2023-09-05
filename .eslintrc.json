@@ -19,6 +19,7 @@
   "plugins": ["react"],
   "rules": {
     "@typescript-eslint/no-dynamic-delete": "off",
+    "@typescript-eslint/ban-types": "error",
     "no-empty-function": "off",
     "@typescript-eslint/no-empty-function": "off",
     "comma-dangle": "off",

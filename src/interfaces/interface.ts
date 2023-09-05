@@ -30,12 +30,12 @@ export interface ICounterProps {
 
 export interface ICardProps {
   product: IProduct
-  onClick: (productID: string) => void
+  handleAddToCart: (productID: string) => void
 }
 
-export interface ICartOrdered {
+export interface ICartOrders {
   id: string
-  ordered?: number
+  order?: number
 }
 
 export interface IProduct {
@@ -91,10 +91,8 @@ export interface IDualslider {
 
 export interface IAppContext {
   productsLibrary: IProduct[]
-  cartOrders: ICartOrdered[]
-  setCartOrders: Dispatch<SetStateAction<ICartOrdered[]>>
-  cartOrderedArray: string[]
-  setCardOrderedArray: Dispatch<SetStateAction<string[]>>
+  cartOrders: ICartOrders[]
+  setCartOrders: React.Dispatch<React.SetStateAction<ICartOrders[]>>
   cartCount: number
   setCartCount: Dispatch<SetStateAction<number>>
 }

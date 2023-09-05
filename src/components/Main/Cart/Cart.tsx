@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState } from 'react'
 import { AppContext } from '../../../App'
 import Button from '../../UI/Button/Button'
 import Input from '../../UI/Input/Input'
@@ -9,12 +9,10 @@ import './Cart.css'
 
 function Cart (): JSX.Element {
   const [popupWindow, setPopupWindow] = useState(false)
-  const { productsLibrary, cartOrders, setCartOrders, cartOrderedArray } = useContext(AppContext)
+  const { productsLibrary, cartOrders, setCartOrders } = useContext(AppContext)
 
   function handleDeleteProduct (id: string): void {
     setCartOrders(cartOrders.filter(item => item.id !== id))
-    const index = cartOrderedArray.indexOf(id)
-    cartOrderedArray.splice(index, 1)
   }
 
   function clearAllOrders (): void {
@@ -45,7 +43,8 @@ function Cart (): JSX.Element {
                   </div>
                   <ul className="cart__list">
                     {productsLibrary.filter((product) => {
-                      if (cartOrderedArray.includes(product.id)) {
+                      const newProduct = cartOrders.find(item => item.id === product.id)
+                      if (newProduct !== undefined) {
                         return true
                       }
                       return false

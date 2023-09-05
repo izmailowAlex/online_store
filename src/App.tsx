@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
-import { IAppContext, IProduct, ICartOrdered } from './interfaces/interface'
+import { IAppContext, IProduct } from './interfaces/interface'
+import useLocalStorage from './hooks/useLocalStorage'
 import data from './data'
 import Header from './components/Header/Header'
 import Main from './components/Main/Main'
@@ -11,17 +12,15 @@ export const AppContext = React.createContext<IAppContext>({
   productsLibrary: [],
   cartOrders: [],
   setCartOrders: () => undefined,
-  cartOrderedArray: [],
-  setCardOrderedArray: () => undefined,
   cartCount: 0,
   setCartCount: () => undefined
 })
 
 function App (): JSX.Element {
   const [productsLibrary] = useState<IProduct[]>(data)
-  const [cartOrders, setCartOrders] = useState([] as ICartOrdered[])
+  const [cartOrders, setCartOrders] = useLocalStorage([], 'cartOrders')
   const [cartCount, setCartCount] = useState<number>(0)
-  const [cartOrderedArray, setCardOrderedArray] = useState<string[]>([])
+  console.log(cartOrders)
 
   useEffect(() => {
     setCartCount(cartOrders.length)
@@ -29,7 +28,14 @@ function App (): JSX.Element {
 
   return (
     <div className="balloon">
-      <AppContext.Provider value={{ productsLibrary, cartOrders, setCartOrders, cartOrderedArray, setCardOrderedArray, cartCount, setCartCount }}>
+      <AppContext.Provider
+        value={{
+          productsLibrary,
+          cartOrders,
+          setCartOrders,
+          cartCount,
+          setCartCount
+        }}>
         <Router>
           <Header />
           <Main />

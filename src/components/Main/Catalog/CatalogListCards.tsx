@@ -1,25 +1,21 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { AppContext } from '../../../App'
-import { ICartOrdered } from '../../../interfaces/interface'
+import { ICartOrders } from '../../../interfaces/interface'
 import { CatalogContext } from './Catalog'
 import Card from './Card/Card'
 
 function CatalogListCards (): JSX.Element {
-  const { cartOrders, setCartOrders, cartOrderedArray, setCardOrderedArray } = useContext(AppContext)
+  const { cartOrders, setCartOrders } = useContext(AppContext)
   const { filteredList } = useContext(CatalogContext)
-  useEffect(() => {
-    cartOrders.forEach((item) => {
-      setCardOrderedArray([...cartOrderedArray, ...[Object.values(item).join()]])
-    })
-  }, [cartOrders])
   function handleAddToCart (productID: string): void {
     const currentProductID = { id: productID }
-    const tempCartOrderedItems: ICartOrdered[] = [...cartOrders]
+    const tempCartOrderedItems: ICartOrders[] = [...cartOrders]
+    const newProduct = cartOrders.find(item => item.id === productID)
     if (cartOrders.length === 0) {
       setCartOrders([currentProductID])
       return
     } else {
-      if (cartOrderedArray.includes(productID)) {
+      if (newProduct !== undefined) {
         return
       } else {
         tempCartOrderedItems.push(currentProductID)
@@ -31,7 +27,7 @@ function CatalogListCards (): JSX.Element {
   return (
     <div className="catalog-list">
       {filteredList.map((product, index) => {
-        return <Card key={index} product={product} onClick={handleAddToCart} />
+        return <Card key={index} product={product} handleAddToCart={handleAddToCart} />
       })}
     </div>
   )
