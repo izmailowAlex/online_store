@@ -22,7 +22,6 @@ function App (): JSX.Element {
   const [cartCount, setCartCount] = useState<number>(0)
 
   useEffect(() => {
-    console.log(cartOrders)
     setCartCount(cartOrders.length)
   }, [cartOrders])
 

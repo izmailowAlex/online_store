@@ -32,7 +32,20 @@ function Card ({ product, handleAddToCart }: ICardProps): JSX.Element {
           max={product.max}
           changeCartOrdersContain={changeCartOrdersContain}
         />
-        <button className="card__button" onClick={() => { handleAddToCart(product.id, val) }}></button>
+        <button
+          className="card__button"
+          onClick={() => {
+            handleAddToCart(
+              product.id,
+              product.title,
+              product.image,
+              product.price,
+              product.min,
+              product.max,
+              val
+            )
+          }}
+        ></button>
       </div>
     </div>
   )

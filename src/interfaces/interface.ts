@@ -32,11 +32,24 @@ export interface ICounterProps {
 
 export interface ICardProps {
   product: IProduct
-  handleAddToCart: (productID: string, val: number) => void
+  handleAddToCart: (
+    productID: string,
+    title: string,
+    image: string,
+    price: number,
+    min: number,
+    max: number,
+    val: number
+  ) => void
 }
 
 export interface ICartOrders {
   id: string
+  title: string
+  image: string
+  price: number
+  min: number
+  max: number
   order: number
 }
 

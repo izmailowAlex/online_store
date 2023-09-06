@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { AppContext } from '../../../App'
 import { ICartOrders } from '../../../interfaces/interface'
@@ -9,20 +9,31 @@ import './ProductView.css'
 function ProductView (): JSX.Element {
   const productItem = useParams()
   const { productsLibrary, cartOrders, setCartOrders } = useContext(AppContext)
-  const [val, setVal] = useState(0)
-
+  const [prodValue, setProdValue] = useState(0)
+  const tempProductItem = { image: '', title: '', price: 0, min: 0, max: 0 }
   const currentProduct = productsLibrary.find(
     (item) => item.id === productItem.id
   )
-  function changeCartOrdersContain (currentOrderId: string, currentOrderVal: number): void {
-    setVal(currentOrderVal)
+  if (currentProduct !== undefined) {
+    tempProductItem.image = currentProduct.image
+    tempProductItem.title = currentProduct.title
+    tempProductItem.price = currentProduct.price
+    tempProductItem.min = currentProduct.min
+    tempProductItem.max = currentProduct.max
   }
-  useEffect(() => {
-    console.log(cartOrders)
-  }, [cartOrders])
+  function changeCartOrdersContain (currentOrderId: string, currentOrderVal: number): void {
+    setProdValue(currentOrderVal)
+  }
   function handleAddToCart (orderId: string): void {
-    console.log(orderId)
-    const currentProductOrder = { id: orderId, order: val }
+    const currentProductOrder = {
+      id: orderId,
+      image: tempProductItem.image,
+      title: tempProductItem.title,
+      price: tempProductItem.price,
+      min: tempProductItem.min,
+      max: tempProductItem.max,
+      order: prodValue
+    }
     const tempCartOrderedItems: ICartOrders[] = [...cartOrders]
     const newProduct = cartOrders.find(item => item.id === orderId)
     if (cartOrders.length === 0) {

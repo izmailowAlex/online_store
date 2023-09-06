@@ -13,7 +13,6 @@ function Cart (): JSX.Element {
 
   function handleDeleteProduct (id: string): void {
     setCartOrders(cartOrders.filter(item => item.id !== id))
-    console.log(cartOrders)
   }
 
   function clearAllOrders (): void {
@@ -48,12 +47,12 @@ function Cart (): JSX.Element {
                         <Product
                           key={order.id}
                           id={order.id}
-                          name={'order.title'}
-                          image={'order.image'}
-                          price={67}
+                          name={order.title}
+                          image={order.image}
+                          price={order.price}
                           count={order.order}
-                          min={2}
-                          max={100}
+                          min={order.min}
+                          max={order.max}
                           onClick={() => { handleDeleteProduct(order.id) }}
                         />
                       )

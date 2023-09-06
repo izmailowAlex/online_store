@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { AppContext } from '../../../App'
 import { IProductProps, ICartOrders } from '../../../interfaces/interface'
 import Checkbox from '../../UI/Checkbox/Checkbox'
@@ -15,12 +15,8 @@ function Product ({ id, image, name, price, count, min, max, onClick }: IProduct
       }
       tempNewArray.push(item)
     })
-    console.log(tempNewArray)
     setCartOrders([...tempNewArray])
   }
-  useEffect(() => {
-    console.log(cartOrders)
-  }, [cartOrders])
   return (
     <div className="product">
       <span className="product__checkbox">

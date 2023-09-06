@@ -7,10 +7,24 @@ import Card from './Card/Card'
 function CatalogListCards (): JSX.Element {
   const { cartOrders, setCartOrders } = useContext(AppContext)
   const { filteredList } = useContext(CatalogContext)
-  function handleAddToCart (orderId: string, val: number): void {
+  function handleAddToCart (
+    orderId: string,
+    orderTitle: string,
+    orderImage: string,
+    orderPrice: number,
+    orderMin: number,
+    orderMax: number,
+    orderVal: number): void {
     const newProduct = cartOrders.find(item => item.id === orderId)
-    const currentProductOrder = { id: orderId, order: val }
-    console.log(currentProductOrder)
+    const currentProductOrder = {
+      id: orderId,
+      title: orderTitle,
+      image: orderImage,
+      price: orderPrice,
+      min: orderMin,
+      max: orderMax,
+      order: orderVal
+    }
     const tempCartOrderedItems: ICartOrders[] = [...cartOrders]
     if (cartOrders.length === 0) {
       setCartOrders([currentProductOrder])
