@@ -1,10 +1,14 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { ICounterProps } from '../../../interfaces/interface'
 import './Counter.css'
 
-function Counter ({ count, min, max }: ICounterProps): JSX.Element {
+function Counter ({ id, count, min, max, changeCartOrdersContain }: ICounterProps): JSX.Element {
   const [currentVal, setCurrentVal] = useState(count)
   const inputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    changeCartOrdersContain(id, currentVal)
+  }, [currentVal])
 
   function increment (): void {
     let value: number = currentVal

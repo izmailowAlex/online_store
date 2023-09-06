@@ -1,10 +1,26 @@
-import React from 'react'
-import { IProductProps } from '../../../interfaces/interface'
+import React, { useContext, useEffect } from 'react'
+import { AppContext } from '../../../App'
+import { IProductProps, ICartOrders } from '../../../interfaces/interface'
 import Checkbox from '../../UI/Checkbox/Checkbox'
 import Counter from '../../UI/Counter/Counter'
 import './Product.css'
 
-function Product ({ image, name, price, count, min, max, onClick }: IProductProps): JSX.Element {
+function Product ({ id, image, name, price, count, min, max, onClick }: IProductProps): JSX.Element {
+  const { cartOrders, setCartOrders } = useContext(AppContext)
+  function changeCartOrdersContain (currentOrderId: string, currentOrderVal: number): void {
+    const tempNewArray: ICartOrders[] = []
+    cartOrders.forEach((item) => {
+      if (item.id === currentOrderId) {
+        item.order = currentOrderVal
+      }
+      tempNewArray.push(item)
+    })
+    console.log(tempNewArray)
+    setCartOrders([...tempNewArray])
+  }
+  useEffect(() => {
+    console.log(cartOrders)
+  }, [cartOrders])
   return (
     <div className="product">
       <span className="product__checkbox">
@@ -14,7 +30,7 @@ function Product ({ image, name, price, count, min, max, onClick }: IProductProp
       <span className="product__name">{name}</span>
       <span className="product__price">{price}</span>
       <span className="product__count">
-        <Counter count={count} min={min} max={max} />
+        <Counter id={id} count={count} min={min} max={max} changeCartOrdersContain={changeCartOrdersContain} />
       </span>
       <span className="product__amount">1000</span>
       <button className="product__remove" onClick={onClick}>

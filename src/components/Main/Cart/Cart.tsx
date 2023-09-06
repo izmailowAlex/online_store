@@ -9,10 +9,11 @@ import './Cart.css'
 
 function Cart (): JSX.Element {
   const [popupWindow, setPopupWindow] = useState(false)
-  const { productsLibrary, cartOrders, setCartOrders } = useContext(AppContext)
+  const { cartOrders, setCartOrders } = useContext(AppContext)
 
   function handleDeleteProduct (id: string): void {
     setCartOrders(cartOrders.filter(item => item.id !== id))
+    console.log(cartOrders)
   }
 
   function clearAllOrders (): void {
@@ -42,22 +43,17 @@ function Cart (): JSX.Element {
                     </span>
                   </div>
                   <ul className="cart__list">
-                    {productsLibrary.filter((product) => {
-                      const newProduct = cartOrders.find(item => item.id === product.id)
-                      if (newProduct !== undefined) {
-                        return true
-                      }
-                      return false
-                    }).map((order) => {
+                    {cartOrders.map((order) => {
                       return (
                         <Product
                           key={order.id}
-                          name={order.title}
-                          image={order.image}
-                          price={order.price}
-                          count={order.count}
-                          min={order.min}
-                          max={order.max}
+                          id={order.id}
+                          name={'order.title'}
+                          image={'order.image'}
+                          price={67}
+                          count={order.order}
+                          min={2}
+                          max={100}
                           onClick={() => { handleDeleteProduct(order.id) }}
                         />
                       )

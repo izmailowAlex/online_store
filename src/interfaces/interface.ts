@@ -23,19 +23,21 @@ export interface IButtonProps {
 }
 
 export interface ICounterProps {
+  id: string
   count: number
   min: number
   max: number
+  changeCartOrdersContain: (id: string, currentVal: number) => void
 }
 
 export interface ICardProps {
   product: IProduct
-  handleAddToCart: (productID: string) => void
+  handleAddToCart: (productID: string, val: number) => void
 }
 
 export interface ICartOrders {
   id: string
-  order?: number
+  order: number
 }
 
 export interface IProduct {
@@ -58,6 +60,7 @@ export interface IProduct {
 }
 
 export interface IProductProps {
+  id: string
   image: string
   name: string
   price: number

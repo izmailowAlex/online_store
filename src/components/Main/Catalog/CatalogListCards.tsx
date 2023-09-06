@@ -7,18 +7,19 @@ import Card from './Card/Card'
 function CatalogListCards (): JSX.Element {
   const { cartOrders, setCartOrders } = useContext(AppContext)
   const { filteredList } = useContext(CatalogContext)
-  function handleAddToCart (productID: string): void {
-    const currentProductID = { id: productID }
+  function handleAddToCart (orderId: string, val: number): void {
+    const newProduct = cartOrders.find(item => item.id === orderId)
+    const currentProductOrder = { id: orderId, order: val }
+    console.log(currentProductOrder)
     const tempCartOrderedItems: ICartOrders[] = [...cartOrders]
-    const newProduct = cartOrders.find(item => item.id === productID)
     if (cartOrders.length === 0) {
-      setCartOrders([currentProductID])
+      setCartOrders([currentProductOrder])
       return
     } else {
       if (newProduct !== undefined) {
         return
       } else {
-        tempCartOrderedItems.push(currentProductID)
+        tempCartOrderedItems.push(currentProductOrder)
       }
     }
     setCartOrders([...tempCartOrderedItems])
@@ -27,7 +28,11 @@ function CatalogListCards (): JSX.Element {
   return (
     <div className="catalog-list">
       {filteredList.map((product, index) => {
-        return <Card key={index} product={product} handleAddToCart={handleAddToCart} />
+        return <Card
+          key={index}
+          product={product}
+          handleAddToCart={handleAddToCart}
+        />
       })}
     </div>
   )

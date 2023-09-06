@@ -1,17 +1,42 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { AppContext } from '../../../App'
+import { ICartOrders } from '../../../interfaces/interface'
 import Counter from '../../UI/Counter/Counter'
 import Button from '../../UI/Button/Button'
 import './ProductView.css'
 
 function ProductView (): JSX.Element {
-  const productID = useParams()
+  const productItem = useParams()
+  const { productsLibrary, cartOrders, setCartOrders } = useContext(AppContext)
+  const [val, setVal] = useState(0)
 
-  const { productsLibrary } = useContext(AppContext)
   const currentProduct = productsLibrary.find(
-    (item) => item.id === productID.id
+    (item) => item.id === productItem.id
   )
+  function changeCartOrdersContain (currentOrderId: string, currentOrderVal: number): void {
+    setVal(currentOrderVal)
+  }
+  useEffect(() => {
+    console.log(cartOrders)
+  }, [cartOrders])
+  function handleAddToCart (orderId: string): void {
+    console.log(orderId)
+    const currentProductOrder = { id: orderId, order: val }
+    const tempCartOrderedItems: ICartOrders[] = [...cartOrders]
+    const newProduct = cartOrders.find(item => item.id === orderId)
+    if (cartOrders.length === 0) {
+      setCartOrders([currentProductOrder])
+      return
+    } else {
+      if (newProduct !== undefined) {
+        return
+      } else {
+        tempCartOrderedItems.push(currentProductOrder)
+      }
+    }
+    setCartOrders([...tempCartOrderedItems])
+  }
 
   return (
     <>{currentProduct !== undefined &&
@@ -42,10 +67,19 @@ function ProductView (): JSX.Element {
           </div>
           <div className="product-view__control-group">
             <span className="product-view__quantity">
-              <Counter count={currentProduct.count} min={currentProduct.min} max={currentProduct.max} />
+              <Counter
+                id={currentProduct.id}
+                count={currentProduct.count}
+                min={currentProduct.min}
+                max={currentProduct.max}
+                changeCartOrdersContain={changeCartOrdersContain}
+              />
             </span>
-            <Button className="product-view__to-cart-button">
-              В корзину
+            <Button
+              className="product-view__to-cart-button"
+              onClick={() => { handleAddToCart(currentProduct.id) }}
+              >
+                В корзину
             </Button>
           </div>
           <div className="product-view__description">

@@ -20,9 +20,9 @@ function App (): JSX.Element {
   const [productsLibrary] = useState<IProduct[]>(data)
   const [cartOrders, setCartOrders] = useLocalStorage([], 'cartOrders')
   const [cartCount, setCartCount] = useState<number>(0)
-  console.log(cartOrders)
 
   useEffect(() => {
+    console.log(cartOrders)
     setCartCount(cartOrders.length)
   }, [cartOrders])
 
