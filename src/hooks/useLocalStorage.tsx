@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { ICartOrders } from '../interfaces/interface'
-import { UseLocalStorageTuple } from '../types/types'
+import { UseLocalStorageTuple } from '../@types/types'
 
 function useLocalStorage (initialValue: [], key: string): UseLocalStorageTuple {
   const getValue = (): ICartOrders[] => {
