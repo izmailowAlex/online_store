@@ -13,6 +13,9 @@ function Actions (): JSX.Element {
   }, [cartOrders])
   function calcTotalPrice (): number {
     const total = cartOrders.reduce((total, item) => {
+      if (String(item.isOrder) === 'false') {
+        return total
+      }
       return total + (item.price * item.order)
     }, 0)
     return total

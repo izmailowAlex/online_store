@@ -8,9 +8,12 @@ import React, {
 import { To } from 'react-router-dom'
 
 export interface ICheckboxProps {
+  id?: string
   children?: string | undefined
   className?: string | undefined
+  isOrder?: boolean
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void
+  changeCartOrdersContain?: (id: string, currentVal?: number) => void
 }
 
 export type Callback<T> = (data?: T) => void
@@ -27,7 +30,11 @@ export interface ICounterProps {
   count: number
   min: number
   max: number
-  changeCartOrdersContain: (id: string, currentVal: number) => void
+  changeCartOrdersContain: (
+    id: string,
+    currentVal: number,
+    isOrder?: boolean
+  ) => void
 }
 
 export interface ICardProps {
@@ -51,6 +58,7 @@ export interface ICartOrders {
   min: number
   max: number
   order: number
+  isOrder: boolean
 }
 
 export interface IProduct {
@@ -80,6 +88,7 @@ export interface IProductProps {
   count: number
   min: number
   max: number
+  istatusOrder: boolean
   onClick: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
 }
 

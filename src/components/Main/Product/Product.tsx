@@ -1,17 +1,27 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../../../App'
 import { IProductProps, ICartOrders } from '../../../interfaces/interface'
 import Checkbox from '../../UI/Checkbox/Checkbox'
 import Counter from '../../UI/Counter/Counter'
 import './Product.css'
 
-function Product ({ id, image, name, price, count, min, max, onClick }: IProductProps): JSX.Element {
+function Product ({ id, image, name, price, count, min, max, istatusOrder, onClick }: IProductProps): JSX.Element {
   const { cartOrders, setCartOrders } = useContext(AppContext)
-  function changeCartOrdersContain (currentOrderId: string, currentOrderVal: number): void {
+  const [isOrder, setOrder] = useState<boolean>(istatusOrder)
+  function onChangeFlag (): void {
+    setOrder(!isOrder)
+  }
+  useEffect(() => {
+    console.log(cartOrders)
+  }, [cartOrders])
+  function changeCartOrdersContain (currentOrderId: string, currentOrderVal?: number): void {
     const tempNewArray: ICartOrders[] = []
     cartOrders.forEach((item) => {
       if (item.id === currentOrderId) {
-        item.order = currentOrderVal
+        if (currentOrderVal !== undefined) {
+          item.order = currentOrderVal
+        }
+        item.isOrder = isOrder
       }
       tempNewArray.push(item)
     })
@@ -20,7 +30,7 @@ function Product ({ id, image, name, price, count, min, max, onClick }: IProduct
   return (
     <div className="product">
       <span className="product__checkbox">
-        <Checkbox />
+        <Checkbox id={id} onChange={onChangeFlag} isOrder={isOrder} changeCartOrdersContain={changeCartOrdersContain} />
       </span>
       <img className="product__image" src={`../images/${image}`} alt="Product"></img>
       <span className="product__name">{name}</span>

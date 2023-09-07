@@ -23,7 +23,8 @@ function CatalogListCards (): JSX.Element {
       price: orderPrice,
       min: orderMin,
       max: orderMax,
-      order: orderVal
+      order: orderVal,
+      isOrder: false
     }
     const tempCartOrderedItems: ICartOrders[] = [...cartOrders]
     if (cartOrders.length === 0) {

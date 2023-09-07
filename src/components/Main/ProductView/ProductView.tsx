@@ -32,7 +32,8 @@ function ProductView (): JSX.Element {
       price: tempProductItem.price,
       min: tempProductItem.min,
       max: tempProductItem.max,
-      order: prodValue
+      order: prodValue,
+      isOrder: false
     }
     const tempCartOrderedItems: ICartOrders[] = [...cartOrders]
     const newProduct = cartOrders.find(item => item.id === orderId)

@@ -53,6 +53,7 @@ function Cart (): JSX.Element {
                           count={order.order}
                           min={order.min}
                           max={order.max}
+                          istatusOrder={order.isOrder}
                           onClick={() => { handleDeleteProduct(order.id) }}
                         />
                       )
