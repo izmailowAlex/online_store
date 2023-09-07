@@ -6,7 +6,7 @@ import './Card.css'
 
 function Card ({ product, handleAddToCart }: ICardProps): JSX.Element {
   const [val, setVal] = useState(1)
-  function changeCartOrdersContain (currentId: string, currentVal: number): void {
+  function changeCounterValue (currentId: string, currentVal: number): void {
     setVal(currentVal)
   }
   return (
@@ -30,7 +30,7 @@ function Card ({ product, handleAddToCart }: ICardProps): JSX.Element {
           count={val}
           min={product.min}
           max={product.max}
-          changeCartOrdersContain={changeCartOrdersContain}
+          changeCartOrdersContain={changeCounterValue}
         />
         <button
           className="card__button"
