@@ -11,19 +11,12 @@ import './App.css'
 export const AppContext = React.createContext<IAppContext>({
   productsLibrary: [],
   cartOrders: [],
-  setCartOrders: () => undefined,
-  cartCount: 0,
-  setCartCount: () => undefined
+  setCartOrders: () => undefined
 })
 
 function App (): JSX.Element {
   const [productsLibrary] = useState<IProduct[]>(data)
   const [cartOrders, setCartOrders] = useLocalStorage([], 'cartOrders')
-  const [cartCount, setCartCount] = useState<number>(0)
-
-  useEffect(() => {
-    setCartCount(cartOrders.length)
-  }, [cartOrders])
 
   return (
     <div className="balloon">
@@ -31,9 +24,7 @@ function App (): JSX.Element {
         value={{
           productsLibrary,
           cartOrders,
-          setCartOrders,
-          cartCount,
-          setCartCount
+          setCartOrders
         }}>
         <Router>
           <Header />

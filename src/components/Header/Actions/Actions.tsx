@@ -1,11 +1,22 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-
 import { AppContext } from '../../../App'
 import './Actions.css'
 
 function Actions (): JSX.Element {
-  const { cartCount } = useContext(AppContext)
+  const { cartOrders } = useContext(AppContext)
+  const [cartCount, setCartCount] = useState<number>(0)
+  const [price, setPrice] = useState(0)
+  useEffect(() => {
+    setCartCount(cartOrders.length)
+    setPrice(calcTotalPrice)
+  }, [cartOrders])
+  function calcTotalPrice (): number {
+    const total = cartOrders.reduce((total, item) => {
+      return total + (item.price * item.order)
+    }, 0)
+    return total
+  }
   return (
     <div className="actions-menu">
       <ul className="actions-menu__list">
@@ -26,7 +37,7 @@ function Actions (): JSX.Element {
               </svg>
             </span>
             <span className="actions-menu__quantity">{cartCount}</span>
-            <span className="actions-menu__amount">200</span>
+            <span className="actions-menu__amount">{price}</span>
           </Link>
         </li>
       </ul>

@@ -109,8 +109,6 @@ export interface IAppContext {
   productsLibrary: IProduct[]
   cartOrders: ICartOrders[]
   setCartOrders: React.Dispatch<React.SetStateAction<ICartOrders[]>>
-  cartCount: number
-  setCartCount: Dispatch<SetStateAction<number>>
 }
 
 export interface ICatalogContext {
