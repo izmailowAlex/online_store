@@ -21,6 +21,7 @@ export type Callback<T> = (data?: T) => void
 export interface IButtonProps {
   children: string
   className?: string
+  disabled?: boolean
   to?: To
   onClick?: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
 }
@@ -59,6 +60,7 @@ export interface ICartOrders {
   max: number
   order: number
   isOrder: boolean
+  isCart: boolean
 }
 
 export interface IProduct {

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { AppContext } from '../../../App'
-import { ICartOrders } from '../../../interfaces/interface'
 import { CatalogContext } from './Catalog'
+import { ICartOrders } from '../../../interfaces/interface'
 import Card from './Card/Card'
 
 function CatalogListCards (): JSX.Element {
@@ -24,7 +24,8 @@ function CatalogListCards (): JSX.Element {
       min: orderMin,
       max: orderMax,
       order: orderVal,
-      isOrder: false
+      isOrder: false,
+      isCart: true
     }
     const tempCartOrderedItems: ICartOrders[] = [...cartOrders]
     if (cartOrders.length === 0) {

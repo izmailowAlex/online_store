@@ -59,6 +59,7 @@
 .card-controls {
   display: flex;
   align-items: center;
+  text-align: center;
   justify-content: space-between;
   position: relative;
 }
@@ -100,4 +101,9 @@
 
 .card__button:hover:before {
   transform: scale(2.5);
+}
+
+.card-message {
+  display: flex;
+  margin: 0 auto;
 }

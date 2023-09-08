@@ -21,6 +21,11 @@ function ProductView (): JSX.Element {
     tempProductItem.min = currentProduct.min
     tempProductItem.max = currentProduct.max
   }
+  let productIsCart = false
+  const simileProductInCart = cartOrders.find(item => item.id === productItem.id)
+  if (simileProductInCart !== undefined) {
+    productIsCart = true
+  }
   function changeCartOrdersContain (currentOrderId: string, currentOrderVal: number): void {
     setProdValue(currentOrderVal)
   }
@@ -33,7 +38,8 @@ function ProductView (): JSX.Element {
       min: tempProductItem.min,
       max: tempProductItem.max,
       order: prodValue,
-      isOrder: false
+      isOrder: false,
+      isCart: true
     }
     const tempCartOrderedItems: ICartOrders[] = [...cartOrders]
     const newProduct = cartOrders.find(item => item.id === orderId)
@@ -89,9 +95,10 @@ function ProductView (): JSX.Element {
             </span>
             <Button
               className="product-view__to-cart-button"
+              disabled={productIsCart}
               onClick={() => { handleAddToCart(currentProduct.id) }}
               >
-                В корзину
+                {String(productIsCart) !== 'true' ? 'В корзину' : 'Товар в корзине'}
             </Button>
           </div>
           <div className="product-view__description">
