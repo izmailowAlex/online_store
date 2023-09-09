@@ -7,51 +7,49 @@ import DualSlider from '../../../UI/DualSlider/DualSlider'
 import './Filter.css'
 
 function Filter (): JSX.Element {
-  const [currentindex, setCurrentIndex] = useState(0)
+  const { productsLibrary } = useContext(AppContext)
+  const { setFilteredList } = useContext(CatalogContext)
   const [allCategories, setAllCategories] = useState<string[]>([])
   const [allTypes, setAllTypes] = useState<string[]>([])
   const [allColors, setAllColors] = useState<string[]>([])
-  const { productsLibrary } = useContext(AppContext)
-  const { setFilteredList } = useContext(CatalogContext)
+  const [minPrice, setMinPrice] = useState(0)
+  const [maxPrice, setMaxPrice] = useState(1000)
+  const [minAmount, setMinAmount] = useState(0)
+  const [maxAmount, setMaxAmount] = useState(10000)
+  const [currentindex, setCurrentIndex] = useState(0)
   const [filters, setFilters] = useState<IFilterCategories>({})
 
   useEffect(() => {
     if (productsLibrary.length > 0) {
       let typesTmp: string[] = []
+      let categoriesTmp: string[] = []
+      let colorsTmp: string[] = []
       productsLibrary.forEach((item: IProduct) => {
         typesTmp.push(item.type)
+        categoriesTmp.push(item.category)
+        colorsTmp.push(item.color)
       })
       typesTmp = typesTmp.filter((item, index, array) => {
         setCurrentIndex(index + 1)
         return array.indexOf(item) === index
       })
-      setAllTypes(typesTmp)
-
-      let categoriesTmp: string[] = []
-      productsLibrary.forEach((item: IProduct) => {
-        categoriesTmp.push(item.category)
-      })
       categoriesTmp = categoriesTmp.filter((item, index, array) => {
         setCurrentIndex(index + 1)
         return array.indexOf(item) === index
-      })
-      setAllCategories(categoriesTmp)
-
-      let colorsTmp: string[] = []
-      productsLibrary.forEach((item: IProduct) => {
-        colorsTmp.push(item.color)
       })
       colorsTmp = colorsTmp.filter((item, index, array) => {
         setCurrentIndex(index + 1)
         return array.indexOf(item) === index
       })
+      setAllTypes(typesTmp)
+      setAllCategories(categoriesTmp)
       setAllColors(colorsTmp)
     }
-  }, [currentindex, setCurrentIndex])
+  }, [currentindex])
 
   useEffect(() => {
     applyFilter()
-  }, [filters])
+  }, [filters, minPrice, maxPrice, minAmount, maxAmount])
 
   function onChangeHandler (event: ChangeEvent<HTMLInputElement>, item: string, key: keyof IFilterCategories): void {
     const tempFilters: IFilterCategories = { ...filters }
@@ -72,6 +70,71 @@ function Filter (): JSX.Element {
     setFilters({ ...tempFilters })
   }
 
+  function onChangeHandlerSlider (
+    id: string,
+    targetElem: HTMLInputElement,
+    max: number,
+    value: number,
+    limit: number
+  ): void {
+    let minPriceValue = minPrice
+    let maxPriceValue = maxPrice
+    let minAmountValue = minAmount
+    let maxAmountValue = maxAmount
+    switch (value !== undefined) {
+      case value > limit && id === 'price':
+        maxPriceValue = max
+        break
+      case value > limit && id === 'amount':
+        maxAmountValue = max
+        break
+      case value < minPriceValue &&
+      targetElem.parentElement?.className === 'input dualslider__max-value input_labeled' && id === 'price':
+        minPriceValue = value
+        maxPriceValue = value
+        break
+      case value < minAmountValue &&
+      targetElem.parentElement?.className === 'input dualslider__max-value input_labeled' && id === 'amount':
+        minAmountValue = value
+        maxAmountValue = value
+        break
+      case value > maxPriceValue &&
+      targetElem.parentElement?.className === 'input dualslider__min-value input_labeled' && id === 'price':
+        minPriceValue = value
+        maxPriceValue = value
+        break
+      case value > maxAmountValue &&
+      targetElem.parentElement?.className === 'input dualslider__min-value input_labeled' && id === 'amount':
+        minAmountValue = value
+        maxAmountValue = value
+        break
+      case (targetElem.className === 'dualslider__thumb dualslider__thumb_left' ||
+      targetElem.parentElement?.className === 'input dualslider__min-value input_labeled') &&
+      id === 'price':
+        minPriceValue = value
+        break
+      case (targetElem.className === 'dualslider__thumb dualslider__thumb_left' ||
+      targetElem.parentElement?.className === 'input dualslider__min-value input_labeled') &&
+      id === 'amount':
+        minAmountValue = value
+        break
+      case (targetElem.className === 'dualslider__thumb dualslider__thumb_right' ||
+      targetElem.parentElement?.className === 'input dualslider__max-value input_labeled') &&
+      id === 'price':
+        maxPriceValue = value
+        break
+      case (targetElem.className === 'dualslider__thumb dualslider__thumb_right' ||
+      targetElem.parentElement?.className === 'input dualslider__max-value input_labeled') &&
+      id === 'amount':
+        maxAmountValue = value
+        break
+    }
+    setMinPrice(minPriceValue)
+    setMaxPrice(maxPriceValue)
+    setMinAmount(minAmountValue)
+    setMaxAmount(maxAmountValue)
+  }
+
   function applyFilter (): void {
     const tempFilteredList = productsLibrary.filter((item) => {
       let key: keyof IFilterCategories
@@ -81,7 +144,9 @@ function Filter (): JSX.Element {
           return false
         }
       }
-      return true
+      if (item.price >= minPrice && item.price <= maxPrice && item.max >= minAmount && item.max <= maxAmount) {
+        return true
+      } else return false
     })
     setFilteredList([...tempFilteredList])
   }
@@ -149,14 +214,14 @@ function Filter (): JSX.Element {
           <span className="filter__block_category-title">Цена, ₽</span>
           <span className="filter__block_category-vector"></span>
         </div>
-        <DualSlider min={0} max={1000} />
+        <DualSlider id={'price'} min={0} max={1000} onChangeHandlerSlider={onChangeHandlerSlider} />
       </div>
       <div className="filter__block">
         <div className="filter__category">
           <span className="filter__block_category-title">Количество, шт</span>
           <span className="filter__block_category-vector"></span>
         </div>
-        <DualSlider min={0} max={10000} />
+        <DualSlider id={'amount'} min={0} max={10000} onChangeHandlerSlider={onChangeHandlerSlider} />
       </div>
     </div>
   )

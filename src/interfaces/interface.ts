@@ -111,9 +111,17 @@ export interface IInputProps {
   onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void
 }
 
-export interface IDualslider {
+export interface IDualsliderProps {
+  id: string
   min: number
   max: number
+  onChangeHandlerSlider: (
+    id: string,
+    targetElem: HTMLInputElement,
+    max: number,
+    value: number,
+    limit: number
+  ) => void
 }
 
 export interface IAppContext {

@@ -18,7 +18,7 @@ function Input (
     onChange,
     onFocus,
     onBlur,
-    onKeyDown
+    onKeyDown,
   }: IInputProps
 ): JSX.Element {
   let classname = 'input'

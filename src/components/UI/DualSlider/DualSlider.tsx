@@ -1,10 +1,10 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react'
-import { IDualslider } from '../../../interfaces/interface'
+import { IDualsliderProps } from '../../../interfaces/interface'
 
 import './DualSlider.css'
 import Input from '../Input/Input'
 
-function Dualslider ({ min, max }: IDualslider): JSX.Element {
+function Dualslider ({ id, min, max, onChangeHandlerSlider }: IDualsliderProps): JSX.Element {
   const [minVal, setMinVal] = useState(min)
   const [maxVal, setMaxVal] = useState(max)
   const range = useRef<HTMLDivElement>(null)
@@ -70,6 +70,7 @@ function Dualslider ({ min, max }: IDualslider): JSX.Element {
         onChange={(event) => {
           const value = Math.min(+event.target.value, +maxVal)
           changeMinValHandler(value)
+          onChangeHandlerSlider(id, event.target, maxVal, value, max)
         }}
       />
       <input
@@ -81,6 +82,7 @@ function Dualslider ({ min, max }: IDualslider): JSX.Element {
         onChange={(event) => {
           const value = Math.max(+event.target.value, +minVal)
           changeMaxValHandler(value)
+          onChangeHandlerSlider(id, event.target, maxVal, value, max)
         }}
       />
       <div className="dualslider__wrapper">
@@ -96,6 +98,7 @@ function Dualslider ({ min, max }: IDualslider): JSX.Element {
           }}
           onChange={(event) => {
             changeMinValHandler(Number(event.target.value))
+            onChangeHandlerSlider(id, event.target, maxVal, Number(event.target.value), max)
           }}
           onKeyDown={(event) => {
             handleKeyDown(event)
@@ -111,6 +114,7 @@ function Dualslider ({ min, max }: IDualslider): JSX.Element {
           }}
           onChange={(event) => {
             changeMaxValHandler(Number(event.target.value))
+            onChangeHandlerSlider(id, event.target, maxVal, Number(event.target.value), max)
           }}
           onKeyDown={(event) => {
             handleKeyDown(event)
