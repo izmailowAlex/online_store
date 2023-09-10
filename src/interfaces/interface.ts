@@ -127,7 +127,7 @@ export interface IDualsliderProps {
 export interface IAppContext {
   productsLibrary: IProduct[]
   cartOrders: ICartOrders[]
-  setCartOrders: React.Dispatch<React.SetStateAction<ICartOrders[]>>
+  setCartOrders: Dispatch<SetStateAction<ICartOrders[]>>
 }
 
 export interface ICatalogContext {
@@ -142,5 +142,5 @@ export interface IFilterCategories {
 }
 
 export interface ICheckoutProps {
-  setPopupWindow: React.Dispatch<React.SetStateAction<boolean>>
+  setPopupWindow: Dispatch<SetStateAction<boolean>>
 }

@@ -8,8 +8,8 @@ import Checkout from '../Checkout/Checkout'
 import './Cart.css'
 
 function Cart (): JSX.Element {
-  const [popupWindow, setPopupWindow] = useState(false)
   const { cartOrders, setCartOrders } = useContext(AppContext)
+  const [popupWindow, setPopupWindow] = useState<boolean>(false)
 
   function handleDeleteProduct (id: string): void {
     setCartOrders(cartOrders.filter(item => item.id !== id))
@@ -83,7 +83,7 @@ function Cart (): JSX.Element {
           </Button>
         </div>
       </div>
-      {popupWindow ? <Checkout setPopupWindow={setPopupWindow} /> : ''}
+      {String(popupWindow) !== 'false' ? <Checkout setPopupWindow={setPopupWindow} /> : ''}
     </div>
   )
 }
