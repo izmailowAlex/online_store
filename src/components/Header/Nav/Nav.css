@@ -6,8 +6,8 @@
 
 .nav__link {
   font-family: "Nunito Sans", Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 900;
   text-decoration: none;
   color: var(--base-color);
   transition: color 0.3s ease-in-out;
