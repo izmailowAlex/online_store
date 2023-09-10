@@ -66,4 +66,4 @@ function Card ({ product, handleAddToCart }: ICardProps): JSX.Element {
   )
 }
 
-export default React.memo(Card)
+export default Card

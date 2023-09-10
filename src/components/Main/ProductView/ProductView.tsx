@@ -7,12 +7,12 @@ import Button from '../../UI/Button/Button'
 import './ProductView.css'
 
 function ProductView (): JSX.Element {
-  const productItem = useParams()
+  const productItemPath = useParams()
   const { productsLibrary, cartOrders, setCartOrders } = useContext(AppContext)
   const [prodValue, setProdValue] = useState(0)
   const tempProductItem = { image: '', title: '', price: 0, min: 0, max: 0 }
   const currentProduct = productsLibrary.find(
-    (item) => item.id === productItem.id
+    (item) => item.id === productItemPath.id
   )
   if (currentProduct !== undefined) {
     tempProductItem.image = currentProduct.image
@@ -22,7 +22,7 @@ function ProductView (): JSX.Element {
     tempProductItem.max = currentProduct.max
   }
   let productIsCart = false
-  const simileProductInCart = cartOrders.find(item => item.id === productItem.id)
+  const simileProductInCart = cartOrders.find(item => item.id === productItemPath.id)
   if (simileProductInCart !== undefined) {
     productIsCart = true
   }
