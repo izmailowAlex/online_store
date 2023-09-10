@@ -18,7 +18,7 @@ function Home (): JSX.Element {
         <p className="home__description">
           Воздушные шары на любой праздник. Доставляйте радость с нами!
         </p>
-        <Button to="/catalog">Смотреть каталог</Button>
+        <Button to="/catalog/">Смотреть каталог</Button>
       </div>
     </div>
   )
