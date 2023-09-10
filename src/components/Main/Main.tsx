@@ -16,7 +16,7 @@ function Main (): JSX.Element {
           <Route path="/" element={<Home />} />
           <Route path="/catalog/" element={<Catalog />} />
           <Route path="/productview/:id" element={<ProductView />} />
-          <Route path="/page404/" element={<Page404 />} />
+          <Route path="*" element={<Page404 />} />
           <Route path="/cart/" element={<Cart />} />
         </Routes>
       </div>
