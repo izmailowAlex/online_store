@@ -24,7 +24,7 @@ function Actions (): JSX.Element {
     <div className="actions-menu">
       <ul className="actions-menu__list">
         <li className="actions-menu__item">
-          <Link to="/search/" className="actions-menu__link">
+          <Link to="/search" className="actions-menu__link">
             <span className="icon">
               <svg className="icon__svg">
                 <use href="#search"></use>
@@ -33,7 +33,7 @@ function Actions (): JSX.Element {
           </Link>
         </li>
         <li className="actions-menu__item">
-          <Link to="/cart/" className="actions-menu__link">
+          <Link to="/cart" className="actions-menu__link">
             <span className="icon">
               <svg className="icon__svg">
                 <use href="#bag"></use>

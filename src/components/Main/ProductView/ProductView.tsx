@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 import { AppContext } from '../../../App'
 import { ICartOrders } from '../../../interfaces/interface'
 import Counter from '../../UI/Counter/Counter'
@@ -7,13 +7,19 @@ import Button from '../../UI/Button/Button'
 import './ProductView.css'
 
 function ProductView (): JSX.Element {
-  const productItemPath = useParams()
+  const { id } = useParams()
+  const navigate = useNavigate()
   const { productsLibrary, cartOrders, setCartOrders } = useContext(AppContext)
   const [prodValue, setProdValue] = useState(0)
   const tempProductItem = { image: '', title: '', price: 0, min: 0, max: 0 }
   const currentProduct = productsLibrary.find(
-    (item) => item.id === productItemPath.id
+    (item) => item.id === id
   )
+  useEffect(() => {
+    if (currentProduct === undefined) {
+      navigate('/pagenotfound')
+    }
+  }, [id])
   if (currentProduct !== undefined) {
     tempProductItem.image = currentProduct.image
     tempProductItem.title = currentProduct.title
@@ -22,7 +28,7 @@ function ProductView (): JSX.Element {
     tempProductItem.max = currentProduct.max
   }
   let productIsCart = false
-  const simileProductInCart = cartOrders.find(item => item.id === productItemPath.id)
+  const simileProductInCart = cartOrders.find(item => item.id === id)
   if (simileProductInCart !== undefined) {
     productIsCart = true
   }
@@ -99,7 +105,7 @@ function ProductView (): JSX.Element {
                 disabled={productIsCart}
                 onClick={() => { handleAddToCart(currentProduct.id) }}
                 >
-                  {String(productIsCart) !== 'true' ? 'В корзину' : 'Товар в корзине'}
+                {String(productIsCart) !== 'true' ? 'В корзину' : 'Товар в корзине'}
               </Button>
             </div>
             <div className="product-view__description">
