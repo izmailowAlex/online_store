@@ -126,13 +126,10 @@ export interface IDualsliderProps {
 
 export interface IAppContext {
   productsLibrary: IProduct[]
-  cartOrders: ICartOrders[]
-  setCartOrders: Dispatch<SetStateAction<ICartOrders[]>>
-}
-
-export interface ICatalogContext {
   filteredList: IProduct[]
   setFilteredList: Dispatch<SetStateAction<IProduct[]>>
+  cartOrders: ICartOrders[]
+  setCartOrders: Dispatch<SetStateAction<ICartOrders[]>>
 }
 
 export interface IFilterCategories {

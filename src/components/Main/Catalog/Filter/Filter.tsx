@@ -1,14 +1,12 @@
 import React, { ChangeEvent, useContext, useEffect, useState } from 'react'
 import { IProduct, IFilterCategories } from '../../../../interfaces/interface'
 import { AppContext } from '../../../../App'
-import { CatalogContext } from '../Catalog'
 import Checkbox from '../../../UI/Checkbox/Checkbox'
 import DualSlider from '../../../UI/DualSlider/DualSlider'
 import './Filter.css'
 
 function Filter (): JSX.Element {
-  const { productsLibrary } = useContext(AppContext)
-  const { setFilteredList } = useContext(CatalogContext)
+  const { productsLibrary, setFilteredList } = useContext(AppContext)
   const [allCategories, setAllCategories] = useState<string[]>([])
   const [allTypes, setAllTypes] = useState<string[]>([])
   const [allColors, setAllColors] = useState<string[]>([])

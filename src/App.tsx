@@ -10,12 +10,15 @@ import './App.css'
 
 export const AppContext = React.createContext<IAppContext>({
   productsLibrary: [],
+  filteredList: [],
+  setFilteredList: () => undefined,
   cartOrders: [],
   setCartOrders: () => undefined
 })
 
 function App (): JSX.Element {
   const [productsLibrary] = useState<IProduct[]>(data)
+  const [filteredList, setFilteredList] = useState<IProduct[]>(productsLibrary)
   const [cartOrders, setCartOrders] = useLocalStorage([], 'cartOrders')
 
   return (
@@ -23,6 +26,8 @@ function App (): JSX.Element {
       <AppContext.Provider
         value={{
           productsLibrary,
+          filteredList,
+          setFilteredList,
           cartOrders,
           setCartOrders
         }}>

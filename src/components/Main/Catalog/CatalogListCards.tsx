@@ -1,12 +1,10 @@
 import React, { useContext } from 'react'
 import { AppContext } from '../../../App'
-import { CatalogContext } from './Catalog'
 import { ICartOrders } from '../../../interfaces/interface'
 import Card from './Card/Card'
 
 function CatalogListCards (): JSX.Element {
-  const { cartOrders, setCartOrders } = useContext(AppContext)
-  const { filteredList } = useContext(CatalogContext)
+  const { filteredList, cartOrders, setCartOrders } = useContext(AppContext)
   function handleAddToCart (
     orderId: string,
     orderTitle: string,
