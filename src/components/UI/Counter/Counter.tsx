@@ -2,12 +2,12 @@ import React, { useState, useRef, useEffect } from 'react'
 import { ICounterProps } from '../../../interfaces/interface'
 import './Counter.css'
 
-function Counter ({ id, count, min, max, changeCartOrdersContain }: ICounterProps): JSX.Element {
+function Counter ({ id, count, min, balance, setBalance, changeCartOrdersContain }: ICounterProps): JSX.Element {
   const [currentVal, setCurrentVal] = useState(count)
   const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    changeCartOrdersContain(id, currentVal)
+    changeCartOrdersContain(id, currentVal, balance)
   }, [currentVal])
 
   function increment (): void {
@@ -15,6 +15,9 @@ function Counter ({ id, count, min, max, changeCartOrdersContain }: ICounterProp
     value = value + 1
     if (isRange(value)) {
       setCurrentVal(value)
+      if (setBalance !== undefined) {
+        setBalance(balance - 1)
+      }
     }
   }
 
@@ -23,6 +26,9 @@ function Counter ({ id, count, min, max, changeCartOrdersContain }: ICounterProp
     value = value - 1
     if (isRange(value)) {
       setCurrentVal(value)
+      if (setBalance !== undefined) {
+        setBalance(balance + 1)
+      }
     }
   }
 
@@ -47,7 +53,7 @@ function Counter ({ id, count, min, max, changeCartOrdersContain }: ICounterProp
   }
 
   function isRange (value: number): boolean {
-    return value >= min && value <= max
+    return value >= min && value <= balance
   }
 
   return (

@@ -20,7 +20,7 @@ function CatalogListCards (): JSX.Element {
       image: orderImage,
       price: orderPrice,
       min: orderMin,
-      max: orderMax,
+      max: orderMax - orderVal,
       order: orderVal,
       isOrder: false,
       isCart: true

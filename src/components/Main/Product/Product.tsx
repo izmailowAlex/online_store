@@ -7,16 +7,20 @@ import './Product.css'
 
 function Product ({ id, image, name, price, count, min, max, istatusOrder, onClick }: IProductProps): JSX.Element {
   const { cartOrders, setCartOrders } = useContext(AppContext)
+  const [currentBalance, setCurrentBalance] = useState(max)
   const [isOrder, setOrder] = useState<boolean>(istatusOrder)
   function onChangeFlag (): void {
     setOrder(!isOrder)
   }
-  function changeCartOrdersContain (currentOrderId: string, currentOrderVal?: number): void {
+  function changeCartOrdersContain (currentOrderId: string, currentOrderVal?: number, balance?: number): void {
     const tempNewArray: ICartOrders[] = []
     cartOrders.forEach((item) => {
       if (item.id === currentOrderId) {
         if (currentOrderVal !== undefined) {
           item.order = currentOrderVal
+        }
+        if (balance !== undefined) {
+          item.max = balance
         }
         item.isOrder = isOrder
       }
@@ -33,9 +37,9 @@ function Product ({ id, image, name, price, count, min, max, istatusOrder, onCli
       <span className="product__name">{name}</span>
       <span className="product__price">{price}</span>
       <span className="product__count">
-        <Counter id={id} count={count} min={min} max={max} changeCartOrdersContain={changeCartOrdersContain} />
+        <Counter id={id} count={count} min={min} balance={currentBalance} setBalance={setCurrentBalance} changeCartOrdersContain={changeCartOrdersContain} />
       </span>
-      <span className="product__amount">{max}</span>
+      <span className="product__amount">{currentBalance}</span>
       <button className="product__remove" onClick={onClick}>
         <span className="icon">
           <svg className="icon__svg">

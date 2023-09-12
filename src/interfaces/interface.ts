@@ -30,10 +30,12 @@ export interface ICounterProps {
   id: string
   count: number
   min: number
-  max: number
+  balance: number
+  setBalance?: Dispatch<SetStateAction<number>>
   changeCartOrdersContain: (
     id: string,
     currentVal: number,
+    balance: number,
     isOrder?: boolean
   ) => void
 }

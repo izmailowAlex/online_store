@@ -10,7 +10,6 @@ import './Cart.css'
 function Cart (): JSX.Element {
   const { cartOrders, setCartOrders, price } = useContext(AppContext)
   const [popupWindow, setPopupWindow] = useState<boolean>(false)
-
   function handleDeleteProduct (id: string): void {
     setCartOrders(cartOrders.filter(item => item.id !== id))
   }

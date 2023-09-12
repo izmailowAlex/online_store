@@ -39,7 +39,7 @@ function Card ({ product, handleAddToCart }: ICardProps): JSX.Element {
                 id={product.id}
                 count={val}
                 min={product.min}
-                max={product.max}
+                balance={product.max}
                 changeCartOrdersContain={changeCounterValue}
               />
               <button

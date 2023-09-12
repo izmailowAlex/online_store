@@ -96,7 +96,7 @@ function ProductView (): JSX.Element {
                   id={currentProduct.id}
                   count={currentProduct.count}
                   min={currentProduct.min}
-                  max={currentProduct.max}
+                  balance={currentProduct.max}
                   changeCartOrdersContain={changeCartOrdersContain}
                 />
               </span>
