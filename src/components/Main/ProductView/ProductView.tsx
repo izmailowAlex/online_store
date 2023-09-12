@@ -11,6 +11,7 @@ function ProductView (): JSX.Element {
   const navigate = useNavigate()
   const { productsLibrary, cartOrders, setCartOrders } = useContext(AppContext)
   const [prodValue, setProdValue] = useState(0)
+  const [currentBalance, setCurrentBalance] = useState(0)
   const tempProductItem = { image: '', title: '', price: 0, min: 0, max: 0 }
   const currentProduct = productsLibrary.find(
     (item) => item.id === id
@@ -32,8 +33,9 @@ function ProductView (): JSX.Element {
   if (simileProductInCart !== undefined) {
     productIsCart = true
   }
-  function changeCartOrdersContain (currentOrderId: string, currentOrderVal: number): void {
+  function changeCartOrdersContain (currentOrderId: string, currentOrderVal: number, balance: number): void {
     setProdValue(currentOrderVal)
+    setCurrentBalance(balance)
   }
   function handleAddToCart (orderId: string): void {
     const currentProductOrder = {
@@ -42,7 +44,7 @@ function ProductView (): JSX.Element {
       title: tempProductItem.title,
       price: tempProductItem.price,
       min: tempProductItem.min,
-      max: tempProductItem.max,
+      max: currentBalance - prodValue,
       order: prodValue,
       isOrder: false,
       isCart: true
