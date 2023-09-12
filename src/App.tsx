@@ -12,6 +12,8 @@ export const AppContext = React.createContext<IAppContext>({
   productsLibrary: [],
   filteredList: [],
   setFilteredList: () => undefined,
+  searchList: [],
+  setSearchList: () => undefined,
   cartOrders: [],
   setCartOrders: () => undefined
 })
@@ -19,6 +21,7 @@ export const AppContext = React.createContext<IAppContext>({
 function App (): JSX.Element {
   const [productsLibrary] = useState<IProduct[]>(data)
   const [filteredList, setFilteredList] = useState<IProduct[]>(productsLibrary)
+  const [searchList, setSearchList] = useState<IProduct[]>(productsLibrary)
   const [cartOrders, setCartOrders] = useLocalStorage([], 'cartOrders')
 
   return (
@@ -28,6 +31,8 @@ function App (): JSX.Element {
           productsLibrary,
           filteredList,
           setFilteredList,
+          searchList,
+          setSearchList,
           cartOrders,
           setCartOrders
         }}>

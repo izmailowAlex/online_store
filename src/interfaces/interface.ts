@@ -128,6 +128,8 @@ export interface IAppContext {
   productsLibrary: IProduct[]
   filteredList: IProduct[]
   setFilteredList: Dispatch<SetStateAction<IProduct[]>>
+  searchList: IProduct[]
+  setSearchList: Dispatch<SetStateAction<IProduct[]>>
   cartOrders: ICartOrders[]
   setCartOrders: Dispatch<SetStateAction<ICartOrders[]>>
 }

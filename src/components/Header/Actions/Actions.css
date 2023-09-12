@@ -8,17 +8,18 @@
   height: 20px;
 }
 
+.actions-menu__item:hover .icon,
+.actions-menu__item:hover .search-icon,
+.actions-menu__item:hover .actions-menu__amount {
+  color: var(--secondary-color);
+}
+
 .actions-menu__link {
   position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
   text-decoration: none;
-}
-
-.actions-menu__link:hover .icon,
-.actions-menu__link:hover .actions-menu__amount {
-  color: var(--secondary-color);
 }
 
 .actions-menu__quantity {

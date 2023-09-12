@@ -1,24 +1,62 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState, useRef } from 'react'
+import { useLocation } from 'react-router-dom'
 import { AppContext } from '../../App'
 import './Search.css'
 
 function Search (): JSX.Element {
-  const { productsLibrary, setFilteredList } = useContext(AppContext)
+  const location = useLocation()
+  const { productsLibrary, setSearchList } = useContext(AppContext)
   const [value, setValue] = useState('')
+  const [isSearch, setIsSearch] = useState(true)
+  const inputRef = useRef() as React.MutableRefObject<HTMLInputElement | null>
   useEffect(() => {
     applyFilter()
   }, [value])
+  function handleKeyDown (event: React.KeyboardEvent<HTMLInputElement>): void {
+    if (event.key === 'Enter') {
+      inputRef.current?.blur()
+      setIsSearch(!isSearch)
+    }
+  }
+  function focusToInputElem (): void {
+    inputRef.current?.focus()
+    setValue('')
+    setIsSearch(false)
+  }
   function applyFilter (): void {
     const searchFilteredProducts = productsLibrary.filter((product) => {
       return product.title.toLowerCase().includes(value.toLowerCase())
     })
-    setFilteredList([...searchFilteredProducts])
+    setSearchList([...searchFilteredProducts])
   }
   return (
     <>
-      <div className="search">
-        <input className="search__input" type="text" onChange={(event) => { setValue(event.target.value) }} />
-      </div>
+      {location.pathname === '/catalog' && (
+        <div className="search">
+          <input
+            ref={inputRef}
+            className="search__input"
+            value={value}
+            type="text"
+            onChange={(event) => { setValue(event.target.value) }}
+            onKeyDown={(event) => { handleKeyDown(event) }}
+            onBlur={() => { setIsSearch(!isSearch) }}
+            onFocus={() => { setIsSearch(false) }}
+          />
+          {String(isSearch) !== 'false'
+            ? (
+            <>
+              <span className="search-icon" onClick={focusToInputElem}>
+                <svg className="icon__svg">
+                  <use href="#search"></use>
+                </svg>
+              </span>
+            </>)
+            : (
+            <></>)
+          }
+        </div>
+      )}
     </>
   )
 }

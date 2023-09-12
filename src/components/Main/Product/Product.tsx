@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { AppContext } from '../../../App'
 import { IProductProps, ICartOrders } from '../../../interfaces/interface'
 import Checkbox from '../../UI/Checkbox/Checkbox'
@@ -11,9 +11,6 @@ function Product ({ id, image, name, price, count, min, max, istatusOrder, onCli
   function onChangeFlag (): void {
     setOrder(!isOrder)
   }
-  useEffect(() => {
-    console.log(cartOrders)
-  }, [cartOrders])
   function changeCartOrdersContain (currentOrderId: string, currentOrderVal?: number): void {
     const tempNewArray: ICartOrders[] = []
     cartOrders.forEach((item) => {

@@ -6,7 +6,7 @@ import DualSlider from '../../../UI/DualSlider/DualSlider'
 import './Filter.css'
 
 function Filter (): JSX.Element {
-  const { productsLibrary, setFilteredList } = useContext(AppContext)
+  const { productsLibrary, setFilteredList, searchList } = useContext(AppContext)
   const [allCategories, setAllCategories] = useState<string[]>([])
   const [allTypes, setAllTypes] = useState<string[]>([])
   const [allColors, setAllColors] = useState<string[]>([])
@@ -47,7 +47,7 @@ function Filter (): JSX.Element {
 
   useEffect(() => {
     applyFilter()
-  }, [filters, minPrice, maxPrice, minAmount, maxAmount])
+  }, [filters, minPrice, maxPrice, minAmount, maxAmount, searchList])
 
   function onChangeHandler (event: ChangeEvent<HTMLInputElement>, item: string, key: keyof IFilterCategories): void {
     const tempFilters: IFilterCategories = { ...filters }
@@ -134,7 +134,7 @@ function Filter (): JSX.Element {
   }
 
   function applyFilter (): void {
-    const tempFilteredList = productsLibrary.filter((item) => {
+    const tempFilteredList = searchList.filter((item) => {
       let key: keyof IFilterCategories
       for (key in filters) {
         const includes = filters[key]?.includes(item[key])
