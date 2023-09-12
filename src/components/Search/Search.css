@@ -1,0 +1,15 @@
+.search__input {
+  height: 24px;
+  font-size: 16px;
+  font-weight: 600;
+  outline: none;
+  border-radius: 6px;
+  border: 1px solid var(--grey-color);
+  padding: 10px;
+  transition: box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.search__input:focus {
+  box-shadow: 0 0 0 2px var(--grey-dark-color);
+}
