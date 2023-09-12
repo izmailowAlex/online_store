@@ -5,9 +5,8 @@ import Search from '../../Search/Search'
 import './Actions.css'
 
 function Actions (): JSX.Element {
-  const { cartOrders } = useContext(AppContext)
+  const { cartOrders, price, setPrice } = useContext(AppContext)
   const [cartCount, setCartCount] = useState<number>(0)
-  const [price, setPrice] = useState(0)
   useEffect(() => {
     setCartCount(cartOrders.length)
     setPrice(calcTotalPrice)

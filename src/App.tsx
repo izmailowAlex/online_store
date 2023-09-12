@@ -15,7 +15,9 @@ export const AppContext = React.createContext<IAppContext>({
   searchList: [],
   setSearchList: () => undefined,
   cartOrders: [],
-  setCartOrders: () => undefined
+  setCartOrders: () => undefined,
+  price: 0,
+  setPrice: () => undefined
 })
 
 function App (): JSX.Element {
@@ -23,6 +25,7 @@ function App (): JSX.Element {
   const [filteredList, setFilteredList] = useState<IProduct[]>(productsLibrary)
   const [searchList, setSearchList] = useState<IProduct[]>(productsLibrary)
   const [cartOrders, setCartOrders] = useLocalStorage([], 'cartOrders')
+  const [price, setPrice] = useState<number>(0)
 
   return (
     <div className="balloon">
@@ -34,7 +37,9 @@ function App (): JSX.Element {
           searchList,
           setSearchList,
           cartOrders,
-          setCartOrders
+          setCartOrders,
+          price,
+          setPrice
         }}>
         <Router>
           <Header />

@@ -44,7 +44,7 @@
 }
 
 .product__amount::after {
-  content: " Br";
+  content: " шт";
 }
 
 .product__remove {

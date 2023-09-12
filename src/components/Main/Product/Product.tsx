@@ -35,7 +35,7 @@ function Product ({ id, image, name, price, count, min, max, istatusOrder, onCli
       <span className="product__count">
         <Counter id={id} count={count} min={min} max={max} changeCartOrdersContain={changeCartOrdersContain} />
       </span>
-      <span className="product__amount">1000</span>
+      <span className="product__amount">{max}</span>
       <button className="product__remove" onClick={onClick}>
         <span className="icon">
           <svg className="icon__svg">

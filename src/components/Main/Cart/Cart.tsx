@@ -8,7 +8,7 @@ import Checkout from '../Checkout/Checkout'
 import './Cart.css'
 
 function Cart (): JSX.Element {
-  const { cartOrders, setCartOrders } = useContext(AppContext)
+  const { cartOrders, setCartOrders, price } = useContext(AppContext)
   const [popupWindow, setPopupWindow] = useState<boolean>(false)
 
   function handleDeleteProduct (id: string): void {
@@ -68,7 +68,7 @@ function Cart (): JSX.Element {
         </div>
         <div className="cart__summary">
           <h3 className="cart__summary-title">Итого:</h3>
-          <p className="cart__amount">800</p>
+          <p className="cart__amount">{price}</p>
           <Input
             className="cart__promocode"
             name="promocode"
