@@ -1,14 +1,22 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { AppContext } from '../../../App'
 import { IProductProps, ICartOrders } from '../../../interfaces/interface'
 import Checkbox from '../../UI/Checkbox/Checkbox'
 import Counter from '../../UI/Counter/Counter'
 import './Product.css'
 
-function Product ({ id, image, name, price, count, min, max, istatusOrder, onClick }: IProductProps): JSX.Element {
+function Product ({ id, image, name, price, count, min, max, istatusOrder, onClick, setCheckedAllProducts }: IProductProps): JSX.Element {
   const { cartOrders, setCartOrders } = useContext(AppContext)
   const [currentBalance, setCurrentBalance] = useState(max)
   const [isOrder, setOrder] = useState<boolean>(istatusOrder)
+  useEffect(() => {
+    setOrder(istatusOrder)
+  }, [istatusOrder])
+  useEffect(() => {
+    if (String(isOrder) === 'false') {
+      setCheckedAllProducts(false)
+    }
+  }, [isOrder])
   function onChangeFlag (): void {
     setOrder(!isOrder)
   }

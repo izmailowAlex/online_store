@@ -93,6 +93,7 @@ export interface IProductProps {
   min: number
   max: number
   istatusOrder: boolean
+  setCheckedAllProducts: Dispatch<SetStateAction<boolean>>
   onClick: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
 }
 
