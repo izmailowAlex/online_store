@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { AppContext } from '../../../App'
+import { AppContext } from '../../../context/context'
 import { ICartOrders } from '../../../interfaces/interface'
 import Counter from '../../UI/Counter/Counter'
 import Button from '../../UI/Button/Button'

@@ -1,24 +1,13 @@
 import React, { useState } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
-import { IAppContext, IProduct } from './interfaces/interface'
+import { AppContext } from './context/context'
+import { IProduct } from './interfaces/interface'
 import useLocalStorage from './hooks/useLocalStorage'
 import data from './data'
 import Header from './components/Header/Header'
 import Main from './components/Main/Main'
 import Footer from './components/Footer/Footer'
 import './App.css'
-
-export const AppContext = React.createContext<IAppContext>({
-  productsLibrary: [],
-  filteredList: [],
-  setFilteredList: () => undefined,
-  searchList: [],
-  setSearchList: () => undefined,
-  cartOrders: [],
-  setCartOrders: () => undefined,
-  price: 0,
-  setPrice: () => undefined
-})
 
 function App (): JSX.Element {
   const [productsLibrary] = useState<IProduct[]>(data)

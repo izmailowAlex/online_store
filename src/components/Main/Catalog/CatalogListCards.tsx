@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { AppContext } from '../../../App'
+import { AppContext } from '../../../context/context'
 import { ICartOrders } from '../../../interfaces/interface'
 import Card from './Card/Card'
 

@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { AppContext } from '../../../App'
+import { AppContext } from '../../../context/context'
 import { IProductProps, ICartOrders } from '../../../interfaces/interface'
 import Checkbox from '../../UI/Checkbox/Checkbox'
 import Counter from '../../UI/Counter/Counter'

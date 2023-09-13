@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { AppContext } from '../../../App'
+import { AppContext } from '../../../context/context'
 import useLocalStorageAllCart from '../../../hooks/useLocalStorageAllCart'
 import Button from '../../UI/Button/Button'
 import Input from '../../UI/Input/Input'

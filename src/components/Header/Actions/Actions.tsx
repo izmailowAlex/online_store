@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { AppContext } from '../../../App'
+import { AppContext } from '../../../context/context'
 import Search from '../../Search/Search'
 import './Actions.css'
 

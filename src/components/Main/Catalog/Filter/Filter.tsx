@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useContext, useEffect, useState } from 'react'
 import { IProduct, IFilterCategories } from '../../../../interfaces/interface'
-import { AppContext } from '../../../../App'
+import { AppContext } from '../../../../context/context'
 import Checkbox from '../../../UI/Checkbox/Checkbox'
 import DualSlider from '../../../UI/DualSlider/DualSlider'
 import './Filter.css'
