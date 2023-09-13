@@ -135,8 +135,6 @@ export interface IAppContext {
   setSearchList: Dispatch<SetStateAction<IProduct[]>>
   cartOrders: ICartOrders[]
   setCartOrders: Dispatch<SetStateAction<ICartOrders[]>>
-  price: number
-  setPrice: Dispatch<SetStateAction<number>>
 }
 
 export interface IFilterCategories {

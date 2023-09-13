@@ -14,7 +14,6 @@ function App (): JSX.Element {
   const [filteredList, setFilteredList] = useState<IProduct[]>(productsLibrary)
   const [searchList, setSearchList] = useState<IProduct[]>(productsLibrary)
   const [cartOrders, setCartOrders] = useLocalStorage([], 'cartOrders')
-  const [price, setPrice] = useState<number>(0)
 
   return (
     <div className="balloon">
@@ -26,9 +25,7 @@ function App (): JSX.Element {
           searchList,
           setSearchList,
           cartOrders,
-          setCartOrders,
-          price,
-          setPrice
+          setCartOrders
         }}>
         <Router>
           <Header />

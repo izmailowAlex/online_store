@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { AppContext } from '../../../context/context'
 import useLocalStorageAllCart from '../../../hooks/useLocalStorageAllCart'
 import Button from '../../UI/Button/Button'
@@ -10,9 +10,22 @@ import { ICartOrders } from '../../../interfaces/interface'
 import './Cart.css'
 
 function Cart (): JSX.Element {
-  const { cartOrders, setCartOrders, price } = useContext(AppContext)
+  const { cartOrders, setCartOrders } = useContext(AppContext)
   const [popupWindow, setPopupWindow] = useState<boolean>(false)
   const [checkedAllProducts, setCheckedAllProducts] = useLocalStorageAllCart(false, 'checkedAllCart')
+  const [price, setPrice] = useState<number>(0)
+  useEffect(() => {
+    setPrice(calcTotalPrice)
+  }, [cartOrders])
+  function calcTotalPrice (): number {
+    const total = cartOrders.reduce((total, item) => {
+      if (String(item.isOrder) === 'false') {
+        return total
+      }
+      return total + (item.price * item.order)
+    }, 0)
+    return total
+  }
   function handleDeleteProduct (id: string): void {
     setCartOrders(cartOrders.filter(item => item.id !== id))
   }
