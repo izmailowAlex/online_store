@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { AppContext } from './context/context'
 import { IProduct } from './interfaces/interface'
@@ -10,10 +10,45 @@ import Footer from './components/Footer/Footer'
 import './App.css'
 
 function App (): JSX.Element {
-  const [productsLibrary] = useState<IProduct[]>(data)
+  const [productsLibrary, setProductsLibrary] = useState<IProduct[]>([])
   const [filteredList, setFilteredList] = useState<IProduct[]>(productsLibrary)
   const [searchList, setSearchList] = useState<IProduct[]>(productsLibrary)
   const [cartOrders, setCartOrders] = useLocalStorage([], 'cartOrders')
+  const [loading, setLoading] = useState(false)
+  useEffect(() => {
+    storeData()
+    const getProductsData = (): void => {
+      setLoading(true)
+      const response = localStorage.getItem('dataBalloons')
+      if (response !== null) {
+        setProductsLibrary(JSON.parse(response))
+      }
+    }
+    getProductsData()
+  }, [])
+  useEffect(() => {
+    setFilteredList(productsLibrary)
+    setSearchList(productsLibrary)
+    setLoading(false)
+  }, [productsLibrary])
+  function storeData (): void {
+    try {
+      localStorage.setItem('dataBalloons', JSON.stringify(data))
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  if (String(loading) === 'true') {
+    return (
+      <div className="loading">
+        <div className="loading-wrapper">
+          <h2 className="loading__title">Loading...</h2>
+          <p className="loading__text">Please, wait!</p>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="balloon">
