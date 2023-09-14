@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { UseLocalStorageAllCartTuple } from '../@types/types'
 
 function useLocalStorageAllCart (initValue: boolean, key: string): UseLocalStorageAllCartTuple {
-  console.log(initValue)
   const getCartValue = (): boolean => {
     const storage: string | null = localStorage.getItem(key)
 
