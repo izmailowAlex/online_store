@@ -13,6 +13,13 @@
 }
 
 .catalog-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.catalog-list-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 40px;

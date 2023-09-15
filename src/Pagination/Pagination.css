@@ -1,0 +1,48 @@
+.pagination {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.page-list {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.page-item {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  font-size: 20px;
+  color: var(--grey-dark-color);
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  user-select: none;
+  z-index: 10;
+}
+
+.page-item:hover {
+  background-color: var(--yellow-color);
+  box-shadow: 0 0 0 2px var(--primary-color-disabled);
+}
+
+.page-item-nav {
+  width: 90px;
+}
+
+.page-item:active {
+  color: var(--base-color);
+  background-color: var(--yellow-color);
+}
+
+.page-active {
+  color: var(--white-color);
+  background-color: var(--yellow-color);
+  box-shadow: 0 0 0 2px var(--primary-color-disabled);
+}

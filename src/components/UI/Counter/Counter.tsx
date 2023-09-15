@@ -55,6 +55,11 @@ function Counter ({ id, count, min, balance, setBalance, changeCartOrdersContain
   function isRange (value: number): boolean {
     return value >= min && value <= balance
   }
+  function handleKeyDown (event: React.KeyboardEvent<HTMLInputElement>): void {
+    if (event.key === 'Enter') {
+      event.currentTarget.blur()
+    }
+  }
 
   return (
     <div className="counter">
@@ -70,6 +75,7 @@ function Counter ({ id, count, min, balance, setBalance, changeCartOrdersContain
         value={currentVal}
         onChange={focusOutEventHandler}
         onFocus={focusInEventHandler}
+        onKeyDown={(event) => { handleKeyDown(event) }}
       />
       <button onClick={increment} className="counter__button-plus">
         <svg className="counter__svg">

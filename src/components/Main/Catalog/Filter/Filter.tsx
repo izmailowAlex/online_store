@@ -43,7 +43,7 @@ function Filter (): JSX.Element {
       setAllCategories(categoriesTmp)
       setAllColors(colorsTmp)
     }
-  }, [currentindex])
+  }, [productsLibrary, currentindex])
 
   useEffect(() => {
     applyFilter()
