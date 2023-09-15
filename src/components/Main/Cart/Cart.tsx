@@ -115,24 +115,24 @@ function Cart (): JSX.Element {
                     )
                   })}
                 </ul>
+                <div className="pagination">
+                  <ul className="page-list">
+                    <li className="page-item page-item-nav" onClick={() => { pageNavigate('prev') }} >Назад</li>
+                    <Pagination
+                      currentPage={currentCartPage}
+                      productsPerPage={productsPerCartPage}
+                      totalProducts={cartOrders.length}
+                      paginate={paginate}
+                    />
+                    <li className="page-item page-item-nav" onClick={() => { pageNavigate('next') }} >Вперёд</li>
+                  </ul>
+                </div>
               </>)
             : <>
                 <h2 className="cart__title">Корзина пуста</h2>
                 <p>Выберите товар в каталоге</p>
               </>
           }
-          <div className="pagination">
-            <ul className="page-list">
-              <li className="page-item page-item-nav" onClick={() => { pageNavigate('prev') }} >Назад</li>
-              <Pagination
-                currentPage={currentCartPage}
-                productsPerPage={productsPerCartPage}
-                totalProducts={cartOrders.length}
-                paginate={paginate}
-              />
-              <li className="page-item page-item-nav" onClick={() => { pageNavigate('next') }} >Вперёд</li>
-            </ul>
-          </div>
         </div>
         <div className="cart__summary">
           <h3 className="cart__summary-title">Итого:</h3>

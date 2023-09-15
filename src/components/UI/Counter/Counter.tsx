@@ -3,14 +3,22 @@ import { ICounterProps } from '../../../interfaces/interface'
 import './Counter.css'
 
 function Counter ({ id, count, min, balance, setBalance, changeCartOrdersContain }: ICounterProps): JSX.Element {
+  const [mainBalance] = useState(balance + count)
   const [currentVal, setCurrentVal] = useState(count)
+  const [isOver, setOver] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
+  useEffect(() => {
+    if (balance === 0) {
+      setOver(true)
+    }
+  }, [balance])
   useEffect(() => {
     changeCartOrdersContain(id, currentVal, balance)
   }, [currentVal])
 
   function increment (): void {
+    if (String(isOver) === 'true') return
     let value: number = currentVal
     value = value + 1
     if (isRange(value)) {
@@ -22,6 +30,9 @@ function Counter ({ id, count, min, balance, setBalance, changeCartOrdersContain
   }
 
   function decrement (): void {
+    if (String(isOver) === 'true' && balance === 0) {
+      setOver(false)
+    }
     let value: number = currentVal
     value = value - 1
     if (isRange(value)) {
@@ -32,17 +43,27 @@ function Counter ({ id, count, min, balance, setBalance, changeCartOrdersContain
     }
   }
 
-  function focusOutEventHandler (): void {
+  function changeEventHandler (): void {
     let value = 0
     if (inputRef.current !== null) {
-      if (typeof inputRef.current.value === 'string') {
-        value = +inputRef.current.value
-      } else {
-        value = 0
-      }
+      value = +inputRef.current.value
+      if (value !== +inputRef.current.value) return
+      if (value > mainBalance) return
     }
     if (isRange(value)) {
       setCurrentVal(value)
+    }
+  }
+
+  function focusOutEventHandler (): void {
+    if (setBalance !== undefined) {
+      switch (setBalance !== undefined) {
+        case currentVal > mainBalance:
+          setCurrentVal(mainBalance - balance)
+          break
+        default:
+          setBalance(mainBalance - currentVal)
+      }
     }
   }
 
@@ -53,7 +74,7 @@ function Counter ({ id, count, min, balance, setBalance, changeCartOrdersContain
   }
 
   function isRange (value: number): boolean {
-    return value >= min && value <= balance
+    return value >= min
   }
   function handleKeyDown (event: React.KeyboardEvent<HTMLInputElement>): void {
     if (event.key === 'Enter') {
@@ -73,9 +94,10 @@ function Counter ({ id, count, min, balance, setBalance, changeCartOrdersContain
         type="text"
         ref={inputRef}
         value={currentVal}
-        onChange={focusOutEventHandler}
+        onChange={changeEventHandler}
         onFocus={focusInEventHandler}
         onKeyDown={(event) => { handleKeyDown(event) }}
+        onBlur={focusOutEventHandler}
       />
       <button onClick={increment} className="counter__button-plus">
         <svg className="counter__svg">

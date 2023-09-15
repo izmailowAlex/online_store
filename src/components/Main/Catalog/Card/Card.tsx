@@ -14,7 +14,9 @@ function Card ({ product, handleAddToCart }: ICardProps): JSX.Element {
     productIsCart = true
   }
   function changeCounterValue (currentId: string, currentVal: number): void {
-    setVal(currentVal)
+    if (currentVal > product.max) {
+      setVal(product.max)
+    } else setVal(currentVal)
   }
   return (
     <div className="card">

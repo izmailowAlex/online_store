@@ -34,7 +34,9 @@ function ProductView (): JSX.Element {
     productIsCart = true
   }
   function changeCartOrdersContain (currentOrderId: string, currentOrderVal: number, balance: number): void {
-    setProdValue(currentOrderVal)
+    if (currentOrderVal > balance) {
+      setProdValue(balance)
+    } else setProdValue(currentOrderVal)
     setCurrentBalance(balance)
   }
   function handleAddToCart (orderId: string): void {
