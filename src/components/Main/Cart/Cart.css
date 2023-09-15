@@ -9,17 +9,19 @@
 }
 
 .cart__table {
+  padding: 40px;
   width: 780px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
   background-color: var(--white-color);
   border-radius: 16px;
-  padding: 40px;
 }
 
 .cart__table-upper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px;
 }
 
 .cart__cart-clear {
@@ -41,7 +43,6 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 0 0 40px 0;
 }
 
 .cart__select-all {

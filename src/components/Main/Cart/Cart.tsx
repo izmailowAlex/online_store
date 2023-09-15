@@ -1,12 +1,13 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { AppContext } from '../../../context/context'
 import useLocalStorageAllCart from '../../../hooks/useLocalStorageAllCart'
+import { ICartOrders } from '../../../interfaces/interface'
 import Button from '../../UI/Button/Button'
 import Input from '../../UI/Input/Input'
 import Checkbox from '../../UI/Checkbox/Checkbox'
 import Product from '../Product/Product'
 import Checkout from '../Checkout/Checkout'
-import { ICartOrders } from '../../../interfaces/interface'
+import Pagination from '../../../Pagination/Pagination'
 import './Cart.css'
 
 function Cart (): JSX.Element {
@@ -14,7 +15,18 @@ function Cart (): JSX.Element {
   const [popupWindow, setPopupWindow] = useState<boolean>(false)
   const [checkedAllProducts, setCheckedAllProducts] = useLocalStorageAllCart(false, 'checkedAllCart')
   const [price, setPrice] = useState<number>(0)
+  const [currentCartPage, setCurrentCartPage] = useState(1)
+  const [productsPerCartPage] = useState(10)
+  const lastProductIndexToCartPage = currentCartPage * productsPerCartPage
+  const firstProductIndexToCartPage = lastProductIndexToCartPage - productsPerCartPage
+  const currentProductPageOfCartProducts = cartOrders.slice(firstProductIndexToCartPage, lastProductIndexToCartPage)
+  const countCartPages = (cartOrders.length % productsPerCartPage) === 0
+    ? Math.floor(cartOrders.length / productsPerCartPage)
+    : Math.floor(cartOrders.length / productsPerCartPage) + 1
   useEffect(() => {
+    if (currentCartPage > countCartPages) {
+      setCurrentCartPage(countCartPages)
+    }
     setPrice(calcTotalPrice)
   }, [cartOrders])
   function calcTotalPrice (): number {
@@ -46,53 +58,81 @@ function Cart (): JSX.Element {
     setCheckedAllProducts(false)
   }
 
+  function paginate (pageNumber: number): void {
+    setCurrentCartPage(pageNumber)
+  }
+
+  function pageNavigate (dir: string): void {
+    setCurrentCartPage(dir === 'next'
+      ? (currentCartPage !== countCartPages
+          ? currentCartPage + 1
+          : currentCartPage)
+      : (currentCartPage !== 1
+          ? currentCartPage - 1
+          : currentCartPage
+        )
+    )
+  }
+
   return (
     <div className="cart">
       <div className="cart__content">
         <div className="cart__table">
-            {cartOrders.length !== 0
-              ? (
-                <>
-                  <div className="cart__table-upper">
-                    <h2 className="cart__title">Корзина</h2>
-                    <div
-                      className="cart__cart-clear"
-                      onClick={() => { clearAllOrders() }}
-                    >
-                      Очистить корзину
-                    </div>
+          {cartOrders.length !== 0
+            ? (
+              <>
+                <div className="cart__table-upper">
+                  <h2 className="cart__title">Корзина</h2>
+                  <div
+                    className="cart__cart-clear"
+                    onClick={() => { clearAllOrders() }}
+                  >
+                    Очистить корзину
                   </div>
-                  <div className="cart__list-head">
-                    <span className="cart__select-all">
-                      <Checkbox onChange={handleCheckedAllCartProducts} isOrder={checkedAllProducts} />
-                      <span>Выбрать все</span>
-                    </span>
-                  </div>
-                  <ul className="cart__list">
-                    {cartOrders.map((order) => {
-                      return (
-                        <Product
-                          key={order.id}
-                          id={order.id}
-                          name={order.title}
-                          image={order.image}
-                          price={order.price}
-                          count={order.order}
-                          min={order.min}
-                          max={order.max}
-                          istatusOrder={order.isOrder}
-                          setCheckedAllProducts={setCheckedAllProducts}
-                          onClick={() => { handleDeleteProduct(order.id) }}
-                        />
-                      )
-                    })}
-                  </ul>
-                </>)
-              : <>
-                  <h2 className="cart__title">Корзина пуста</h2>
-                  <p>Выберите товар в каталоге</p>
-                </>
-            }
+                </div>
+                <div className="cart__list-head">
+                  <span className="cart__select-all">
+                    <Checkbox onChange={handleCheckedAllCartProducts} isOrder={checkedAllProducts} />
+                    <span>Выбрать все</span>
+                  </span>
+                </div>
+                <ul className="cart__list">
+                  {currentProductPageOfCartProducts.map((order) => {
+                    return (
+                      <Product
+                        key={order.id}
+                        id={order.id}
+                        name={order.title}
+                        image={order.image}
+                        price={order.price}
+                        count={order.order}
+                        min={order.min}
+                        max={order.max}
+                        istatusOrder={order.isOrder}
+                        setCheckedAllProducts={setCheckedAllProducts}
+                        onClick={() => { handleDeleteProduct(order.id) }}
+                      />
+                    )
+                  })}
+                </ul>
+              </>)
+            : <>
+                <h2 className="cart__title">Корзина пуста</h2>
+                <p>Выберите товар в каталоге</p>
+              </>
+          }
+          <div className="pagination">
+            <ul className="page-list">
+              <li className="page-item page-item-nav" onClick={() => { pageNavigate('prev') }} >Назад</li>
+              <Pagination
+                currentPage={currentCartPage}
+                productsPerPage={productsPerCartPage}
+                totalProducts={cartOrders.length}
+                paginate={paginate}
+              />
+              <li className="page-item page-item-nav" onClick={() => { pageNavigate('next') }} >Вперёд</li>
+            </ul>
+          </div>
         </div>
         <div className="cart__summary">
           <h3 className="cart__summary-title">Итого:</h3>
