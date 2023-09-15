@@ -102,7 +102,7 @@ function Cart (): JSX.Element {
                       <Product
                         key={order.id}
                         id={order.id}
-                        name={order.title}
+                        title={order.title}
                         image={order.image}
                         price={order.price}
                         count={order.order}

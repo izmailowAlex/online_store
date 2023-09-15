@@ -87,7 +87,7 @@ export interface IProduct {
 export interface IProductProps {
   id: string
   image: string
-  name: string
+  title: string
   price: number
   count: number
   min: number

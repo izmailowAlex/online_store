@@ -5,7 +5,7 @@ import Checkbox from '../../UI/Checkbox/Checkbox'
 import Counter from '../../UI/Counter/Counter'
 import './Product.css'
 
-function Product ({ id, image, name, price, count, min, max, istatusOrder, onClick, setCheckedAllProducts }: IProductProps): JSX.Element {
+function Product ({ id, image, title, price, count, min, max, istatusOrder, onClick, setCheckedAllProducts }: IProductProps): JSX.Element {
   const { cartOrders, setCartOrders } = useContext(AppContext)
   const [currentBalance, setCurrentBalance] = useState(max)
   const [isOrder, setOrder] = useState<boolean>(istatusOrder)
@@ -42,7 +42,7 @@ function Product ({ id, image, name, price, count, min, max, istatusOrder, onCli
         <Checkbox id={id} onChange={onChangeFlag} isOrder={isOrder} changeCartOrdersContain={changeCartOrdersContain} />
       </span>
       <img className="product__image" src={`../images/${image}`} alt="Product"></img>
-      <span className="product__name">{name}</span>
+      <span className="product__name">{title}</span>
       <span className="product__price">{price}</span>
       <span className="product__count">
         <Counter id={id} count={count} min={min} balance={currentBalance} setBalance={setCurrentBalance} changeCartOrdersContain={changeCartOrdersContain} />
