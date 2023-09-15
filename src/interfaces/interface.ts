@@ -146,3 +146,10 @@ export interface IFilterCategories {
 export interface ICheckoutProps {
   setPopupWindow: Dispatch<SetStateAction<boolean>>
 }
+
+export interface IPaginationProps {
+  currentPage: number
+  productsPerPage: number
+  totalProducts: number
+  paginate: (pageNumber: number) => void
+}
