@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { AppContext } from '../../../context/context'
 import { IProductProps, ICartOrders } from '../../../interfaces/interface'
 import Checkbox from '../../UI/Checkbox/Checkbox'
@@ -42,7 +43,11 @@ function Product ({ id, image, title, price, count, min, max, istatusOrder, onCl
         <Checkbox id={id} onChange={onChangeFlag} isOrder={isOrder} changeCartOrdersContain={changeCartOrdersContain} />
       </span>
       <img className="product__image" src={`../images/${image}`} alt="Product"></img>
-      <span className="product__name">{title}</span>
+      <span className="product__title">
+        <Link className="product__title-link" to={`/productview/${id}/`}>
+          {title}
+        </Link>
+      </span>
       <span className="product__price">{price}</span>
       <span className="product__count">
         <Counter id={id} count={count} min={min} balance={currentBalance} setBalance={setCurrentBalance} changeCartOrdersContain={changeCartOrdersContain} />
