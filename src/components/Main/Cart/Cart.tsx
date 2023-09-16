@@ -13,6 +13,8 @@ import './Cart.css'
 function Cart (): JSX.Element {
   const { cartOrders, setCartOrders } = useContext(AppContext)
   const [popupWindow, setPopupWindow] = useState<boolean>(false)
+  const [success, setSuccess] = useState<boolean>(false)
+  const [successMessage, setSuccessMessage] = useState<string>('')
   const [checkedAllProducts, setCheckedAllProducts] = useLocalStorageAllCart(false, 'checkedAllCart')
   const [price, setPrice] = useState<number>(0)
   const [currentCartPage, setCurrentCartPage] = useState(1)
@@ -20,6 +22,7 @@ function Cart (): JSX.Element {
   const lastProductIndexToCartPage = currentCartPage * productsPerCartPage
   const firstProductIndexToCartPage = lastProductIndexToCartPage - productsPerCartPage
   const currentProductPageOfCartProducts = cartOrders.slice(firstProductIndexToCartPage, lastProductIndexToCartPage)
+  const promoCode = 'E020PB3P'
   const countCartPages = (cartOrders.length % productsPerCartPage) === 0
     ? Math.floor(cartOrders.length / productsPerCartPage)
     : Math.floor(cartOrders.length / productsPerCartPage) + 1
@@ -72,6 +75,16 @@ function Cart (): JSX.Element {
           : currentCartPage
         )
     )
+  }
+
+  function comparePromoCode (value: string): void {
+    if (value === promoCode) {
+      setSuccess(true)
+      setSuccessMessage('Правильно')
+    } else {
+      setSuccess(false)
+      setSuccessMessage('Не правильно')
+    }
   }
 
   return (
@@ -136,12 +149,14 @@ function Cart (): JSX.Element {
         </div>
         <div className="cart__summary">
           <h3 className="cart__summary-title">Итого:</h3>
-          <p className="cart__amount">{price}</p>
+          <p className="cart__amount">{String(success) === 'false' ? price : price - (price * 0.2)}</p>
           <Input
             className="cart__promocode"
             name="promocode"
-            placeholder="Введите промокод"
+            placeholder="Введите промокод E020PB3P"
+            success={success}
             maxlength={8}
+            onChange={(event) => { comparePromoCode(event.target.value) }}
           />
           <Button
             className="cart__checkout"
