@@ -11,14 +11,14 @@ function CatalogListCards (): JSX.Element {
   const lastProductIndexToPage = currentPage * productsPerPage
   const firstProductIndexToPage = lastProductIndexToPage - productsPerPage
   const currentProductPageOfProducts = filteredList.slice(firstProductIndexToPage, lastProductIndexToPage)
-  const countPages = (filteredList.length % productsPerPage) === 0
+  const countPages = (filteredList.length % productsPerPage) === 0 && filteredList.length !== 0
     ? Math.floor(filteredList.length / productsPerPage)
     : Math.floor(filteredList.length / productsPerPage) + 1
   useEffect(() => {
     if (currentPage > countPages) {
       setCurrentPage(countPages)
     }
-  }, [filteredList])
+  }, [currentProductPageOfProducts])
   function handleAddToCart (
     orderId: string,
     orderTitle: string,
@@ -70,27 +70,38 @@ function CatalogListCards (): JSX.Element {
 
   return (
     <div className="catalog-list">
-      <div className="catalog-list-wrapper">
-        {currentProductPageOfProducts.map((product, index) => {
-          return <Card
-            key={index}
-            product={product}
-            handleAddToCart={handleAddToCart}
-          />
-        })}
-      </div>
-      <div className="pagination">
-        <ul className="page-list">
-          <li className="page-item page-item-nav" onClick={() => { pageNavigate('prev') }} >Назад</li>
-          <Pagination
-            currentPage={currentPage}
-            productsPerPage={productsPerPage}
-            totalProducts={filteredList.length}
-            paginate={paginate}
-          />
-          <li className="page-item page-item-nav" onClick={() => { pageNavigate('next') }} >Вперёд</li>
-        </ul>
-      </div>
+      {currentProductPageOfProducts.length !== 0
+        ? (
+        <>
+          <div className="catalog-list-wrapper">
+            {currentProductPageOfProducts.map((product, index) => {
+              return <Card
+                key={index}
+                product={product}
+                handleAddToCart={handleAddToCart}
+              />
+            })}
+          </div>
+          <div className="pagination">
+            <ul className="page-list">
+              <li className="page-item page-item-nav" onClick={() => { pageNavigate('prev') }} >Назад</li>
+              <Pagination
+                currentPage={currentPage}
+                productsPerPage={productsPerPage}
+                totalProducts={filteredList.length}
+                paginate={paginate}
+              />
+              <li className="page-item page-item-nav" onClick={() => { pageNavigate('next') }} >Вперёд</li>
+            </ul>
+          </div>
+        </>)
+        : (
+        <>
+          <div className="catalog-list-empty">
+            <h2 className="empty-message">Ничего не найдено</h2>
+          </div>
+        </>)
+      }
     </div>
   )
 }
