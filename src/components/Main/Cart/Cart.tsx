@@ -14,7 +14,6 @@ function Cart (): JSX.Element {
   const { cartOrders, setCartOrders } = useContext(AppContext)
   const [popupWindow, setPopupWindow] = useState<boolean>(false)
   const [success, setSuccess] = useState<boolean>(false)
-  const [successMessage, setSuccessMessage] = useState<string>('')
   const [checkedAllProducts, setCheckedAllProducts] = useLocalStorageAllCart(false, 'checkedAllCart')
   const [price, setPrice] = useState<number>(0)
   const [currentCartPage, setCurrentCartPage] = useState(1)
@@ -22,7 +21,7 @@ function Cart (): JSX.Element {
   const lastProductIndexToCartPage = currentCartPage * productsPerCartPage
   const firstProductIndexToCartPage = lastProductIndexToCartPage - productsPerCartPage
   const currentProductPageOfCartProducts = cartOrders.slice(firstProductIndexToCartPage, lastProductIndexToCartPage)
-  const promoCode = 'E020PB3P'
+  const PROMO_CODE = process.env.REACT_APP_PROMO_CODE
   const countCartPages = (cartOrders.length % productsPerCartPage) === 0
     ? Math.floor(cartOrders.length / productsPerCartPage)
     : Math.floor(cartOrders.length / productsPerCartPage) + 1
@@ -78,12 +77,10 @@ function Cart (): JSX.Element {
   }
 
   function comparePromoCode (value: string): void {
-    if (value === promoCode) {
+    if (value === PROMO_CODE) {
       setSuccess(true)
-      setSuccessMessage('Правильно')
     } else {
       setSuccess(false)
-      setSuccessMessage('Не правильно')
     }
   }
 
@@ -149,7 +146,7 @@ function Cart (): JSX.Element {
         </div>
         <div className="cart__summary">
           <h3 className="cart__summary-title">Итого:</h3>
-          <p className="cart__amount">{String(success) === 'false' ? price : price - (price * 0.2)}</p>
+          <p className="cart__amount">{String(success) === 'false' ? price.toFixed(2) : (price - (price * 0.2)).toFixed(2)}</p>
           <Input
             className="cart__promocode"
             name="promocode"
