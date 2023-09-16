@@ -58,7 +58,14 @@ function CatalogListCards (): JSX.Element {
   }
 
   function pageNavigate (dir: string): void {
-    setCurrentPage(dir === 'next' ? (currentPage !== countPages ? currentPage + 1 : currentPage) : (currentPage !== 1 ? currentPage - 1 : currentPage))
+    setCurrentPage(dir === 'next'
+      ? (currentPage !== countPages
+          ? currentPage + 1
+          : currentPage)
+      : (currentPage !== 1
+          ? currentPage - 1
+          : currentPage)
+    )
   }
 
   return (
@@ -75,10 +82,15 @@ function CatalogListCards (): JSX.Element {
       <div className="pagination">
         <ul className="page-list">
           <li className="page-item page-item-nav" onClick={() => { pageNavigate('prev') }} >Назад</li>
-          <Pagination currentPage={currentPage} productsPerPage={productsPerPage} totalProducts={filteredList.length} paginate={paginate} />
+          <Pagination
+            currentPage={currentPage}
+            productsPerPage={productsPerPage}
+            totalProducts={filteredList.length}
+            paginate={paginate}
+          />
           <li className="page-item page-item-nav" onClick={() => { pageNavigate('next') }} >Вперёд</li>
-      </ul>
-    </div>
+        </ul>
+      </div>
     </div>
   )
 }

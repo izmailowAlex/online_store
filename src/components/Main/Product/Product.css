@@ -17,13 +17,20 @@
   object-fit: contain;
 }
 
-.product__name {
+.product__title-link {
+  text-decoration: none;
   font-family: Nunito, Arial, sans-serif;
   font-size: 16px;
   font-weight: 900;
   letter-spacing: -1px;
   line-height: 1.2;
   width: 200px;
+  color: var(--base-color);
+  transition: color 0.3s ease-in-out;
+}
+
+.product__title-link:hover {
+  color: var(--secondary-color);
 }
 
 .product__price {
