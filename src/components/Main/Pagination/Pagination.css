@@ -5,18 +5,18 @@
 .page-list {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 1.3rem;
 }
 
 .page-item {
-  width: 32px;
-  height: 32px;
+  width: 4rem;
+  height: 4rem;
   position: relative;
-  font-size: 20px;
+  font-size: 2.4rem;
   color: var(--grey-dark-color);
   background-color: var(--primary-color);
   border: none;
-  border-radius: 3px;
+  border-radius: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,11 +28,11 @@
 
 .page-item:hover {
   background-color: var(--yellow-color);
-  box-shadow: 0 0 0 2px var(--primary-color-disabled);
+  box-shadow: 0 0 0 0.3rem var(--primary-color-disabled);
 }
 
 .page-item-nav {
-  width: 90px;
+  width: 14rem;
 }
 
 .page-item:active {
@@ -43,5 +43,5 @@
 .page-active {
   color: var(--white-color);
   background-color: var(--yellow-color);
-  box-shadow: 0 0 0 2px var(--primary-color-disabled);
+  box-shadow: 0 0 0 0.3rem var(--primary-color-disabled);
 }

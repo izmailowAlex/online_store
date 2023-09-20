@@ -1,23 +1,16 @@
 .counter {
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-size: 16px;
-  font-weight: 400;
-  text-align: center;
-  width: 90px;
-  height: 20px;
 }
 
 .counter__value {
   font-family: "Nunito Sans", Arial, sans-serif;
-  font-size: 16px;
+  font-size: 2.6rem;
   font-weight: 600;
   color: #1d3a47;
   text-align: center;
-  padding: 5px;
-  width: 50px;
-  height: 20px;
+  padding: 0.8rem;
+  width: 7rem;
   border: none;
   background-color: #ffffff;
   transition: all 0.3s ease-in-out;
@@ -38,8 +31,8 @@
 .counter__button-minus,
 .counter__button-plus {
   color: #b4b4b4;
-  width: 20px;
-  height: 20px;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
   border: none;
   background-color: #fff;
@@ -58,21 +51,21 @@
   outline: none;
   color: #323031;
   background-color: #fffce0;
-  box-shadow: 0 0 0 5px #fffce0;
+  box-shadow: 0 0 0 0.6rem #fffce0;
 }
 
 .counter__button-minus:hover,
 .counter__button-plus:hover {
   color: #323031;
   background-color: #fff068;
-  box-shadow: 0 0 0 5px #fffce0;
+  box-shadow: 0 0 0 0.6rem #fffce0;
 }
 
 .counter__svg {
   fill: currentColor;
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 3rem;
+  height: 3rem;
   flex-shrink: 0;
   transition: opacity 0.3s ease-in-out;
   opacity: 1;

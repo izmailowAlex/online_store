@@ -7,7 +7,7 @@ import Input from '../../UI/Input/Input'
 import Checkbox from '../../UI/Checkbox/Checkbox'
 import Product from '../Product/Product'
 import Checkout from '../Checkout/Checkout'
-import Pagination from '../../../Pagination/Pagination'
+import Pagination from '../Pagination/Pagination'
 import './Cart.css'
 
 function Cart (): JSX.Element {
@@ -140,12 +140,12 @@ function Cart (): JSX.Element {
               </>)
             : <>
                 <h2 className="cart__title">Корзина пуста</h2>
-                <p>Выберите товар в каталоге</p>
+                <p className="cart__description">Выберите товар в каталоге</p>
               </>
           }
         </div>
         <div className="cart__summary">
-          <h3 className="cart__summary-title">Итого:</h3>
+          <h2 className="cart__summary-title">Итого:</h2>
           <p className="cart__amount">{String(success) === 'false' ? price.toFixed(2) : (price - (price * 0.2)).toFixed(2)}</p>
           <Input
             className="cart__promocode"

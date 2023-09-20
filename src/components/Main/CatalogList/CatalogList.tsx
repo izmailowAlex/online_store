@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../../../context/context'
 import { ICartOrders } from '../../../interfaces/interface'
-import Card from './Card/Card'
-import Pagination from '../../../Pagination/Pagination'
+import Card from '../Card/Card'
+import Pagination from '../Pagination/Pagination'
+import './CatalogList.css'
 
-function CatalogListCards (): JSX.Element {
+function CatalogList (): JSX.Element {
   const { filteredList, cartOrders, setCartOrders } = useContext(AppContext)
   const [currentPage, setCurrentPage] = useState(1)
   const [productsPerPage] = useState(6)
@@ -106,4 +107,4 @@ function CatalogListCards (): JSX.Element {
   )
 }
 
-export default CatalogListCards
+export default CatalogList

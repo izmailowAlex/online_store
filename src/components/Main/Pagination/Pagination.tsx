@@ -1,5 +1,5 @@
 import React from 'react'
-import { IPaginationProps } from '../interfaces/interface'
+import { IPaginationProps } from '../../../interfaces/interface'
 import './Pagination.css'
 
 function Pagination ({ currentPage, productsPerPage, totalProducts, paginate }: IPaginationProps): JSX.Element {

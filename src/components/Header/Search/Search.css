@@ -4,29 +4,31 @@
 
 
 .search__input {
-  padding: 10px;
-  height: 22px;
-  font-size: 16px;
+  padding: 0.8rem 5rem 0.8rem 1.3rem;
+  width: 42rem;
+  height: 3.6rem;
+  font-size: 2rem;
   font-weight: 600;
   border: none;
   outline: none;
-  border-radius: 6px;
+  border-radius: 0.4rem;
   background-color: transparent;
   transition: box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .search__input:focus {
-  border: 1px solid var(--secondary-color);
+  border: 0.1rem solid var(--secondary-color);
   background-color: var(--white-color);
-  box-shadow: 0 0 0 2px var(--secondary-color);
+  box-shadow: 0 0 0 0.2rem var(--secondary-color);
 }
 
 .search-icon {
   position: absolute;
   top: 0;
-  right: 15px;
-  width: 15px;
-  height: 15px;
+  top: 0.15rem;
+  right: 0.2rem;
+  width: 3.2rem;
+  height: 3.2rem;
   color: var(--base-color);
   -webkit-transition: color 0.3s ease-in-out;
   transition: color 0.3s ease-in-out;

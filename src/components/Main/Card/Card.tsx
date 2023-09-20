@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { AppContext } from '../../../../context/context'
-import { ICardProps } from '../../../../interfaces/interface'
-import Counter from '../../../UI/Counter/Counter'
+import { AppContext } from '../../../context/context'
+import { ICardProps } from '../../../interfaces/interface'
+import Counter from '../../UI/Counter/Counter'
 import './Card.css'
 
 function Card ({ product, handleAddToCart }: ICardProps): JSX.Element {

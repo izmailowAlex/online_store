@@ -1,6 +1,6 @@
 import React from 'react'
-import Filter from './Filter/Filter'
-import CatalogListCards from './CatalogListCards'
+import Filter from '../Filter/Filter'
+import CatalogList from '../CatalogList/CatalogList'
 import './Catalog.css'
 
 function Catalog (): JSX.Element {
@@ -10,7 +10,7 @@ function Catalog (): JSX.Element {
         <h2 className="main-catalog__title">Каталог шаров</h2>
         <div className="main-catalog-contain">
           <Filter />
-          <CatalogListCards />
+          <CatalogList />
         </div>
       </div>
     </>

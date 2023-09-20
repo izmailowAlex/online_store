@@ -1,6 +1,6 @@
 import React from 'react'
 import Nav from './Nav/Nav'
-import Logo from '../Logo/Logo'
+import Logo from './Logo/Logo'
 import Actions from './Actions/Actions'
 import './Header.css'
 

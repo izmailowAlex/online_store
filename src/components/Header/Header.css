@@ -1,16 +1,19 @@
 .header__container {
-  padding: 30px 0;
+  padding: 5rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
-  height: 97px;
 }
 
-.header__logo {
+.header-logo {
   display: block;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.header-logo__img {
+  width: 26rem;
 }
