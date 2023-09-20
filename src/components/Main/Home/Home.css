@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 100px;
+  gap: 6.5rem;
 }
 
 .home-image__img {
