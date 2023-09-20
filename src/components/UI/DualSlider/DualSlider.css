@@ -1,7 +1,7 @@
 .dualslider {
+  padding-top: 2.6rem;
+  min-height: 7rem;
   position: relative;
-  height: 70px;
-  padding: 10px 0 0 0;
 }
 .dualslider__wrapper {
   position: relative;
@@ -17,8 +17,8 @@
 
 .dualslider__track,
 .dualslider__range {
-  border-radius: 2px;
-  height: 4px;
+  border-radius: 0.3rem;
+  height: 0.5rem;
 }
 
 .dualslider__track {
@@ -34,19 +34,14 @@
 
 .dualslider__min-value,
 .dualslider__max-value {
+  width: 12rem;
+  margin-top: 3.5rem;
+  font-size: 1.2rem;
   color: var(--grey-color);
-  font-size: 12px;
-  margin-top: 20px;
 }
 
 .dualslider__min-value {
-  width: 100px;
   left: 0;
-}
-
-.dualslider__min-value .input__textbox,
-.dualslider__max-value .input__textbox {
-  padding: 10px 10px 10px 20px;
 }
 
 .dualslider__min-value input::before {
@@ -54,7 +49,6 @@
 }
 
 .dualslider__max-value {
-  width: 100px;
   right: 0;
 }
 
@@ -94,9 +88,9 @@
   border-radius: 50%;
   box-shadow: 0 0 0 0 transparent;
   cursor: pointer;
-  height: 20px;
-  width: 20px;
-  margin-top: 4px;
+  height: 2.6rem;
+  width: 2.6rem;
+  margin-top: 0.5rem;
   pointer-events: all;
   position: relative;
   transition: box-shadow 0.3s ease-in-out;
@@ -112,13 +106,13 @@
   border-radius: 50%;
   box-shadow: 0 0 0 0 transparent;
   cursor: pointer;
-  height: 20px;
-  width: 20px;
-  margin-top: 4px;
+  height: 2.6rem;
+  width: 2.6rem;
+  margin-top: 0.5rem;
   pointer-events: all;
   position: relative;
 }
 
 .dualslider__thumb:hover::-moz-range-thumb {
-  box-shadow: 0 0 0 5px rgba(253, 120, 152, 0.2);
+  box-shadow: 0 0 0 0.6rem rgba(253, 120, 152, 0.2);
 }

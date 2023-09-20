@@ -1,8 +1,8 @@
 import React, { ChangeEvent, useContext, useEffect, useState } from 'react'
-import { IProduct, IFilterCategories } from '../../../../interfaces/interface'
-import { AppContext } from '../../../../context/context'
-import Checkbox from '../../../UI/Checkbox/Checkbox'
-import DualSlider from '../../../UI/DualSlider/DualSlider'
+import { IProduct, IFilterCategories } from '../../../interfaces/interface'
+import { AppContext } from '../../../context/context'
+import Checkbox from '../../UI/Checkbox/Checkbox'
+import DualSlider from '../../UI/DualSlider/DualSlider'
 import './Filter.css'
 
 function Filter (): JSX.Element {
@@ -152,10 +152,7 @@ function Filter (): JSX.Element {
   return (
     <div className="filter">
       <div className="filter-block">
-        <div className="filter-category">
-          <span className="filter-category__title">Категория</span>
-          <span className="filter-category-vector active"></span>
-        </div>
+        <h3 className="filter-category__title">Категория</h3>
         <ul className="filter-list">
           {allCategories.map((item, index) => {
             return (
@@ -171,10 +168,7 @@ function Filter (): JSX.Element {
         </ul>
       </div>
       <div className="filter-block">
-        <div className="filter-category">
-          <span className="filter-category__title">Материал</span>
-          <span className="filter-category-vector"></span>
-        </div>
+        <h3 className="filter-category__title">Материал</h3>
         <ul className="filter-list">
           {allTypes.map((item, index) => {
             return (
@@ -190,10 +184,7 @@ function Filter (): JSX.Element {
         </ul>
       </div>
       <div className="filter-block">
-        <div className="filter-category">
-          <span className="filter-category__title">Цвет</span>
-          <span className="filter-category-vector"></span>
-        </div>
+        <h3 className="filter-category__title">Цвет</h3>
         <ul className="filter-list-colors">
           {allColors.map((item, index) => {
             return (
@@ -208,17 +199,11 @@ function Filter (): JSX.Element {
         </ul>
       </div>
       <div className="filter__block">
-        <div className="filter__category">
-          <span className="filter__block_category-title">Цена, ₽</span>
-          <span className="filter__block_category-vector"></span>
-        </div>
+        <div className="filter-category__slider-title">Цена, Br</div>
         <DualSlider id={'price'} min={0} max={1000} onChangeHandlerSlider={onChangeHandlerSlider} />
       </div>
       <div className="filter__block">
-        <div className="filter__category">
-          <span className="filter__block_category-title">Количество, шт</span>
-          <span className="filter__block_category-vector"></span>
-        </div>
+        <div className="filter-category__slider-title">Количество, шт</div>
         <DualSlider id={'amount'} min={0} max={10000} onChangeHandlerSlider={onChangeHandlerSlider} />
       </div>
     </div>

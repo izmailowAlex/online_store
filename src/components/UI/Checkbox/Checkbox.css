@@ -1,24 +1,22 @@
 .checkbox {
+  padding: 0.5rem 0;
+  font-family: "Nunito Sans", Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 4rem;
   display: inline-block;
   position: relative;
-  padding: 8px 0;
-  margin-bottom: 0;
-  cursor: pointer;
-  font-family: "Nunito Sans", Arial, sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 16px;
-  z-index: 1;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  cursor: pointer;
+  z-index: 1;
 }
 
 .checkbox__input {
   position: absolute;
   opacity: 0;
-  cursor: pointer;
   height: 0;
   width: 0;
 }
@@ -36,9 +34,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
+  width: 2.8rem;
+  height: 2.8rem;
+  margin-right: 1rem;
   color: var(--grey-color);
 }
 
@@ -64,10 +62,10 @@
   top: 0;
   left: 0;
   display: block;
-  width: 20px;
-  height: 20px;
-  border: 2px solid var(--grey-color);
-  border-radius: 4px;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 0.3rem solid var(--grey-color);
+  border-radius: 0.5rem;
   z-index: -1;
   transition: all 0.3s ease-in-out;
 }
@@ -75,8 +73,8 @@
 .checkbox__svg {
   fill: currentColor;
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 2.4rem;
+  height: 2.4rem;
   flex-shrink: 0;
   transition: opacity 0.3s ease-in-out;
   opacity: 0;
@@ -87,8 +85,8 @@
 }
 
 .checkbox:hover .checkbox__icon::before {
-  width: 36px;
-  height: 36px;
+  width: 3.6rem;
+  height: 3.6rem;
   opacity: 1;
 }
 
@@ -210,7 +208,7 @@
 
 .checkbox_white {
   background-color: var(--white-color);
-  border: 1px solid var(--grey-color);
+  border: 0.01rem solid var(--grey-color);
 }
 
 .checkbox_white:hover .checkbox__input ~ .checkbox__wrapper .checkbox__icon::before {

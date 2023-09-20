@@ -6,19 +6,19 @@ import './Home.css'
 function Home (): JSX.Element {
   return (
     <div className="home">
-      <div className="home__cover">
+      <div className="home-image">
         <img
-          className="home__cover-image"
+          className="home-image__img"
           src="../images/balloon-cover.jpg"
           alt="Balloons"
         />
       </div>
-      <div className="home__content">
+      <div className="home-content">
         <h1 className="home__title">Воздушные шары</h1>
         <p className="home__description">
           Воздушные шары на любой праздник. Доставляйте радость с нами!
         </p>
-        <Button to="/catalog">Смотреть каталог</Button>
+        <Button className="home__button" to="/catalog">Смотреть каталог</Button>
       </div>
     </div>
   )

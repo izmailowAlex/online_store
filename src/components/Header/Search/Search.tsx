@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
-import { AppContext } from '../../context/context'
+import { AppContext } from '../../../context/context'
 import './Search.css'
 
 function Search (): JSX.Element {
