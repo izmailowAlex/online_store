@@ -16,3 +16,13 @@
 .nav__link:hover {
   color: var(--secondary-color);
 }
+
+@media screen and (max-width: 767px) {
+
+  .nav {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
+
+}

@@ -42,3 +42,29 @@
   }
 
 }
+
+@media screen and (max-width: 767px) {
+
+  .home {
+    padding: 5rem 0;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .home-image {
+    display: flex;
+  }
+
+  .home-image__img {
+    margin: auto;
+    width: 95%;
+    opacity: 60%;
+  }
+
+  .home-content {
+    width: 70%;
+    position: absolute;
+    top: 70rem;
+  }
+
+}

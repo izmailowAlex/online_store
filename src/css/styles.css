@@ -89,3 +89,15 @@ h3 {
   }
 
 }
+
+@media screen and (max-width: 767px) {
+
+  html {
+    font-size: calc(100vw / 1480 * 10);
+  }
+
+  .container {
+    max-width: 95%;
+  }
+
+}
