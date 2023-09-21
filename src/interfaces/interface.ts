@@ -98,6 +98,7 @@ export interface IProductProps {
 }
 
 export interface IInputProps {
+  id?: string
   className: string
   name?: string
   value?: string
@@ -118,6 +119,10 @@ export interface IDualsliderProps {
   id: string
   min: number
   max: number
+  minVal: number
+  setMinVal: Dispatch<SetStateAction<number>>
+  maxVal: number
+  setMaxVal: Dispatch<SetStateAction<number>>
   onChangeHandlerSlider: (
     id: string,
     targetElem: HTMLInputElement,
@@ -152,4 +157,10 @@ export interface IPaginationProps {
   productsPerPage: number
   totalProducts: number
   paginate: (pageNumber: number) => void
+}
+
+export interface IFilterAnchor {
+  isFilter: boolean
+  setFilter: Dispatch<SetStateAction<boolean>>
+  setApplyDelayFilter: Dispatch<SetStateAction<boolean>>
 }

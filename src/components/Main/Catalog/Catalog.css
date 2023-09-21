@@ -1,5 +1,8 @@
 .main-catalog {
   padding: 3rem 0;
+  min-height: calc(100vh - 26.5rem);
+  display: flex;
+  flex-direction: column;
 }
 
 .main-catalog__title {
@@ -7,6 +10,7 @@
 }
 
 .main-catalog-contain {
+  margin: auto 0;
   display: flex;
   justify-content: space-between;
 }

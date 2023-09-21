@@ -228,3 +228,30 @@
 .checkbox_white .checkbox__input:checked ~ .checkbox__wrapper .checkbox__icon::after {
   background-color: var(--white-color);
 }
+
+@media screen and (max-width: 1024px) {
+
+  .checkbox__svg {
+    width: 3.4rem;
+    height: 3.4rem;
+  }
+
+  .checkbox__label {
+    font-size: 2.5rem;
+  }
+
+  .checkbox__icon {
+    margin-right: 2rem;
+  }
+
+  .checkbox__icon::after {
+    width: 3.4rem;
+    height: 3.4rem;
+  }
+
+  .checkbox:hover .checkbox__icon::before {
+    width: 4.9rem;
+    height: 4.9rem;
+  }
+
+}

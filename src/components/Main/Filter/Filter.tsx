@@ -3,7 +3,9 @@ import { IProduct, IFilterCategories } from '../../../interfaces/interface'
 import { AppContext } from '../../../context/context'
 import Checkbox from '../../UI/Checkbox/Checkbox'
 import DualSlider from '../../UI/DualSlider/DualSlider'
+import FilterAnchor from '../FilterAnchor/FilterAnchor'
 import './Filter.css'
+import Button from '../../UI/Button/Button'
 
 function Filter (): JSX.Element {
   const { productsLibrary, setFilteredList, searchList } = useContext(AppContext)
@@ -16,6 +18,21 @@ function Filter (): JSX.Element {
   const [maxAmount, setMaxAmount] = useState(10000)
   const [currentindex, setCurrentIndex] = useState(0)
   const [filters, setFilters] = useState<IFilterCategories>({})
+  const [isFilter, setFilter] = useState<boolean>(false)
+  const [applyDelayFilter, setApplyDelayFilter] = useState<boolean>(false)
+  const checkboxes = document.querySelectorAll('[type="checkbox"]')
+  let className = ''
+
+  if (String(isFilter) === 'true') {
+    className = 'active'
+  } else {
+    className = ''
+  }
+  let classname = 'filter'
+
+  if (className !== undefined && className !== '') {
+    classname = `filter ${String(className)}`
+  }
 
   useEffect(() => {
     if (productsLibrary.length > 0) {
@@ -46,7 +63,9 @@ function Filter (): JSX.Element {
   }, [productsLibrary, currentindex])
 
   useEffect(() => {
-    applyFilter()
+    if (String(applyDelayFilter) !== 'true') {
+      applyFilter()
+    }
   }, [filters, minPrice, maxPrice, minAmount, maxAmount, searchList])
 
   function onChangeHandler (event: ChangeEvent<HTMLInputElement>, item: string, key: keyof IFilterCategories): void {
@@ -149,8 +168,23 @@ function Filter (): JSX.Element {
     setFilteredList([...tempFilteredList])
   }
 
+  function handleResetFilter (): void {
+    setApplyDelayFilter(true)
+    setFilters({})
+    setMinPrice(0)
+    setMaxPrice(1000)
+    setMinAmount(0)
+    setMaxAmount(10000)
+    setFilteredList([...productsLibrary])
+    Array.from(checkboxes).forEach((item) => {
+      const inp = item as HTMLInputElement
+      inp.checked = false
+    })
+  }
+
   return (
-    <div className="filter">
+    <div className={classname}>
+      <FilterAnchor isFilter={isFilter} setFilter={setFilter} setApplyDelayFilter={setApplyDelayFilter} />
       <div className="filter-block">
         <h3 className="filter-category__title">Категория</h3>
         <ul className="filter-list">
@@ -200,12 +234,41 @@ function Filter (): JSX.Element {
       </div>
       <div className="filter__block">
         <div className="filter-category__slider-title">Цена, Br</div>
-        <DualSlider id={'price'} min={0} max={1000} onChangeHandlerSlider={onChangeHandlerSlider} />
+        <DualSlider
+          id={'price'}
+          min={0}
+          max={1000}
+          minVal={minPrice}
+          setMinVal={setMinPrice}
+          maxVal={maxPrice}
+          setMaxVal={setMaxPrice}
+          onChangeHandlerSlider={onChangeHandlerSlider}
+        />
       </div>
       <div className="filter__block">
         <div className="filter-category__slider-title">Количество, шт</div>
-        <DualSlider id={'amount'} min={0} max={10000} onChangeHandlerSlider={onChangeHandlerSlider} />
+        <DualSlider
+          id={'amount'}
+          min={0}
+          max={10000}
+          minVal={minAmount}
+          setMinVal={setMinAmount}
+          maxVal={maxAmount}
+          setMaxVal={setMaxAmount}
+          onChangeHandlerSlider={onChangeHandlerSlider}
+        />
       </div>
+      <Button className='filter-block__btn btn-apply' onClick={() => {
+        applyFilter()
+      }}>
+        Применить
+      </Button>
+      <Button className='filter-block__btn btn-reset' onClick={() => {
+        handleResetFilter()
+        setApplyDelayFilter(true)
+      }}>
+        Сбросить
+      </Button>
     </div>
   )
 }

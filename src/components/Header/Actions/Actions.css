@@ -68,6 +68,15 @@
   flex-shrink: 0;
 }
 
+@media screen and (max-width: 1024px) {
+
+  .icon {
+    width: 4rem;
+    height: 4rem;
+  }
+
+}
+
 @media screen and (max-width: 767px) {
 
   .actions-menu {

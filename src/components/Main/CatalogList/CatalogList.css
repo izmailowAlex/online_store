@@ -24,3 +24,15 @@
 .empty-message{
   margin: auto;
 }
+
+@media screen and (max-width: 1024px) {
+
+  .catalog-list {
+    gap: 7rem;
+  }
+
+  .catalog-list-wrapper {
+    grid-gap: 2rem 12rem;
+  }
+
+}

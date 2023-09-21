@@ -5,6 +5,10 @@
   gap: 7rem;
 }
 
+.filter-anchor-wrapper {
+  display: none;
+}
+
 .filter-category__title {
   font-family: "Nunito Sans", Arial, sans-serif;
   font-size: 3rem;
@@ -29,10 +33,77 @@
   gap: 1.3rem;
 }
 
+.filter-block__btn {
+  display: none;
+}
+
 @media screen and (max-width: 1024px) {
 
   .filter {
-    min-width: 35rem;
+    display: flex;
+    padding: 5rem;
+    min-width: 45rem;
+    height: 100%;
+    min-height: 1500px;
+    gap: 5rem;
+    background-color: var(--primary-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: all 1s ease-in-out;
+    z-index: 3;
+  }
+
+  .active {
+    transform: translateX(0%);
+  }
+
+  .filter-anchor-wrapper {
+    display: block;
+    position: absolute;
+    top: 5rem;
+    right: -15rem;
+  }
+
+  .filter-anchor {
+    padding: 2rem;
+    font-size: 3.3rem;
+    text-decoration: underline;
+    border: 0;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+
+  .filter-anchor:hover {
+    text-decoration: none;
+    color: var(--white-color);
+  }
+
+  .filter-category__title {
+    font-size: 5rem;
+  }
+
+  .filter-category__slider-title {
+    font-size: 3.5rem;
+  }
+
+  .filter-block__btn {
+    display: block;
+    background-color: var(--grey-light-color)!important;
+  }
+
+  .btn-apply {
+    margin-top: 4rem;
+  }
+
+  .btn-reset {
+    margin-top: -2rem;
+  }
+
+  .filter-list-colors {
+    gap: 1.7rem;
   }
 
 }

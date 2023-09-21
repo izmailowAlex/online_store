@@ -5,6 +5,7 @@ import './Input.css'
 
 function Input (
   {
+    id,
     className,
     name,
     value,
@@ -38,6 +39,7 @@ function Input (
   return (
     <div className={classname}>
       <input
+        id={id}
         className="input__textbox"
         type="text"
         name={name}
