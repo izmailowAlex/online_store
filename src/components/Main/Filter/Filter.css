@@ -76,11 +76,6 @@
     cursor: pointer;
   }
 
-  .filter-anchor:hover {
-    text-decoration: none;
-    color: var(--white-color);
-  }
-
   .filter-category__title {
     font-size: 5rem;
   }
@@ -104,6 +99,15 @@
 
   .filter-list-colors {
     gap: 1.7rem;
+  }
+
+  @media (hover: hover) {
+
+    .filter-anchor:hover {
+      text-decoration: none;
+      color: var(--white-color);
+    }
+  
   }
 
 }

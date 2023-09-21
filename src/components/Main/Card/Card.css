@@ -12,10 +12,6 @@
   overflow: hidden;
 }
 
-.card:hover {
-  box-shadow: 0 0.3rem 1.2rem 0.2rem rgba(180, 180, 180, 0.5);
-}
-
 .card::before {
   content: "";
   width: 35rem;
@@ -52,10 +48,6 @@
   text-decoration: none;
   color: var(--base-color);
   transition: color 0.3s ease-in-out;
-}
-
-.card__title-link:hover {
-  color: var(--secondary-color);
 }
 
 .card-controls {
@@ -101,12 +93,24 @@
   transition: transform 0.3s ease-in-out;
 }
 
-.card__button:hover:before {
-  transform: scale(2.5);
-}
-
 .card-message {
   margin: 0 auto;
   font-size: 2rem;
   display: flex;
+}
+
+@media (hover: hover) {
+
+  .card:hover {
+    box-shadow: 0 0.3rem 1.2rem 0.2rem rgba(180, 180, 180, 0.5);
+  }
+
+  .card__title-link:hover {
+    color: var(--secondary-color);
+  }
+
+  .card__button:hover:before {
+    transform: scale(2.5);
+  }
+
 }

@@ -54,10 +54,6 @@
   gap: 4.5rem;
 }
 
-.cart__cart-clear:hover {
-  text-decoration: none;
-}
-
 .cart__description {
   font-size: 2rem;
 }
@@ -91,4 +87,12 @@
 
 .cart__promocode .input__textbox {
   font-size: 1.4rem;
+}
+
+@media (hover: hover) {
+
+  .cart__cart-clear:hover {
+    text-decoration: none;
+  }
+
 }

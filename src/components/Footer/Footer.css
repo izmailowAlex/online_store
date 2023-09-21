@@ -28,14 +28,6 @@
   transition: color 0.3s ease-in-out;
 }
 
-.contributors__link:hover {
-  color: var(--base-color);
-}
-
-.contributors__link:hover path {
-  fill: var(--base-color);
-}
-
 .contributors__icon {
   display: inline-block;
 }
@@ -68,4 +60,16 @@
 .github path,
 .item__title {
   transition: all 0.3s ease-in-out;
+}
+
+@media (hover: hover) {
+
+  .contributors__link:hover {
+    color: var(--base-color);
+  }
+  
+  .contributors__link:hover path {
+    fill: var(--base-color);
+  }
+
 }

@@ -23,10 +23,6 @@
   transition: color 0.3s ease-in-out;
 }
 
-.product__title-link:hover {
-  color: var(--secondary-color);
-}
-
 .product__price {
   width: 4rem;
   font-size: 2.3rem;
@@ -76,14 +72,24 @@
   box-shadow: 0 0 0 5px #ffecec;
 }
 
-.product__remove:hover {
-  background-color: var(--error-color);
-  box-shadow: 0 0 0 5px #ffecec;
-}
-
 .product__remove .icon {
   color: var(--base-color);
 }
-.product__remove:hover .icon {
-  color: var(--white-color);
+
+@media (hover: hover) {
+
+  .product__title-link:hover {
+    color: var(--secondary-color);
+  }
+  
+  
+  .product__remove:hover {
+    background-color: var(--error-color);
+    box-shadow: 0 0 0 5px #ffecec;
+  }
+  
+  .product__remove:hover .icon {
+    color: var(--white-color);
+  }
+
 }

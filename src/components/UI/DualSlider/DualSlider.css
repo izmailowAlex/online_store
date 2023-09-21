@@ -3,6 +3,7 @@
   min-height: 7rem;
   position: relative;
 }
+
 .dualslider__wrapper {
   position: relative;
   width: 100%;
@@ -96,10 +97,6 @@
   transition: box-shadow 0.3s ease-in-out;
 }
 
-.dualslider__thumb:hover::-webkit-slider-thumb {
-  box-shadow: 0 0 0 5px rgba(253, 120, 152, 0.2);
-}
-
 .dualslider__thumb::-moz-range-thumb {
   background-color: var(--secondary-color);
   border: none;
@@ -113,6 +110,14 @@
   position: relative;
 }
 
-.dualslider__thumb:hover::-moz-range-thumb {
-  box-shadow: 0 0 0 0.6rem rgba(253, 120, 152, 0.2);
+@media (hover: hover) {
+
+  .dualslider__thumb:hover::-webkit-slider-thumb {
+    box-shadow: 0 0 0 5px rgba(253, 120, 152, 0.2);
+  }
+  
+  .dualslider__thumb:hover::-moz-range-thumb {
+    box-shadow: 0 0 0 0.6rem rgba(253, 120, 152, 0.2);
+  }
+
 }

@@ -18,10 +18,14 @@
   cursor: pointer;
 }
 
-.button:not([disabled]):hover {
-  box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.25);
-}
-
 .button:not([disabled]):active {
   box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.25);
+}
+
+@media (hover: hover) {
+
+  .button:not([disabled]):hover {
+    box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.25);
+  }
+
 }

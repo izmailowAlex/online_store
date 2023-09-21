@@ -78,16 +78,6 @@
   opacity: 0;
 }
 
-.checkbox:hover .checkbox__svg {
-  opacity: 1;
-}
-
-.checkbox:hover .checkbox__icon::before {
-  width: 3.6rem;
-  height: 3.6rem;
-  opacity: 1;
-}
-
 .checkbox__input:checked ~ .checkbox__wrapper .checkbox__svg {
   opacity: 1;
 }
@@ -124,20 +114,12 @@
   background-color: var(--blue-color);
 }
 
-.checkbox_blue:hover .checkbox__input ~ .checkbox__wrapper .checkbox__icon::before {
-  background-color: rgba(55, 139, 235, 0.3);
-}
-
 .checkbox_blue .checkbox__input:checked ~ .checkbox__wrapper .checkbox__icon::after {
   background-color: var(--blue-color);
 }
 
 .checkbox_red {
   background-color: var(--red-color);
-}
-
-.checkbox_red:hover .checkbox__input ~ .checkbox__wrapper .checkbox__icon::before {
-  background-color: rgba(245, 59, 59, 0.3);
 }
 
 .checkbox_red .checkbox__input:checked ~ .checkbox__wrapper .checkbox__icon::after {
@@ -148,20 +130,12 @@
   background-color: var(--green-color);
 }
 
-.checkbox_green:hover .checkbox__input ~ .checkbox__wrapper .checkbox__icon::before {
-  background-color: rgba(61, 238, 111, 0.3);
-}
-
 .checkbox_green .checkbox__input:checked ~ .checkbox__wrapper .checkbox__icon::after {
   background-color: var(--green-color);
 }
 
 .checkbox_yellow {
   background-color: var(--yellow-color);
-}
-
-.checkbox_yellow:hover .checkbox__input ~ .checkbox__wrapper .checkbox__icon::before {
-  background-color: rgba(252, 234, 72, 0.3);
 }
 
 .checkbox_yellow .checkbox__input:checked ~ .checkbox__wrapper .checkbox__icon::after {
@@ -172,20 +146,12 @@
   background-color: var(--purple-color);
 }
 
-.checkbox_purple:hover .checkbox__input ~ .checkbox__wrapper .checkbox__icon::before {
-  background-color: rgba(182, 109, 240, 0.3);
-}
-
 .checkbox_purple .checkbox__input:checked ~ .checkbox__wrapper .checkbox__icon::after {
   background-color: var(--purple-color);
 }
 
 .checkbox_black {
   background-color: var(--black-color);
-}
-
-.checkbox_black:hover .checkbox__input ~ .checkbox__wrapper .checkbox__icon::before {
-  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .checkbox_black .checkbox__input:checked ~ .checkbox__wrapper .checkbox__icon::after {
@@ -196,10 +162,6 @@
   background-color: var(--grey-color);
 }
 
-.checkbox_grey:hover .checkbox__input ~ .checkbox__wrapper .checkbox__icon::before {
-  background-color: rgba(180, 180, 180, 0.3);
-}
-
 .checkbox_grey .checkbox__input:checked ~ .checkbox__wrapper .checkbox__icon::after {
   background-color: var(--grey-color);
 }
@@ -207,10 +169,6 @@
 .checkbox_white {
   background-color: var(--white-color);
   border: 0.01rem solid var(--grey-color);
-}
-
-.checkbox_white:hover .checkbox__input ~ .checkbox__wrapper .checkbox__icon::before {
-  background-color: rgba(180, 180, 180, 0.3);
 }
 
 .checkbox_white .checkbox__icon {
@@ -227,6 +185,58 @@
 
 .checkbox_white .checkbox__input:checked ~ .checkbox__wrapper .checkbox__icon::after {
   background-color: var(--white-color);
+}
+
+@media (hover: hover) {
+
+  .checkbox:hover .checkbox__svg {
+    opacity: 1;
+  }
+  
+  .checkbox:hover .checkbox__icon::before {
+    width: 3.6rem;
+    height: 3.6rem;
+    opacity: 1;
+  }
+  
+  
+  .checkbox_blue:hover .checkbox__input ~ .checkbox__wrapper .checkbox__icon::before {
+    background-color: rgba(55, 139, 235, 0.3);
+  }
+  
+  
+  .checkbox_red:hover .checkbox__input ~ .checkbox__wrapper .checkbox__icon::before {
+    background-color: rgba(245, 59, 59, 0.3);
+  }
+  
+  
+  .checkbox_green:hover .checkbox__input ~ .checkbox__wrapper .checkbox__icon::before {
+    background-color: rgba(61, 238, 111, 0.3);
+  }
+  
+  
+  .checkbox_yellow:hover .checkbox__input ~ .checkbox__wrapper .checkbox__icon::before {
+    background-color: rgba(252, 234, 72, 0.3);
+  }
+  
+  
+  .checkbox_purple:hover .checkbox__input ~ .checkbox__wrapper .checkbox__icon::before {
+    background-color: rgba(182, 109, 240, 0.3);
+  }
+  
+  
+  .checkbox_black:hover .checkbox__input ~ .checkbox__wrapper .checkbox__icon::before {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .checkbox_grey:hover .checkbox__input ~ .checkbox__wrapper .checkbox__icon::before {
+    background-color: rgba(180, 180, 180, 0.3);
+  }
+
+  .checkbox_white:hover .checkbox__input ~ .checkbox__wrapper .checkbox__icon::before {
+    background-color: rgba(180, 180, 180, 0.3);
+  }
+
 }
 
 @media screen and (max-width: 1024px) {
@@ -249,9 +259,13 @@
     height: 3.4rem;
   }
 
-  .checkbox:hover .checkbox__icon::before {
-    width: 4.9rem;
-    height: 4.9rem;
+  @media (hover: hover) {
+
+    .checkbox:hover .checkbox__icon::before {
+      width: 4.9rem;
+      height: 4.9rem;
+    }
+
   }
 
 }
