@@ -18,15 +18,14 @@
   width: 26rem;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 500px) {
 
   .header__container {
-    width: 80%;
+    width: 90%;
   }
 
-  .header-logo {
-    top: 50%;
-    left: 10%;
+  .header-logo__img {
+    width: 32rem;
   }
 
 }

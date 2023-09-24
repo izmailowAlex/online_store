@@ -1,6 +1,8 @@
 .balloon {
   width: 100vw;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   position: relative;
   overflow: hidden;
 }
@@ -38,4 +40,17 @@
   height: 110rem;
   bottom: -65rem;
   right: -27rem;
+}
+
+@media screen and (max-width: 767px) {
+
+  .balloon_blue {
+    background-color: rgba(192, 255, 253, 0.2);
+    border: 0.8rem solid rgba(169, 254, 252, 0.2);
+    width: 110rem;
+    height: 110rem;
+    bottom: -35rem;
+    right: -36rem;
+  }
+
 }

@@ -36,3 +36,17 @@
   }
 
 }
+
+@media screen and (max-width: 768px) {
+
+  .catalog-list {
+    gap: 18rem;
+  }
+
+  .catalog-list-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    gap: 5rem;
+  }
+
+}

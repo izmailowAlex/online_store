@@ -23,10 +23,8 @@
 
 @media screen and (max-width: 767px) {
 
-  .nav {
-    position: absolute;
-    left: 50%;
-    top: 50%;
+  .nav__link {
+    font-size: 5.5rem;
   }
 
 }

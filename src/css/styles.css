@@ -32,11 +32,13 @@
 }
 
 html {
+  height: 100%;
   font-size: calc(100vw / 1920 * 10);
   line-height: 1;
 }
 
 body {
+  height: 100%;
   color: var(--base-color);
   font-family: "Nunito Sans", Arial, sans-serif;
   font-weight: 400;
@@ -90,14 +92,18 @@ h3 {
 
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 500px) {
 
   html {
     font-size: calc(100vw / 1480 * 10);
   }
 
+  h2 {
+    font-size: 7rem;
+  }
+
   .container {
-    max-width: 95%;
+    max-width: 90%;
   }
 
 }

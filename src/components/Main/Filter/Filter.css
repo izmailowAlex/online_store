@@ -37,6 +37,15 @@
   display: none;
 }
 
+@media (hover: hover) {
+
+  .filter-anchor:hover {
+    text-decoration: none;
+    color: var(--white-color);
+  }
+
+}
+
 @media screen and (max-width: 1024px) {
 
   .filter {
@@ -44,7 +53,6 @@
     padding: 5rem;
     min-width: 45rem;
     height: 100%;
-    min-height: 1500px;
     gap: 5rem;
     background-color: var(--primary-color);
     position: absolute;
@@ -52,7 +60,7 @@
     left: 0;
     transform: translateX(-100%);
     transition: all 1s ease-in-out;
-    z-index: 3;
+    z-index: 30;
   }
 
   .active {
@@ -101,13 +109,50 @@
     gap: 1.7rem;
   }
 
-  @media (hover: hover) {
+}
 
-    .filter-anchor:hover {
-      text-decoration: none;
-      color: var(--white-color);
-    }
-  
+@media screen and (max-width: 500px) {
+
+  .filter {
+    padding: 5rem;
+    min-width: 95rem;
+    height: 100%;
+    display: flex;
+    gap: 8rem;
+  }
+
+  .filter-anchor-wrapper {
+    right: -28rem;
+  }
+
+  .filter-anchor {
+    min-width: 28rem;
+    font-size: 5rem;
+  }
+
+  .filter-category__title {
+    font-size: 7rem;
+    margin-bottom: 7rem;
+  }
+
+  .filter-list {
+    gap: 2rem;
+  }
+
+  .filter-list-colors {
+    gap: 3rem;
+  }
+
+  .filter-category__slider-title {
+    font-size: 5rem;
+  }
+
+  .btn-apply {
+    margin-top: 6rem;
+  }
+
+  .btn-reset {
+    margin-top: -3rem;
   }
 
 }

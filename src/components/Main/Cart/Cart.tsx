@@ -86,27 +86,27 @@ function Cart (): JSX.Element {
 
   return (
     <div className="cart">
-      <div className="cart__content">
-        <div className="cart__table">
+      <div className="cart-content">
+        <div className="cart-table">
           {cartOrders.length !== 0
             ? (
               <>
-                <div className="cart__table-upper">
+                <div className="cart-table-upper">
                   <h2 className="cart__title">Корзина</h2>
                   <div
-                    className="cart__cart-clear"
+                    className="cart-clear"
                     onClick={() => { clearAllOrders() }}
                   >
                     Очистить корзину
                   </div>
                 </div>
-                <div className="cart__list-head">
-                  <span className="cart__select-all">
+                <div className="cart-list-head">
+                  <span className="cart-select-all">
                     <Checkbox onChange={handleCheckedAllCartProducts} isOrder={checkedAllProducts} />
                     <span>Выбрать все</span>
                   </span>
                 </div>
-                <ul className="cart__list">
+                <ul className="cart-list">
                   {currentProductPageOfCartProducts.map((order) => {
                     return (
                       <Product
@@ -140,15 +140,15 @@ function Cart (): JSX.Element {
               </>)
             : <>
                 <h2 className="cart__title">Корзина пуста</h2>
-                <p className="cart__description">Выберите товар в каталоге</p>
+                <p className="cart-description">Выберите товар в каталоге</p>
               </>
           }
         </div>
-        <div className="cart__summary">
-          <h2 className="cart__summary-title">Итого:</h2>
-          <p className="cart__amount">{String(success) === 'false' ? price.toFixed(2) : (price - (price * 0.2)).toFixed(2)}</p>
+        <div className="cart-summary">
+          <h2 className="cart-summary__title">Итого:</h2>
+          <p className="cart-amount">{String(success) === 'false' ? price.toFixed(2) : (price - (price * 0.2)).toFixed(2)}</p>
           <Input
-            className="cart__promocode"
+            className="cart-promocode"
             name="promocode"
             placeholder="Введите промокод E020PB3P"
             success={success}
@@ -156,7 +156,7 @@ function Cart (): JSX.Element {
             onChange={(event) => { comparePromoCode(event.target.value) }}
           />
           <Button
-            className="cart__checkout"
+            className="cart-checkout"
             onClick={() => { setPopupWindow(true) }}
           >
             Оформить заказ

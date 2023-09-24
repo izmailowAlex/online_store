@@ -1,6 +1,5 @@
 .main-catalog {
-  padding: 3rem 0;
-  min-height: calc(100vh - 26.5rem);
+  padding: 3rem;
   display: flex;
   flex-direction: column;
 }
@@ -13,4 +12,16 @@
   margin: auto 0;
   display: flex;
   justify-content: space-between;
+}
+
+@media screen and (max-width: 500px) {
+
+  .main-catalog {
+    padding: 3rem 1rem;
+  }
+
+  .main-catalog__title {
+    margin-bottom: 10rem;
+  }
+
 }

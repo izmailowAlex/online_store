@@ -25,11 +25,10 @@
   display: flex;
   display: -webkit-box;
   display: -ms-flexbox;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   -webkit-box-align: center;
   -webkit-box-pack: center;
   -ms-flex-align: center;
@@ -74,6 +73,13 @@
 
 @media screen and (max-width: 1024px) {
 
+.actions-menu__quantity {
+  width: 2.8rem;
+  height: 2.8rem;
+  font-size: 1.5rem;
+  left: 2.4rem;
+}
+
   .icon {
     width: 4rem;
     height: 4rem;
@@ -81,12 +87,22 @@
 
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 500px) {
 
-  .actions-menu {
-    position: absolute;
-    top: 50%;
-    right: 5%;
+  .actions-menu__list {
+    gap: 3rem;
+  }
+
+.actions-menu__quantity {
+  width: 4.4rem;
+  height: 4.4rem;
+  font-size: 2.5rem;
+  left: 3.7rem;
+}
+
+  .icon {
+    width: 6.8rem;
+    height: 6.8rem;
   }
 
 }

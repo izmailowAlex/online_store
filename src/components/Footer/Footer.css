@@ -1,7 +1,5 @@
 .footer {
   width: 100%;
-  position: static;
-  bottom: 0;
 }
 
 .footer__container {
@@ -33,13 +31,13 @@
 }
 
 .contributors__link-label {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 400;
 }
 
 .footer__copyright {
   color: var(--grey-dark-color);
-  font-size: 1.5rem;
+  font-size: 2.1rem;
 }
 
 .footer__copyright:before {
@@ -53,8 +51,8 @@
 }
 
 .github {
-  width: 3.6rem;
-  height: 3.6rem;
+  width: 5rem;
+  height: 5rem;
 }
 
 .github path,
@@ -70,6 +68,27 @@
   
   .contributors__link:hover path {
     fill: var(--base-color);
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+
+  .footer__container {
+    width: 90%;
+  }
+
+  .github {
+    width: 7rem;
+    height: 7rem;
+  }
+
+  .contributors__link-label {
+    font-size: 4rem;
+  }
+  
+  .footer__copyright {
+    font-size: 3rem;
   }
 
 }

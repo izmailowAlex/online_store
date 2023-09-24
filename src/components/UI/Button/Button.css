@@ -29,3 +29,13 @@
   }
 
 }
+
+@media screen and (max-width: 500px) {
+
+  .button {
+    padding: 3.5rem 5.5rem;
+    font-size: 4rem;
+    line-height: 3rem;
+  }
+
+}

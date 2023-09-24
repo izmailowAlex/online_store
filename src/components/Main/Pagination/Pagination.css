@@ -49,3 +49,21 @@
   }
 
 }
+
+@media screen and (max-width: 500px) {
+
+  .page-list {
+    gap: 3rem;
+  }
+
+  .page-item {
+    width: 7rem;
+    height: 8rem;
+    font-size: 5rem;
+  }
+
+  .page-item-nav {
+    width: 27rem;
+  }
+
+}

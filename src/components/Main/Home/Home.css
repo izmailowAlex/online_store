@@ -1,5 +1,4 @@
 .home {
-  min-height: calc(100vh - 26.5rem);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -26,29 +25,29 @@
 .home__description {
   width: 45rem;
   font-family: "Nunito Sans", Arial, sans-serif;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 600;
   line-height: 1.5;
 }
 
 .home__button {
-  font-size: 2.5rem;
+  font-size: 3rem;
 }
 
 @media screen and (max-width: 1024px) {
 
   .home {
-    gap: 14rem;
+    gap: 10rem;
   }
 
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 500px) {
 
   .home {
-    padding: 5rem 0;
+    min-height: 100%;
+    padding: 8rem 0;
     flex-direction: column;
-    position: relative;
   }
 
   .home-image {
@@ -63,8 +62,21 @@
 
   .home-content {
     width: 70%;
-    position: absolute;
-    top: 70rem;
+    row-gap: 7rem;
+  }
+
+  .home__title {
+    font-size: 10rem;
+  }
+
+  .home__description {
+    width: 75rem;
+    font-size: 4rem;
+  }
+
+  .home__button {
+    margin: auto;
+    font-size: 4rem;
   }
 
 }
