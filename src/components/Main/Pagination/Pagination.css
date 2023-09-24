@@ -50,6 +50,24 @@
 
 }
 
+@media screen and (max-width: 768px) {
+
+  .page-list {
+    gap: 3rem;
+  }
+
+  .page-item {
+    width: 5.8rem;
+    height: 5.8rem;
+    font-size: 4rem;
+  }
+
+  .page-item-nav {
+    width: 27rem;
+  }
+
+}
+
 @media screen and (max-width: 500px) {
 
   .page-list {
@@ -58,7 +76,7 @@
 
   .page-item {
     width: 7rem;
-    height: 8rem;
+    height: 7rem;
     font-size: 5rem;
   }
 

@@ -39,14 +39,21 @@
 
 @media screen and (max-width: 768px) {
 
+  .catalog-list-wrapper {
+    grid-gap: 5rem 3rem;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+
   .catalog-list {
     gap: 18rem;
   }
 
   .catalog-list-wrapper {
     grid-template-columns: repeat(2, 1fr);
-    justify-content: space-between;
-    gap: 5rem;
+    grid-gap: 3rem;
   }
 
 }

@@ -87,18 +87,30 @@
 
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 768px) {
 
-  .actions-menu__list {
-    gap: 3rem;
+  .actions-menu__quantity {
+    width: 3.6rem;
+    height: 3.6rem;
+    font-size: 2rem;
+    left: 2.7rem;
   }
 
-.actions-menu__quantity {
-  width: 4.4rem;
-  height: 4.4rem;
-  font-size: 2.5rem;
-  left: 3.7rem;
+  .icon {
+    width: 5rem;
+    height: 5rem;
+  }
+
 }
+
+@media screen and (max-width: 500px) {
+
+  .actions-menu__quantity {
+    width: 4.4rem;
+    height: 4.4rem;
+    font-size: 2.5rem;
+    left: 3.7rem;
+  }
 
   .icon {
     width: 6.8rem;

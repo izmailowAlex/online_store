@@ -42,6 +42,18 @@
 
 }
 
+@media screen and (max-width: 768px) {
+
+  .home-image__img {
+    width: 84rem;
+  }
+
+  .home__button {
+    font-size: 3.5rem;
+  }
+
+}
+
 @media screen and (max-width: 500px) {
 
   .home {
@@ -57,7 +69,6 @@
   .home-image__img {
     margin: auto;
     width: 95%;
-    opacity: 60%;
   }
 
   .home-content {

@@ -1,12 +1,15 @@
 .main {
+  display: flex;
   flex: 1 1 auto;
 }
 
 .main__container {
+  margin: auto;
+  display: flex;
   padding: 8rem 0;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 768px) {
 
   .main__container {
     padding: 0;

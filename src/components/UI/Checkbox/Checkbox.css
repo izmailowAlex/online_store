@@ -270,15 +270,37 @@
 
 }
 
+@media screen and (max-width: 768px) {
+
+  .checkbox {
+    line-height: 7rem;
+  }
+
+  .checkbox__svg {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .checkbox__icon {
+    margin-right: 3.5rem;
+  }
+
+  .checkbox__icon::after {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .checkbox__label {
+    font-size: 3.5rem;
+  }
+
+}
+
 @media screen and (max-width: 500px) {
 
   .checkbox__svg {
     width: 6rem;
     height: 6rem;
-  }
-
-  .checkbox__label {
-    font-size: 5rem;
   }
 
   .checkbox__icon {
@@ -288,6 +310,10 @@
   .checkbox__icon::after {
     width: 6rem;
     height: 6rem;
+  }
+
+  .checkbox__label {
+    font-size: 5rem;
   }
 
 }

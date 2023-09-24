@@ -30,6 +30,16 @@
 
 }
 
+@media screen and (max-width: 768px) {
+
+  .button {
+    padding: 3.5rem 5.5rem;
+    font-size: 3.5rem;
+    line-height: 2rem;
+  }
+
+}
+
 @media screen and (max-width: 500px) {
 
   .button {

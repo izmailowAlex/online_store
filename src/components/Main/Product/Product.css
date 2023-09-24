@@ -94,11 +94,11 @@
 
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 768px) {
 
   .product {
-    grid-template-columns: 6rem 1fr 40rem repeat(4, 1fr);
-    gap: 2.5rem;
+    grid-template-columns: 4rem 1fr 49rem repeat(4, 1fr);
+    gap: 5rem;
   }
 
   .product__image {
@@ -123,6 +123,19 @@
   .product__remove {
     width: 6.3rem;
     height: 6.3rem;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+
+  .product {
+    grid-template-columns: 6rem 1fr 40rem repeat(4, 1fr);
+    gap: 2.5rem;
+  }
+
+  .product__title-link {
+    font-size: 3.2rem;
   }
 
 }
