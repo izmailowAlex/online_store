@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useContext, useEffect, useState } from 'react'
-import { IProduct, IFilterCategories } from '../../../interfaces/interface'
+import { IProduct, IFilterCategories, IFilterProps } from '../../../interfaces/interface'
 import { AppContext } from '../../../context/context'
 import Checkbox from '../../UI/Checkbox/Checkbox'
 import DualSlider from '../../UI/DualSlider/DualSlider'
@@ -7,7 +7,7 @@ import FilterAnchor from '../FilterAnchor/FilterAnchor'
 import './Filter.css'
 import Button from '../../UI/Button/Button'
 
-function Filter (): JSX.Element {
+function Filter ({ isFilter, setFilter }: IFilterProps): JSX.Element {
   const { productsLibrary, setFilteredList, searchList } = useContext(AppContext)
   const [allCategories, setAllCategories] = useState<string[]>([])
   const [allTypes, setAllTypes] = useState<string[]>([])
@@ -18,7 +18,6 @@ function Filter (): JSX.Element {
   const [maxAmount, setMaxAmount] = useState(10000)
   const [currentindex, setCurrentIndex] = useState(0)
   const [filters, setFilters] = useState<IFilterCategories>({})
-  const [isFilter, setFilter] = useState<boolean>(false)
   const [applyDelayFilter, setApplyDelayFilter] = useState<boolean>(false)
   const checkboxes = document.querySelectorAll('[type="checkbox"]')
   let className = ''

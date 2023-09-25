@@ -5,6 +5,21 @@
   gap: 7rem;
 }
 
+.filter-overlay {
+  display: none;
+}
+
+.visible {
+  width: 100vw;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--overlay-color);
+  z-index: 20;
+}
+
 .filter-anchor-wrapper {
   display: none;
   transition: all 1s ease-in-out;
@@ -14,10 +29,18 @@
   min-width: 28rem;
   padding: 2rem;
   font-size: 3.3rem;
-  text-decoration: underline;
+  /* text-decoration: underline; */
   border: 0;
+  color: var(--base-color);
   background-color: var(--primary-color);
   cursor: pointer;
+}
+
+.active .filter-anchor {
+  text-decoration: none;
+  color: var(--secondary-color);
+  background-color: var(--primary-color-disabled);
+  border: 0.1rem solid var(--secondary-color);
 }
 
 .filter-category__title {

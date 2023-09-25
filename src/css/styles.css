@@ -18,6 +18,7 @@
   --grey-color: #b4b4b4;
   --grey-dark-color: #909090;
   --grey-light-color: #f6f6f6;
+  --overlay-color: rgba(0, 0, 0, 0.1);
 }
 
 * {

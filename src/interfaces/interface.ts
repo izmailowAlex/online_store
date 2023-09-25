@@ -1,3 +1,5 @@
+import { To } from 'react-router-dom'
+
 import React, {
   MouseEvent,
   ChangeEvent,
@@ -5,7 +7,10 @@ import React, {
   Dispatch,
   SetStateAction,
 } from 'react'
-import { To } from 'react-router-dom'
+export interface IFilterProps {
+  isFilter: boolean
+  setFilter: Dispatch<SetStateAction<boolean>>
+}
 
 export interface ICheckboxProps {
   id?: string
