@@ -40,6 +40,19 @@
     gap: 10rem;
   }
 
+  .home-image__img {
+    width: 74rem;
+  }
+
+  .home__title {
+    font-size: 7rem;
+  }
+
+  .home__description {
+    width: 50rem;
+    font-size: 2.5rem;
+  }
+
 }
 
 @media screen and (max-width: 768px) {

@@ -26,9 +26,9 @@
 }
 
 .filter-anchor {
-  min-width: 28rem;
-  padding: 2rem;
-  font-size: 3.3rem;
+  padding: 1.5rem;
+  min-width: 18rem;
+  font-size: 3.2rem;
   border: 0;
   color: var(--base-color);
   background-color: var(--primary-color);
@@ -69,6 +69,14 @@
   display: none;
 }
 
+.btn-apply {
+  margin-top: 1rem;
+}
+
+.btn-reset {
+  margin-top: 0rem;
+}
+
 @media (hover: hover) {
 
   .filter-anchor:hover {
@@ -81,11 +89,10 @@
 @media screen and (max-width: 1024px) {
 
   .filter {
-    display: flex;
-    padding: 5rem;
-    min-width: 45rem;
+    padding: 3rem 5rem;
+    min-width: 50rem;
     height: 100%;
-    gap: 5rem;
+    gap: 3rem;
     background-color: var(--primary-color);
     position: absolute;
     top: 0;
@@ -102,33 +109,30 @@
   .filter-anchor-wrapper {
     display: block;
     position: absolute;
-    top: 4rem;
-    right: -15rem;
+    top: 2rem;
+    right: -18rem;
+  }
+
+  .active .filter-anchor-wrapper {
+    right: -9rem;
   }
 
   .filter-category__title {
-    font-size: 5rem;
+    font-size: 4rem;
+    margin-bottom: 2rem;
   }
 
   .filter-category__slider-title {
     font-size: 3.5rem;
   }
 
+  .filter-list-colors {
+    gap: 1.7rem;
+  }
+
   .filter-block__btn {
     display: block;
     background-color: var(--grey-light-color)!important;
-  }
-
-  .btn-apply {
-    margin-top: 4rem;
-  }
-
-  .btn-reset {
-    margin-top: -2rem;
-  }
-
-  .filter-list-colors {
-    gap: 1.7rem;
   }
 
 }
@@ -149,6 +153,7 @@
   }
 
   .filter-anchor {
+    min-width: 28rem;
     padding: 2rem;
     font-size: 4rem;
   }
@@ -156,10 +161,6 @@
   .filter-list-colors {
     padding: 2rem 0;
     gap: 2.5rem;
-  }
-
-  .btn-apply {
-    margin-top: 1rem;
   }
 
   .btn-reset {
@@ -173,9 +174,11 @@
   .filter {
     padding: 5rem;
     min-width: 95rem;
-    height: 100%;
-    display: flex;
     gap: 8rem;
+  }
+
+  .filter-anchor-wrapper {
+    top: 4rem;
   }
 
   .filter-anchor {
@@ -201,7 +204,7 @@
   }
 
   .btn-apply {
-    margin-top: 6rem;
+    margin-top: 0rem;
   }
 
   .btn-reset {

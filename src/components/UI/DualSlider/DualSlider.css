@@ -122,17 +122,17 @@
 
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   
   .dualslider {
     padding-top: 4rem;
-    min-height: 14rem;
+    min-height: 12rem;
   }
 
   .dualslider__min-value,
   .dualslider__max-value {
     width: 18rem;
-    margin-top: 5rem;
+    margin-top: 4rem;
   }
 
 }

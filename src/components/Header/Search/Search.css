@@ -38,13 +38,13 @@
 @media screen and (max-width: 1024px) {
 
   .search-icon {
-    width: 4rem;
-    height: 4rem;
+    width: 3.5rem;
+    height: 3.5rem;
   }
 
   .search__input {
     width: 48rem;
-    height: 4.5rem;
+    height: 3.8rem;
     font-size: 2.5rem;
   }
 

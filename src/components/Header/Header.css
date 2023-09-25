@@ -18,6 +18,18 @@
   width: 26rem;
 }
 
+@media screen and (max-width: 1024px) {
+
+  .header__container {
+    padding: 3rem 0;
+  }
+
+  .header-logo__img {
+    width: 24rem;
+  }
+
+}
+
 @media screen and (max-width: 768px) {
 
   .header-logo__img {

@@ -59,17 +59,17 @@
 @media screen and (max-width: 500px) {
 
   .balloon_red {
-    top: -47rem;
-    right: -45rem;
+    top: -30rem;
+    right: -20rem;
   }
 
   .balloon_yellow {
-    top: 34rem;
-    left: -61rem;
+    top: 65rem;
+    left: -40rem;
   }
 
   .balloon_blue {
-    bottom: -15rem;
+    bottom: 5rem;
   }
 
 }
