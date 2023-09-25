@@ -14,7 +14,7 @@ function Checkbox ({
   let classname = 'checkbox'
 
   if (className !== undefined) {
-    classname = 'checkbox ' + className
+    classname = `checkbox ${String(className)}`
   }
   useEffect(() => {
     if (changeCartOrdersContain !== undefined && id !== undefined) {

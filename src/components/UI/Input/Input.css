@@ -57,3 +57,39 @@
   left: 1.2rem;
   transform: translateY(-50%);
 }
+
+@media screen and (max-width: 768px) {
+
+  .input__textbox {
+    font-size: 3rem;
+    height: 6rem;
+  }
+
+  .input_labeled .input__textbox {
+    padding: 0.8rem 0.8rem 0.8rem 7rem;
+  }
+
+  .input_labeled .input__label {
+    font-size: 3rem;
+    left: 2rem;
+  }
+
+  .input__message {
+    font-size: 2.5rem;
+    padding: 1.7rem 0.8rem;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+
+  .input__textbox {
+    font-size: 4.3rem;
+    height: 7rem;
+  }
+
+  .input_labeled .input__textbox {
+    padding: 4rem 4rem 4rem 7rem;
+  }
+
+}

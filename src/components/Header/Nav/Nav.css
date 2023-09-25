@@ -13,6 +13,26 @@
   transition: color 0.3s ease-in-out;
 }
 
-.nav__link:hover {
-  color: var(--secondary-color);
+@media (hover: hover) {
+
+  .nav__link:hover {
+    color: var(--secondary-color);
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .nav__link {
+    font-size: 5rem;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+
+  .nav__link {
+    font-size: 5.5rem;
+  }
+
 }

@@ -1,3 +1,25 @@
+.main {
+  display: flex;
+  flex: 1 1 auto;
+}
+
 .main__container {
-  padding: 2rem 0;
+  margin: auto;
+  display: flex;
+}
+
+@media screen and (max-width: 1024px) {
+
+  .main__container {
+    padding: 1rem 0;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .main__container {
+    padding: 0;
+  }
+
 }

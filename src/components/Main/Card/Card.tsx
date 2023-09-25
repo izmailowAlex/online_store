@@ -20,50 +20,51 @@ function Card ({ product, handleAddToCart }: ICardProps): JSX.Element {
   }
   return (
     <div className="card">
-      <div className="card-image-wrapper">
-        <img
-          className="card__image"
-          src={`../images/${product.image}`}
-          alt={product.title}
-        />
-      </div>
-      <div className="card__title">
-        <Link className="card__title-link" to={`/productview/${product.id}/`}>
+      <Link className="card-wrapper-link" to={`/productview/${product.id}/`}>
+        <div className="card-image-wrapper">
+          <img
+            className="card__image"
+            src={`../images/${product.image}`}
+            alt={product.title}
+          />
+        </div>
+        <div className="card__title">
           {product.title}
-        </Link>
-      </div>
-      {String(productIsCart) !== 'true'
-        ? (
-          <>
-            <div className="card-controls">
-              <h3 className="card-price">{product.price} Br</h3>
-              <Counter
-                id={product.id}
-                count={val}
-                min={product.min}
-                balance={product.max}
-                changeCartOrdersContain={changeCounterValue}
-              />
-              <button
-                className="card__button"
-                onClick={() => {
-                  handleAddToCart(
-                    product.id,
-                    product.title,
-                    product.image,
-                    product.price,
-                    product.min,
-                    product.max,
-                    val
-                  )
-                }}
-              ></button>
+        </div>
+        {String(productIsCart) !== 'true'
+          ? (
+            <>
+              <div className="card-controls">
+                <h3 className="card-price">{product.price} Br</h3>
+                <Counter
+                  id={product.id}
+                  count={val}
+                  min={product.min}
+                  balance={product.max}
+                  changeCartOrdersContain={changeCounterValue}
+                />
+                <button
+                  className="card__button"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    handleAddToCart(
+                      product.id,
+                      product.title,
+                      product.image,
+                      product.price,
+                      product.min,
+                      product.max,
+                      val
+                    )
+                  }}
+                ></button>
+              </div>
+            </>)
+          : <div className="card-controls">
+              <span className="card-message">Этот товар уже в корзине!</span>
             </div>
-          </>)
-        : <div className="card-controls">
-            <span className="card-message">Этот товар уже в корзине!</span>
-          </div>
-      }
+        }
+      </Link>
     </div>
   )
 }

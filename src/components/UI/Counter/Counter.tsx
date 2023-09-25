@@ -84,7 +84,13 @@ function Counter ({ id, count, min, balance, setBalance, changeCartOrdersContain
 
   return (
     <div className="counter">
-      <button onClick={decrement} className="counter__button-minus">
+      <button
+        onClick={(e) => {
+          e.preventDefault()
+          decrement()
+        }}
+        className="counter__button-minus"
+      >
         <svg className="counter__svg">
           <use href="#minus"></use>
         </svg>
@@ -98,8 +104,15 @@ function Counter ({ id, count, min, balance, setBalance, changeCartOrdersContain
         onFocus={focusInEventHandler}
         onKeyDown={(event) => { handleKeyDown(event) }}
         onBlur={focusOutEventHandler}
+        onClick={(e) => { e.preventDefault() }}
       />
-      <button onClick={increment} className="counter__button-plus">
+      <button
+        onClick={(e) => {
+          e.preventDefault()
+          increment()
+        }}
+        className="counter__button-plus"
+      >
         <svg className="counter__svg">
           <use href="#plus"></use>
         </svg>

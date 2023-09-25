@@ -34,3 +34,49 @@
   transition: color 0.3s ease-in-out;
   cursor: pointer;
 }
+
+@media screen and (max-width: 1024px) {
+
+  .search-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .search__input {
+    width: 48rem;
+    height: 3.8rem;
+    font-size: 2.5rem;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .search-icon {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .search__input {
+    padding: 0.8rem 6rem 0.8rem 1.3rem;
+    height: 5.5rem;
+    font-size: 3.5rem;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+
+  .search-icon {
+    width: 6.8rem;
+    height: 6.8rem;
+  }
+
+  .search__input {
+    padding: 0.8rem 8rem 0.8rem 1.3rem;
+    width: 38rem;
+    height: 6.8rem;
+    font-size: 4rem;
+  }
+
+}

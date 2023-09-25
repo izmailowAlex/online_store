@@ -5,7 +5,7 @@
 .page-list {
   display: flex;
   justify-content: center;
-  gap: 1.3rem;
+  gap: 2.5rem;
 }
 
 .page-item {
@@ -26,11 +26,6 @@
   z-index: 10;
 }
 
-.page-item:hover {
-  background-color: var(--yellow-color);
-  box-shadow: 0 0 0 0.3rem var(--primary-color-disabled);
-}
-
 .page-item-nav {
   width: 14rem;
 }
@@ -44,4 +39,49 @@
   color: var(--white-color);
   background-color: var(--yellow-color);
   box-shadow: 0 0 0 0.3rem var(--primary-color-disabled);
+}
+
+@media (hover: hover) {
+
+  .page-item:hover {
+    background-color: var(--yellow-color);
+    box-shadow: 0 0 0 0.3rem var(--primary-color-disabled);
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .page-list {
+    gap: 3rem;
+  }
+
+  .page-item {
+    width: 5.8rem;
+    height: 5.8rem;
+    font-size: 4rem;
+  }
+
+  .page-item-nav {
+    width: 27rem;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+
+  .page-list {
+    gap: 3rem;
+  }
+
+  .page-item {
+    width: 7rem;
+    height: 7rem;
+    font-size: 5rem;
+  }
+
+  .page-item-nav {
+    width: 27rem;
+  }
+
 }

@@ -1,6 +1,8 @@
 .balloon {
   width: 100vw;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   position: relative;
   overflow: hidden;
 }
@@ -38,4 +40,36 @@
   height: 110rem;
   bottom: -65rem;
   right: -27rem;
+}
+
+@media screen and (max-width: 768px) {
+
+  .balloon_yellow {
+    top: 28rem;
+    left: -42rem;
+  }
+
+  .balloon_blue {
+    bottom: -35rem;
+    right: -26rem;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+
+  .balloon_red {
+    top: -30rem;
+    right: -20rem;
+  }
+
+  .balloon_yellow {
+    top: 65rem;
+    left: -40rem;
+  }
+
+  .balloon_blue {
+    bottom: 5rem;
+  }
+
 }

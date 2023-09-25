@@ -1,5 +1,5 @@
 .header__container {
-  padding: 5rem 0;
+  padding: 4rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,5 +15,33 @@
 }
 
 .header-logo__img {
-  width: 26rem;
+  width: 23rem;
+}
+
+@media screen and (max-width: 1024px) {
+
+  .header__container {
+    padding: 3rem 0;
+  }
+
+  .header-logo__img {
+    width: 24rem;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .header-logo__img {
+    width: 30rem;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+
+  .header__container {
+    width: 90%;
+  }
+
 }

@@ -1,12 +1,12 @@
-import React, { useState, useRef, useCallback, useEffect } from 'react'
+import React, { useRef, useCallback, useEffect } from 'react'
 import { IDualsliderProps } from '../../../interfaces/interface'
 
 import './DualSlider.css'
 import Input from '../Input/Input'
 
-function Dualslider ({ id, min, max, onChangeHandlerSlider }: IDualsliderProps): JSX.Element {
-  const [minVal, setMinVal] = useState(min)
-  const [maxVal, setMaxVal] = useState(max)
+function Dualslider (
+  { id, min, max, minVal, setMinVal, maxVal, setMaxVal, onChangeHandlerSlider }: IDualsliderProps
+): JSX.Element {
   const range = useRef<HTMLDivElement>(null)
 
   const getPercent = useCallback(
@@ -56,7 +56,7 @@ function Dualslider ({ id, min, max, onChangeHandlerSlider }: IDualsliderProps):
   }
 
   return (
-    <div className="dualslider">
+    <div id={id} className="dualslider">
       <input
         className={
           minVal >= max - 10
@@ -89,6 +89,7 @@ function Dualslider ({ id, min, max, onChangeHandlerSlider }: IDualsliderProps):
         <div className="dualslider__track"></div>
         <div className="dualslider__range" ref={range}></div>
         <Input
+          id={`${String(id)}__min-value`}
           className="dualslider__min-value"
           value={String(minVal)}
           label={'от'}
@@ -105,6 +106,7 @@ function Dualslider ({ id, min, max, onChangeHandlerSlider }: IDualsliderProps):
           }}
         />
         <Input
+          id={`${String(id)}__max-value`}
           className="dualslider__max-value"
           value={String(maxVal)}
           label={'до'}

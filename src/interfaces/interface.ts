@@ -1,3 +1,5 @@
+import { To } from 'react-router-dom'
+
 import React, {
   MouseEvent,
   ChangeEvent,
@@ -5,7 +7,10 @@ import React, {
   Dispatch,
   SetStateAction,
 } from 'react'
-import { To } from 'react-router-dom'
+export interface IFilterProps {
+  isFilter: boolean
+  setFilter: Dispatch<SetStateAction<boolean>>
+}
 
 export interface ICheckboxProps {
   id?: string
@@ -98,6 +103,7 @@ export interface IProductProps {
 }
 
 export interface IInputProps {
+  id?: string
   className: string
   name?: string
   value?: string
@@ -118,6 +124,10 @@ export interface IDualsliderProps {
   id: string
   min: number
   max: number
+  minVal: number
+  setMinVal: Dispatch<SetStateAction<number>>
+  maxVal: number
+  setMaxVal: Dispatch<SetStateAction<number>>
   onChangeHandlerSlider: (
     id: string,
     targetElem: HTMLInputElement,
@@ -135,6 +145,9 @@ export interface IAppContext {
   setSearchList: Dispatch<SetStateAction<IProduct[]>>
   cartOrders: ICartOrders[]
   setCartOrders: Dispatch<SetStateAction<ICartOrders[]>>
+  orderProductList: ICartOrders[]
+  price: number
+  setPrice: Dispatch<SetStateAction<number>>
 }
 
 export interface IFilterCategories {
@@ -152,4 +165,10 @@ export interface IPaginationProps {
   productsPerPage: number
   totalProducts: number
   paginate: (pageNumber: number) => void
+}
+
+export interface IFilterAnchor {
+  isFilter: boolean
+  setFilter: Dispatch<SetStateAction<boolean>>
+  setApplyDelayFilter: Dispatch<SetStateAction<boolean>>
 }

@@ -2,11 +2,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 100px;
+  gap: 14rem;
 }
 
 .home-image__img {
-  width: 95rem;
+  width: 60rem;
   border-radius: 50%;
 }
 
@@ -19,17 +19,84 @@
 }
 
 .home__title {
-  font-size: 9rem;
+  font-size: 7rem;
 }
 
 .home__description {
   width: 45rem;
   font-family: "Nunito Sans", Arial, sans-serif;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 600;
   line-height: 1.5;
 }
 
 .home__button {
-  font-size: 2.5rem;
+  font-size: 2.3rem;
+}
+
+@media screen and (max-width: 1024px) {
+
+  .home {
+    gap: 10rem;
+  }
+
+  .home-image__img {
+    width: 74rem;
+  }
+
+  .home__description {
+    width: 50rem;
+    font-size: 2.5rem;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .home-image__img {
+    width: 84rem;
+  }
+
+  .home__button {
+    font-size: 3.5rem;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+
+  .home {
+    min-height: 100%;
+    padding: 8rem 0;
+    flex-direction: column;
+  }
+
+  .home-image {
+    display: flex;
+  }
+
+  .home-image__img {
+    margin: auto;
+    width: 95%;
+  }
+
+  .home-content {
+    width: 70%;
+    row-gap: 7rem;
+  }
+
+  .home__title {
+    font-size: 10rem;
+  }
+
+  .home__description {
+    width: 75rem;
+    font-size: 4rem;
+  }
+
+  .home__button {
+    margin: auto;
+    font-size: 4rem;
+  }
+
 }
