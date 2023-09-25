@@ -1,5 +1,5 @@
 .header__container {
-  padding: 5rem 0;
+  padding: 4rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,7 +15,7 @@
 }
 
 .header-logo__img {
-  width: 26rem;
+  width: 23rem;
 }
 
 @media screen and (max-width: 1024px) {

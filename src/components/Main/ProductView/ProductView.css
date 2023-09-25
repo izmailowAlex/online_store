@@ -5,27 +5,27 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 12rem;
+  gap: 3rem;
 }
 
 .product-view__image-container {
-  width: 50%;
+  width: 30%;
   position: relative;
 }
 
 .product-view__image {
   margin: 0 auto;
-  width: 65rem;
+  width: 40rem;
   display: block;
   object-fit: contain;
 }
 
 .product-view__content {
-  padding: 6rem;
-  width: 50%;
+  padding: 3rem;
+  width: 70%;
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: 3rem;
 }
 
 .product-view__title {
@@ -64,12 +64,12 @@
 }
 
 .product-view__current-price {
-  font-size: 10rem;
+  font-size: 5rem;
   color: var(--secondary-color);
 }
 
 .product-view__old-price {
-  font-size: 7rem;
+  font-size: 4.5rem;
   color: var(--grey-color);
   padding: 0 2rem;
   position: relative;
@@ -101,14 +101,14 @@
 
 .product-view__description {
   font-family: "Nunito Sans", Arial, sans-serif;
-  font-size: 2.7rem;
+  font-size: 2.3rem;
   font-weight: 300;
   line-height: 1.4;
   color: var(--base-color);
 }
 
 .product-view__description-title {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   font-weight: 800;
   letter-spacing: 0;
 }
@@ -130,20 +130,6 @@
     gap: 5rem;
   }
 
-  .product-view__image-container {
-    width: 40%;
-  }
-  
-  .product-view__image {
-    width: 43rem;
-  }
-  
-  .product-view__content {
-    padding: 3rem;
-    width: 60%;
-    gap: 3rem;
-  }
-
   .product-view__description {
     font-size: 2.3rem;
   }
@@ -153,6 +139,7 @@
 @media screen and (max-width: 768px) {
 
   .product-view {
+    padding: 2rem;
     gap: 12rem;
   }
 
@@ -165,6 +152,7 @@
   }
   
   .product-view__content {
+    padding: 7rem 3rem;
     width: 70%;
   }
 
@@ -201,7 +189,7 @@
 
   .product-view {
     margin: 8rem 0rem;
-    gap: 2rem;
+    gap: 3rem;
   }
   
   .product-view__image {

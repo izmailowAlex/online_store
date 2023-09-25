@@ -2,11 +2,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 6.5rem;
+  gap: 14rem;
 }
 
 .home-image__img {
-  width: 95rem;
+  width: 60rem;
   border-radius: 50%;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .home__title {
-  font-size: 9rem;
+  font-size: 7rem;
 }
 
 .home__description {
@@ -31,7 +31,7 @@
 }
 
 .home__button {
-  font-size: 3rem;
+  font-size: 2.3rem;
 }
 
 @media screen and (max-width: 1024px) {
@@ -42,10 +42,6 @@
 
   .home-image__img {
     width: 74rem;
-  }
-
-  .home__title {
-    font-size: 7rem;
   }
 
   .home__description {

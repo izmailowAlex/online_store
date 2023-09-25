@@ -1,16 +1,17 @@
 .main-catalog {
-  padding: 3rem 3rem 8rem 3rem;
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .main-catalog__title {
-  margin-bottom: 5rem;
+  font-size: 5rem;
+  margin-bottom: 0rem;
 }
 
 .main-catalog-contain {
   margin: auto 0;
+  padding: 3rem;
   display: flex;
   justify-content: space-between;
 }
@@ -18,16 +19,24 @@
 @media screen and (max-width: 1024px) {
 
   .main-catalog {
-    padding: 0rem 3rem 8rem 3rem;
+    padding: 0rem 3rem 3rem 3rem;
   }
 
   .main-catalog__title {
-    font-size: 5rem;
+    margin-bottom: 5rem;
+  }
+
+  .main-catalog-contain {
+    padding: 0;
   }
 
 }
 
 @media screen and (max-width: 768px) {
+
+  .main-catalog {
+    padding: 0rem 3rem 6rem 3rem;
+  }
 
   .main-catalog__title {
     font-size: 7rem;

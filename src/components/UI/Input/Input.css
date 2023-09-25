@@ -74,6 +74,11 @@
     left: 2rem;
   }
 
+  .input__message {
+    font-size: 2.5rem;
+    padding: 1.7rem 0.8rem;
+  }
+
 }
 
 @media screen and (max-width: 500px) {

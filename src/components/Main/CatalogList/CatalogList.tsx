@@ -9,7 +9,6 @@ function CatalogList (): JSX.Element {
   const { filteredList, cartOrders, setCartOrders } = useContext(AppContext)
   const [currentPage, setCurrentPage] = useState(1)
   const [productsPerPage] = useState(6)
-  // console.log(filteredList)
   const lastProductIndexToPage = currentPage * productsPerPage
   const firstProductIndexToPage = lastProductIndexToPage - productsPerPage
   const currentProductPageOfProducts = filteredList.slice(firstProductIndexToPage, lastProductIndexToPage)

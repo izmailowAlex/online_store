@@ -77,7 +77,8 @@ h3 {
 }
 
 .container {
-  max-width: 80%;
+  width: 90%;
+  max-width: 90%;
   margin: 0 auto;
 }
 
@@ -86,14 +87,6 @@ h3 {
   html {
     font-size: calc(100vw / 1800 * 10);
   }
-
-  .container {
-    max-width: 90%;
-  }
-
-}
-
-@media screen and (max-width: 768px) {
 
 }
 
@@ -105,10 +98,6 @@ h3 {
 
   h2 {
     font-size: 7rem;
-  }
-
-  .container {
-    max-width: 90%;
   }
 
 }

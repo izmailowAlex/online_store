@@ -45,7 +45,8 @@ function Card ({ product, handleAddToCart }: ICardProps): JSX.Element {
                 />
                 <button
                   className="card__button"
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.preventDefault()
                     handleAddToCart(
                       product.id,
                       product.title,
