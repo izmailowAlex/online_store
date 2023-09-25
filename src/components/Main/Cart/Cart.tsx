@@ -11,11 +11,10 @@ import Pagination from '../Pagination/Pagination'
 import './Cart.css'
 
 function Cart (): JSX.Element {
-  const { cartOrders, setCartOrders } = useContext(AppContext)
+  const { cartOrders, setCartOrders, orderProductList, price, setPrice } = useContext(AppContext)
   const [popupWindow, setPopupWindow] = useState<boolean>(false)
   const [success, setSuccess] = useState<boolean>(false)
   const [checkedAllProducts, setCheckedAllProducts] = useLocalStorageAllCart(false, 'checkedAllCart')
-  const [price, setPrice] = useState<number>(0)
   const [currentCartPage, setCurrentCartPage] = useState(1)
   const [productsPerCartPage] = useState(10)
   const lastProductIndexToCartPage = currentCartPage * productsPerCartPage
@@ -152,6 +151,7 @@ function Cart (): JSX.Element {
             <Button
               className="cart-checkout"
               onClick={() => { setPopupWindow(true) }}
+              disabled={orderProductList.length === 0}
             >
               Оформить заказ
             </Button>

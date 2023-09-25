@@ -1,10 +1,12 @@
-import React, { useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
+import { AppContext } from '../../../context/context'
 import { ICheckoutProps } from '../../../interfaces/interface'
 import Input from '../../UI/Input/Input'
 import Button from '../../UI/Button/Button'
 import './Checkout.css'
 
 function Checkout ({ setPopupWindow }: ICheckoutProps): JSX.Element {
+  const { orderProductList, price } = useContext(AppContext)
   const [errors, setErrors] = useState(true)
   const [confirm, setConfirm] = useState(false)
   const [errorName, setErrorName] = useState(false)
@@ -40,6 +42,7 @@ function Checkout ({ setPopupWindow }: ICheckoutProps): JSX.Element {
       console.log(confirm)
     } else {
       setConfirm(true)
+      alert(`Заказ оформлен! Вы заказзали ${String(orderProductList.length)} разновидности/ей шаров на сумму ${String(price)} рублей`)
       console.log(confirm)
     }
   }

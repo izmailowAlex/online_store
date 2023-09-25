@@ -8,5 +8,8 @@ export const AppContext = React.createContext<IAppContext>({
   searchList: [],
   setSearchList: () => undefined,
   cartOrders: [],
-  setCartOrders: () => undefined
+  setCartOrders: () => undefined,
+  orderProductList: [],
+  price: 0,
+  setPrice: () => undefined
 })

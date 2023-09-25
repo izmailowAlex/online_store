@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { AppContext } from './context/context'
-import { IProduct } from './interfaces/interface'
+import { IProduct, ICartOrders } from './interfaces/interface'
 import useLocalStorage from './hooks/useLocalStorage'
 import data from './data'
 import Header from './components/Header/Header'
@@ -14,6 +14,18 @@ function App (): JSX.Element {
   const [filteredList, setFilteredList] = useState<IProduct[]>(productsLibrary)
   const [searchList, setSearchList] = useState<IProduct[]>(productsLibrary)
   const [cartOrders, setCartOrders] = useLocalStorage([], 'cartOrders')
+  const [orderProductList, setOrderProductList] = useState<ICartOrders[]>([])
+  const [price, setPrice] = useState<number>(0)
+
+  useEffect(() => {
+    const tmpCartOrders: ICartOrders[] = []
+    cartOrders.forEach((item) => {
+      if (String(item.isOrder) === 'true') {
+        tmpCartOrders.push(item)
+      }
+    })
+    setOrderProductList(tmpCartOrders)
+  }, [cartOrders])
 
   return (
     <div className="balloon">
@@ -25,7 +37,10 @@ function App (): JSX.Element {
           searchList,
           setSearchList,
           cartOrders,
-          setCartOrders
+          setCartOrders,
+          orderProductList,
+          price,
+          setPrice
         }}>
         <Router>
           <Header />
