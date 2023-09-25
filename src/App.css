@@ -42,15 +42,34 @@
   right: -27rem;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
+
+  .balloon_yellow {
+    top: 28rem;
+    left: -42rem;
+  }
 
   .balloon_blue {
-    background-color: rgba(192, 255, 253, 0.2);
-    border: 0.8rem solid rgba(169, 254, 252, 0.2);
-    width: 110rem;
-    height: 110rem;
     bottom: -35rem;
-    right: -36rem;
+    right: -26rem;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+
+  .balloon_red {
+    top: -47rem;
+    right: -45rem;
+  }
+
+  .balloon_yellow {
+    top: 34rem;
+    left: -61rem;
+  }
+
+  .balloon_blue {
+    bottom: -15rem;
   }
 
 }

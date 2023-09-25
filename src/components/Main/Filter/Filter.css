@@ -29,18 +29,16 @@
   min-width: 28rem;
   padding: 2rem;
   font-size: 3.3rem;
-  /* text-decoration: underline; */
   border: 0;
   color: var(--base-color);
   background-color: var(--primary-color);
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
 
 .active .filter-anchor {
   text-decoration: none;
   color: var(--secondary-color);
-  background-color: var(--primary-color-disabled);
-  border: 0.1rem solid var(--secondary-color);
 }
 
 .filter-category__title {
@@ -104,7 +102,7 @@
   .filter-anchor-wrapper {
     display: block;
     position: absolute;
-    top: 5rem;
+    top: 4rem;
     right: -15rem;
   }
 

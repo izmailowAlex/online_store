@@ -87,10 +87,10 @@ function Cart (): JSX.Element {
   return (
     <div className="cart">
       <div className="cart-content">
-        <div className="cart-table">
-          {cartOrders.length !== 0
-            ? (
-              <>
+        {cartOrders.length !== 0
+          ? (
+            <>
+              <div className="cart-table">
                 <div className="cart-table-upper">
                   <h2 className="cart__title">Корзина</h2>
                   <div
@@ -137,31 +137,33 @@ function Cart (): JSX.Element {
                     <li className="page-item page-item-nav" onClick={() => { pageNavigate('next') }} >Вперёд</li>
                   </ul>
                 </div>
-              </>)
-            : <>
+              </div>
+              <div className="cart-summary">
+                <h2 className="cart-summary__title">Итого:</h2>
+                <p className="cart-amount">{String(success) === 'false' ? price.toFixed(2) : (price - (price * 0.2)).toFixed(2)}</p>
+                <Input
+                  className="cart-promocode"
+                  name="promocode"
+                  placeholder="Введите промокод E020PB3P"
+                  success={success}
+                  maxlength={8}
+                  onChange={(event) => { comparePromoCode(event.target.value) }}
+                />
+                <Button
+                  className="cart-checkout"
+                  onClick={() => { setPopupWindow(true) }}
+                >
+                  Оформить заказ
+                </Button>
+              </div>
+            </>)
+          : <>
+              <div className="cart-empty-block">
                 <h2 className="cart__title">Корзина пуста</h2>
                 <p className="cart-description">Выберите товар в каталоге</p>
-              </>
+              </div>
+            </>
           }
-        </div>
-        <div className="cart-summary">
-          <h2 className="cart-summary__title">Итого:</h2>
-          <p className="cart-amount">{String(success) === 'false' ? price.toFixed(2) : (price - (price * 0.2)).toFixed(2)}</p>
-          <Input
-            className="cart-promocode"
-            name="promocode"
-            placeholder="Введите промокод E020PB3P"
-            success={success}
-            maxlength={8}
-            onChange={(event) => { comparePromoCode(event.target.value) }}
-          />
-          <Button
-            className="cart-checkout"
-            onClick={() => { setPopupWindow(true) }}
-          >
-            Оформить заказ
-          </Button>
-        </div>
       </div>
       {String(popupWindow) !== 'false' ? <Checkout setPopupWindow={setPopupWindow} /> : ''}
     </div>
