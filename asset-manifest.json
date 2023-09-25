@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "./static/css/main.fb29c39c.css",
+    "main.css": "./static/css/main.3accc2ee.css",
     "main.js": "./static/js/main.6b18f87a.js",
     "static/media/logo.svg": "./static/media/logo.93388dd306ce8e4d16b35de66f523e41.svg",
     "index.html": "./index.html",
     "static/media/bag-shopping.svg": "./static/media/bag-shopping.7582b6c6d67630a548fe.svg",
-    "main.fb29c39c.css.map": "./static/css/main.fb29c39c.css.map",
+    "main.3accc2ee.css.map": "./static/css/main.3accc2ee.css.map",
     "main.6b18f87a.js.map": "./static/js/main.6b18f87a.js.map"
   },
   "entrypoints": [
-    "static/css/main.fb29c39c.css",
+    "static/css/main.3accc2ee.css",
     "static/js/main.6b18f87a.js"
   ]
 }
